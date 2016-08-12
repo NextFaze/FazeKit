@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'FazeKit_Example' do
+  pod 'FazeKit', :path => '../'
+
+  target 'FazeKit_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
