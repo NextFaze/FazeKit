@@ -5,8 +5,8 @@
 
 import UIKit
 
-extension UIView {
-    var x: CGFloat {
+public extension UIView {
+    public var x: CGFloat {
         get {
             return self.frame.origin.x
         }
@@ -15,7 +15,7 @@ extension UIView {
         }
     }
     
-    var y: CGFloat {
+    public var y: CGFloat {
         get {
             return self.frame.origin.y
         }
@@ -24,7 +24,7 @@ extension UIView {
         }
     }
     
-    var left: CGFloat {
+    public var left: CGFloat {
         get {
             return self.x
         }
@@ -33,7 +33,7 @@ extension UIView {
         }
     }
     
-    var right: CGFloat {
+    public var right: CGFloat {
         get {
             return self.frame.origin.x + self.frame.size.width
         }
@@ -42,7 +42,7 @@ extension UIView {
         }
     }
     
-    var top: CGFloat {
+    public var top: CGFloat {
         get {
             return self.y
         }
@@ -51,7 +51,7 @@ extension UIView {
         }
     }
     
-    var bottom: CGFloat {
+    public var bottom: CGFloat {
         get {
             return self.frame.origin.y + self.frame.size.height
         }
@@ -60,7 +60,7 @@ extension UIView {
         }
     }
     
-    var centerX: CGFloat {
+    public var centerX: CGFloat {
         get {
             return self.frame.origin.x + self.frame.size.width/2.0
         }
@@ -69,7 +69,7 @@ extension UIView {
         }
     }
     
-    var centerY: CGFloat {
+    public var centerY: CGFloat {
         get {
             return self.frame.origin.y + self.frame.size.height/2.0
         }
@@ -78,7 +78,7 @@ extension UIView {
         }
     }
     
-    var width: CGFloat {
+    public var width: CGFloat {
         get {
             return self.frame.size.width
         }
@@ -87,7 +87,7 @@ extension UIView {
         }
     }
     
-    var height: CGFloat {
+    public var height: CGFloat {
         get {
             return self.frame.size.height
         }
@@ -96,7 +96,7 @@ extension UIView {
         }
     }
     
-    var origin: CGPoint {
+    public var origin: CGPoint {
         get {
             return self.frame.origin
         }
@@ -105,7 +105,7 @@ extension UIView {
         }
     }
     
-    var size: CGSize {
+    public var size: CGSize {
         get {
             return self.frame.size
         }
@@ -114,7 +114,7 @@ extension UIView {
         }
     }
     
-    var aspect: CGFloat {
+    public var aspect: CGFloat {
         get {
             return self.width/self.height
         }

@@ -5,8 +5,8 @@
 
 import Foundation
 
-class IntegrationTest {
-    class func printConfirmation() {
+public class IntegrationTest {
+    public class func printConfirmation() {
         print("Integration test: confirmtion")
     }
 }
