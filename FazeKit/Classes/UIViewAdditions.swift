@@ -6,7 +6,16 @@
 import UIKit
 
 extension UIView {
-    var top: CGFloat {
+    var x: CGFloat {
+        get {
+            return self.frame.origin.x
+        }
+        set {
+            self.frame = CGRectMake(newValue, self.frame.origin.y, self.frame.size.width, self.frame.size.height)
+        }
+    }
+    
+    var y: CGFloat {
         get {
             return self.frame.origin.y
         }
@@ -17,19 +26,10 @@ extension UIView {
     
     var left: CGFloat {
         get {
-            return self.frame.origin.x
+            return self.x
         }
         set {
-            self.frame = CGRectMake(newValue, self.frame.origin.y, self.frame.size.width, self.frame.size.height)
-        }
-    }
-    
-    var bottom: CGFloat {
-        get {
-            return self.frame.origin.y + self.frame.size.height
-        }
-        set {
-            self.frame = CGRectMake(self.frame.origin.x, newValue - self.frame.size.height, self.frame.size.width, self.frame.size.height)
+            self.x = newValue
         }
     }
     
@@ -42,12 +42,30 @@ extension UIView {
         }
     }
     
+    var top: CGFloat {
+        get {
+            return self.y
+        }
+        set {
+            self.y = newValue
+        }
+    }
+    
+    var bottom: CGFloat {
+        get {
+            return self.frame.origin.y + self.frame.size.height
+        }
+        set {
+            self.frame = CGRectMake(self.frame.origin.x, newValue - self.frame.size.height, self.frame.size.width, self.frame.size.height)
+        }
+    }
+    
     var centerX: CGFloat {
         get {
             return self.frame.origin.x + self.frame.size.width/2.0
         }
         set {
-            self.left = newValue - self.frame.size.width/2.0
+            self.x = newValue - self.frame.size.width/2.0
         }
     }
     
@@ -56,7 +74,7 @@ extension UIView {
             return self.frame.origin.y + self.frame.size.height/2.0
         }
         set {
-            self.top = newValue - self.frame.size.height/2.0
+            self.y = newValue - self.frame.size.height/2.0
         }
     }
     
@@ -78,6 +96,15 @@ extension UIView {
         }
     }
     
+    var origin: CGPoint {
+        get {
+            return self.frame.origin
+        }
+        set {
+            self.frame.origin = newValue
+        }
+    }
+    
     var size: CGSize {
         get {
             return self.frame.size
@@ -87,13 +114,9 @@ extension UIView {
         }
     }
     
-    var rounded: Bool {
+    var aspect: CGFloat {
         get {
-            return self.layer.cornerRadius != 0
-        }
-        set {
-            self.layer.cornerRadius = newValue ? 10.0 : 0.0
-            self.clipsToBounds = newValue
+            return self.width/self.height
         }
     }
 }
