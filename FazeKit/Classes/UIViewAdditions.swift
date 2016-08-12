@@ -132,7 +132,7 @@ public extension UIView {
     
     public var aspect: CGFloat {
         get {
-            return self.width/self.height
+            return self.height == 0 ? 0 : (self.width / self.height)
         }
     }
 }
