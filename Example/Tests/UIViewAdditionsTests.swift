@@ -14,16 +14,32 @@ class Tests: XCTestCase {
         super.tearDown()
     }
     
+    func testIntegration() {
+        IntegrationTest.printConfirmation()
+        XCTAssert(true, "Integration test failed")
+    }
+    
     func testChangingOrigin() {
-        // This is an example of a functional test case.
         let width: CGFloat = 10.0
         let height: CGFloat = 20.0
         let view = UIView(frame: CGRectMake(0.0, 0.0, width, height))
-        let targetOrigin = CGPointMake(50.0, 150.0)
-        //view.origin = targetOrigin
+        let newX: CGFloat = 50.0
+        let newY: CGFloat = 150.0
+        view.origin = CGPointMake(newX, newY)
         
-        // TODO: assert origin has updated and size has not changed
+        XCTAssertEqual(view.origin.x, newX, "origin.x is not as expected")
+        XCTAssertEqual(view.x, newX, "x is not as expected")
+        XCTAssertEqual(view.left, newX, "left is not as expected")
+        
+        XCTAssertEqual(view.origin.y, newY, "origin.y is not as expected")
+        XCTAssertEqual(view.y, newY, "y is not as expected")
+        XCTAssertEqual(view.top, newY, "top is not as expected")
+        
+        XCTAssertEqual(view.width, width, "width is not as expected")
+        XCTAssertEqual(view.height, height, "height is not as expected")
     }
+    
+    // TODO: complete test cases
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
