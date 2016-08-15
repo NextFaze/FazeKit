@@ -18,8 +18,6 @@ class ViewController: UIViewController {
         testView.backgroundColor = UIColor.redColor()
         testView.origin = CGPointMake(40.0, 50.0)
         self.view.addSubview(testView)
-
-        IntegrationTest.printConfirmation()
     }
 
     override func didReceiveMemoryWarning() {

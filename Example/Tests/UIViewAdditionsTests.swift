@@ -14,11 +14,6 @@ class Tests: XCTestCase {
         super.tearDown()
     }
     
-    func testIntegration() {
-        IntegrationTest.printConfirmation()
-        XCTAssert(true, "Integration test failed")
-    }
-    
     func testChangingOrigin() {
         let width: CGFloat = 10.0
         let height: CGFloat = 20.0
