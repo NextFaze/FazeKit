@@ -22,12 +22,12 @@
 import UIKit
 
 public extension UIScreen {
-    public static let maxLength3_5Inch: CGFloat = 480.0
-    public static let maxLength4Inch: CGFloat = 568.0
-    public static let maxLength4_7Inch: CGFloat = 667.0
-    public static let maxLength5_5Inch: CGFloat = 736.0
-    public static let screenWidth: CGFloat = { mainScreen().bounds.size.width }()
-    public static let screenHeight: CGFloat = { mainScreen().bounds.size.width }()
-    public static let screenMaxLength: CGFloat = { max(screenWidth, screenHeight) }()
-    public static let screenMinLength: CGFloat = { min(screenWidth, screenHeight) }()
+    @nonobjc public static let maxLength3_5Inch: CGFloat = 480.0
+    @nonobjc public static let maxLength4Inch: CGFloat = 568.0
+    @nonobjc public static let maxLength4_7Inch: CGFloat = 667.0
+    @nonobjc public static let maxLength5_5Inch: CGFloat = 736.0
+    @nonobjc public static let screenWidth: CGFloat = { UIScreen.mainScreen().bounds.size.width }()
+    @nonobjc public static let screenHeight: CGFloat = { UIScreen.mainScreen().bounds.size.width }()
+    @nonobjc public static let screenMaxLength: CGFloat = { max(screenWidth, screenHeight) }()
+    @nonobjc public static let screenMinLength: CGFloat = { min(screenWidth, screenHeight) }()
 }
