@@ -27,7 +27,7 @@ public extension UIView {
             return self.frame.origin.x
         }
         set {
-            self.frame = CGRectMake(newValue, self.frame.origin.y, self.frame.size.width, self.frame.size.height)
+            self.frame.origin.x = newValue
         }
     }
     
@@ -36,7 +36,7 @@ public extension UIView {
             return self.frame.origin.y
         }
         set {
-            self.frame = CGRectMake(self.frame.origin.x, newValue, self.frame.size.width, self.frame.size.height)
+            self.frame.origin.y = newValue
         }
     }
     
@@ -51,10 +51,10 @@ public extension UIView {
     
     public var right: CGFloat {
         get {
-            return self.frame.origin.x + self.frame.size.width
+            return self.x + self.width
         }
         set {
-            self.frame = CGRectMake(newValue - self.frame.size.width, self.frame.origin.y, self.frame.size.width, self.frame.size.height)
+            self.x = newValue - self.width
         }
     }
     
@@ -69,28 +69,28 @@ public extension UIView {
     
     public var bottom: CGFloat {
         get {
-            return self.frame.origin.y + self.frame.size.height
+            return self.y + self.height
         }
         set {
-            self.frame = CGRectMake(self.frame.origin.x, newValue - self.frame.size.height, self.frame.size.width, self.frame.size.height)
+            self.y = newValue - self.height
         }
     }
     
     public var centerX: CGFloat {
         get {
-            return self.frame.origin.x + self.frame.size.width/2.0
+            return self.x + self.width/2.0
         }
         set {
-            self.x = newValue - self.frame.size.width/2.0
+            self.x = newValue - self.width/2.0
         }
     }
     
     public var centerY: CGFloat {
         get {
-            return self.frame.origin.y + self.frame.size.height/2.0
+            return self.y + self.height/2.0
         }
         set {
-            self.y = newValue - self.frame.size.height/2.0
+            self.y = newValue - self.height/2.0
         }
     }
     
@@ -99,7 +99,7 @@ public extension UIView {
             return self.frame.size.width
         }
         set {
-            self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, newValue, self.frame.size.height)
+            self.frame.size.width = newValue
         }
     }
     
@@ -108,7 +108,7 @@ public extension UIView {
             return self.frame.size.height
         }
         set {
-            self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, newValue)
+            self.frame.size.height = newValue
         }
     }
     
