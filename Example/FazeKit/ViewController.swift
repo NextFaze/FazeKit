@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import FazeKit
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        let testView = UIView(frame: CGRectMake(20.0, 40.0, 120.0, 32.0))
+        testView.backgroundColor = UIColor.redColor()
+        testView.origin = CGPointMake(40.0, 50.0)
+        self.view.addSubview(testView)
     }
 
     override func didReceiveMemoryWarning() {

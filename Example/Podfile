@@ -1,11 +1,14 @@
+platform :ios, '9.0'
 use_frameworks!
 
-target 'FazeKit_Example' do
+def standard_pods
   pod 'FazeKit', :path => '../'
+end
 
-  target 'FazeKit_Tests' do
-    inherit! :search_paths
+target 'FazeKit_Example' do
+  standard_pods
+end
 
-    
-  end
+target 'FazeKit_Tests' do
+  standard_pods
 end

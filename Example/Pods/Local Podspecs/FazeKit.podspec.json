@@ -1,22 +1,25 @@
 {
   "name": "FazeKit",
   "version": "0.1.0",
-  "summary": "A short description of FazeKit.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/<GITHUB_USERNAME>/FazeKit",
+  "summary": "A collection of helper functions and extensions for Swift iOS apps",
+  "description": "A collection of extensions and convenience functions on Foundation, UIKit and other Cocoa Frameworks, built in Swift for iOS development",
+  "homepage": "https://github.com/NextFaze/FazeKit",
   "license": {
-    "type": "MIT",
+    "type": "APACHE",
     "file": "LICENSE"
   },
   "authors": {
-    "Ricardo Santos": "rsantos@nextfaze.com"
+    "NextFaze": "contact@nextfaze.com"
   },
   "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/FazeKit.git",
+    "git": "https://github.com/NextFaze/FazeKit.git",
     "tag": "0.1.0"
   },
+  "social_media_url": "https://twitter.com/NextFaze",
   "platforms": {
-    "ios": "8.0"
+    "ios": "9.0"
   },
-  "source_files": "FazeKit/Classes/**/*"
+  "requires_arc": true,
+  "source_files": "FazeKit/Classes/*.swift",
+  "frameworks": "UIKit"
 }
