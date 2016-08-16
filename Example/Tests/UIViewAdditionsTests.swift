@@ -2,11 +2,15 @@ import UIKit
 import XCTest
 import FazeKit
 
-class Tests: XCTestCase {
+class UIViewAdditionsTests: XCTestCase {
+    let width: CGFloat = 10.0
+    let height: CGFloat = 20.0
+    var view: UIView = UIView()
     
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        view = UIView(frame: CGRectMake(0.0, 0.0, width, height))
     }
     
     override func tearDown() {
@@ -15,12 +19,9 @@ class Tests: XCTestCase {
     }
     
     func testSetOrigin() {
-        let width: CGFloat = 10.0
-        let height: CGFloat = 20.0
         let newX: CGFloat = 50.0
         let newY: CGFloat = 150.0
         
-        let view = UIView(frame: CGRectMake(0.0, 0.0, width, height))
         view.origin = CGPointMake(newX, newY)
         
         XCTAssertEqual(view.origin.x, newX, "origin.x is not as expected")
@@ -36,11 +37,7 @@ class Tests: XCTestCase {
     }
     
     func testSetX() {
-        let width: CGFloat = 10.0
-        let height: CGFloat = 20.0
         let newX: CGFloat = 50.0
-        
-        let view = UIView(frame: CGRectMake(0.0, 0.0, width, height))
         view.x = newX
         
         XCTAssertEqual(view.origin.x, newX, "origin.x is not as expected")
@@ -51,11 +48,7 @@ class Tests: XCTestCase {
     }
 
     func testSetY() {
-        let width: CGFloat = 10.0
-        let height: CGFloat = 20.0
         let newY: CGFloat = 50.0
-        
-        let view = UIView(frame: CGRectMake(0.0, 0.0, width, height))
         view.y = newY
         
         XCTAssertEqual(view.origin.y, newY, "origin.y is not as expected")
@@ -66,11 +59,7 @@ class Tests: XCTestCase {
     }
     
     func testSetLeft() {
-        let width: CGFloat = 10.0
-        let height: CGFloat = 20.0
         let newLeft: CGFloat = 50.0
-        
-        let view = UIView(frame: CGRectMake(0.0, 0.0, width, height))
         view.left = newLeft
         
         XCTAssertEqual(view.left, newLeft, "left is not as expected")
@@ -81,11 +70,7 @@ class Tests: XCTestCase {
     }
     
     func testSetRight() {
-        let width: CGFloat = 10.0
-        let height: CGFloat = 20.0
         let newRight: CGFloat = 50.0
-        
-        let view = UIView(frame: CGRectMake(0.0, 0.0, width, height))
         view.right = newRight
         
         XCTAssertEqual(view.right, newRight, "right is not as expected")
@@ -96,11 +81,7 @@ class Tests: XCTestCase {
     }
     
     func testSetTop() {
-        let width: CGFloat = 10.0
-        let height: CGFloat = 20.0
         let newTop: CGFloat = 50.0
-        
-        let view = UIView(frame: CGRectMake(0.0, 0.0, width, height))
         view.top = newTop
         
         XCTAssertEqual(view.top, newTop, "top is not as expected")
@@ -111,11 +92,7 @@ class Tests: XCTestCase {
     }
     
     func testSetBottom() {
-        let width: CGFloat = 10.0
-        let height: CGFloat = 20.0
         let newBottom: CGFloat = 50.0
-        
-        let view = UIView(frame: CGRectMake(0.0, 0.0, width, height))
         view.bottom = newBottom
         
         XCTAssertEqual(view.bottom, newBottom, "bottom is not as expected")
@@ -126,11 +103,7 @@ class Tests: XCTestCase {
     }
     
     func testSetCenterX() {
-        let width: CGFloat = 10.0
-        let height: CGFloat = 20.0
         let newCenterX: CGFloat = 50.0
-        
-        let view = UIView(frame: CGRectMake(0.0, 0.0, width, height))
         view.centerX = newCenterX
         
         XCTAssertEqual(view.centerX, newCenterX, "centerX is not as expected")
@@ -141,11 +114,7 @@ class Tests: XCTestCase {
     }
     
     func testSetCenterY() {
-        let width: CGFloat = 10.0
-        let height: CGFloat = 20.0
         let newCenterY: CGFloat = 50.0
-        
-        let view = UIView(frame: CGRectMake(0.0, 0.0, width, height))
         view.centerY = newCenterY
         
         XCTAssertEqual(view.centerY, newCenterY, "centerY is not as expected")
