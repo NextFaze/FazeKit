@@ -49,4 +49,16 @@ public extension UIDevice {
             return false
         #endif
     }
+    
+    public static func isJailbroken() -> Bool {
+        #if (arch(i386) || arch(x86_64)) && (os(iOS) || os(watchOS) || os(tvOS))
+            return false
+        #else
+            let filenames = ["/Applications/Cydia.app", "/Library/MobileSubstrate/MobileSubstrate.dylib", "/bin/bash", "/usr/sbin/sshd", "/etc/apt", "/usr/bin/ssh"]
+            let fileManager = NSFileManager.defaultManager()
+            guard filenames.firstMatch({fileManager.fileExistsAtPath($0)}) == nil else { return true }
+            guard url = NSURL(string: "cydia://package/com.example.package") else { return false }
+            return UIApplication.sharedApplication().canOpenURL(url)
+        #endif
+    }
 }
