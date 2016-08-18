@@ -57,7 +57,7 @@ public extension UIDevice {
             let filenames = ["/Applications/Cydia.app", "/Library/MobileSubstrate/MobileSubstrate.dylib", "/bin/bash", "/usr/sbin/sshd", "/etc/apt", "/usr/bin/ssh"]
             let fileManager = NSFileManager.defaultManager()
             guard filenames.firstMatch({fileManager.fileExistsAtPath($0)}) == nil else { return true }
-            guard url = NSURL(string: "cydia://package/com.example.package") else { return false }
+            guard let url = NSURL(string: "cydia://package/com.example.package") else { return false }
             return UIApplication.sharedApplication().canOpenURL(url)
         #endif
     }
