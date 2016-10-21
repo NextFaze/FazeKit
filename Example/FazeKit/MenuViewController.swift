@@ -28,7 +28,7 @@ class MenuViewController: UIViewController {
         super.viewDidLoad()
 
         self.title = "FazeKit"
-        self.view.backgroundColor = UIColor.whiteColor()
+        self.view.backgroundColor = UIColor.white
     }
 
     override func didReceiveMemoryWarning() {

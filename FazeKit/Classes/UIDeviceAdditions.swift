@@ -23,7 +23,7 @@ import UIKit
 
 public extension UIDevice {
     public static func isPad() -> Bool {
-        return UIDevice.currentDevice().userInterfaceIdiom == .Pad
+        return UIDevice.current.userInterfaceIdiom == .pad
     }
     
     public static func is3_5Inch() -> Bool {

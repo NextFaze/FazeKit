@@ -21,74 +21,74 @@
 
 import Foundation
 
-public func ==(lhs: NSOperatingSystemVersion, rhs: (Int, Int, Int)) -> Bool {
+public func ==(lhs: OperatingSystemVersion, rhs: (Int, Int, Int)) -> Bool {
     return lhs.majorVersion == rhs.0 && lhs.minorVersion == rhs.1 && lhs.patchVersion == rhs.2
 }
 
-public func !=(lhs: NSOperatingSystemVersion, rhs: (Int, Int, Int)) -> Bool {
+public func !=(lhs: OperatingSystemVersion, rhs: (Int, Int, Int)) -> Bool {
     return lhs.majorVersion != rhs.0 || lhs.minorVersion != rhs.1 || lhs.patchVersion != rhs.2
 }
 
-public func >(lhs: NSOperatingSystemVersion, rhs: (Int, Int, Int)) -> Bool {
+public func >(lhs: OperatingSystemVersion, rhs: (Int, Int, Int)) -> Bool {
     return lhs.majorVersion > rhs.0 || lhs.minorVersion > rhs.1 || lhs.patchVersion > rhs.2
 }
 
-public func <(lhs: NSOperatingSystemVersion, rhs: (Int, Int, Int)) -> Bool {
+public func <(lhs: OperatingSystemVersion, rhs: (Int, Int, Int)) -> Bool {
     return lhs.majorVersion < rhs.0 || lhs.minorVersion < rhs.1 || lhs.patchVersion < rhs.2
 }
 
-public func >=(lhs: NSOperatingSystemVersion, rhs: (Int, Int, Int)) -> Bool {
+public func >=(lhs: OperatingSystemVersion, rhs: (Int, Int, Int)) -> Bool {
     return !(lhs < rhs)
 }
 
-public func <=(lhs: NSOperatingSystemVersion, rhs: (Int, Int, Int)) -> Bool {
+public func <=(lhs: OperatingSystemVersion, rhs: (Int, Int, Int)) -> Bool {
     return !(lhs > rhs)
 }
 
-public func ==(lhs: NSOperatingSystemVersion, rhs: (Int, Int)) -> Bool {
+public func ==(lhs: OperatingSystemVersion, rhs: (Int, Int)) -> Bool {
     return lhs.majorVersion == rhs.0 && lhs.minorVersion == rhs.1
 }
 
-public func !=(lhs: NSOperatingSystemVersion, rhs: (Int, Int)) -> Bool {
+public func !=(lhs: OperatingSystemVersion, rhs: (Int, Int)) -> Bool {
     return lhs.majorVersion != rhs.0 || lhs.minorVersion != rhs.1
 }
 
-public func >(lhs: NSOperatingSystemVersion, rhs: (Int, Int)) -> Bool {
+public func >(lhs: OperatingSystemVersion, rhs: (Int, Int)) -> Bool {
     return lhs.majorVersion > rhs.0 || lhs.minorVersion > rhs.1
 }
 
-public func <(lhs: NSOperatingSystemVersion, rhs: (Int, Int)) -> Bool {
+public func <(lhs: OperatingSystemVersion, rhs: (Int, Int)) -> Bool {
     return lhs.majorVersion < rhs.0 || lhs.minorVersion < rhs.1
 }
 
-public func >=(lhs: NSOperatingSystemVersion, rhs: (Int, Int)) -> Bool {
+public func >=(lhs: OperatingSystemVersion, rhs: (Int, Int)) -> Bool {
     return !(lhs < rhs)
 }
 
-public func <=(lhs: NSOperatingSystemVersion, rhs: (Int, Int)) -> Bool {
+public func <=(lhs: OperatingSystemVersion, rhs: (Int, Int)) -> Bool {
     return !(lhs > rhs)
 }
 
-public func ==(lhs: NSOperatingSystemVersion, rhs: Int) -> Bool {
+public func ==(lhs: OperatingSystemVersion, rhs: Int) -> Bool {
     return lhs.majorVersion == rhs
 }
 
-public func !=(lhs: NSOperatingSystemVersion, rhs: Int) -> Bool {
+public func !=(lhs: OperatingSystemVersion, rhs: Int) -> Bool {
     return lhs.majorVersion != rhs
 }
 
-public func >(lhs: NSOperatingSystemVersion, rhs: Int) -> Bool {
+public func >(lhs: OperatingSystemVersion, rhs: Int) -> Bool {
     return lhs.majorVersion > rhs
 }
 
-public func <(lhs: NSOperatingSystemVersion, rhs: Int) -> Bool {
+public func <(lhs: OperatingSystemVersion, rhs: Int) -> Bool {
     return lhs.majorVersion < rhs
 }
 
-public func >=(lhs: NSOperatingSystemVersion, rhs: Int) -> Bool {
+public func >=(lhs: OperatingSystemVersion, rhs: Int) -> Bool {
     return !(lhs < rhs)
 }
 
-public func <=(lhs: NSOperatingSystemVersion, rhs: Int) -> Bool {
+public func <=(lhs: OperatingSystemVersion, rhs: Int) -> Bool {
     return !(lhs > rhs)
 }

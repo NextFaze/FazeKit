@@ -26,27 +26,27 @@ public extension String {
         return self.characters.count
     }
     
-    public func contains(s: String) -> Bool {
-        return self.rangeOfString(s) != nil
+    public func contains(_ s: String) -> Bool {
+        return self.range(of: s) != nil
     }
     
-    public func replace(target: String, withString: String) -> String {
-        return self.stringByReplacingOccurrencesOfString(target, withString: withString, options: NSStringCompareOptions.LiteralSearch, range: nil)
+    public func replace(_ target: String, withString: String) -> String {
+        return self.replacingOccurrences(of: target, with: withString, options: NSString.CompareOptions.literal, range: nil)
     }
     
     public subscript(i: Int) -> Character {
-        return self[self.startIndex.advancedBy(i)]
+        return self[self.characters.index(self.startIndex, offsetBy: i)]
     }
     
     public subscript(r: Range<Int>) -> String {
-        let startIndex = self.startIndex.advancedBy(max(0, r.startIndex))
-        let endIndex = self.startIndex.advancedBy(min(self.length, r.endIndex))
+        let startIndex = self.characters.index(self.startIndex, offsetBy: max(0, r.lowerBound))
+        let endIndex = self.characters.index(self.startIndex, offsetBy: min(self.length, r.upperBound))
         return self[startIndex..<endIndex]
     }
     
-    public func rangeFromNSRange(nsRange: NSRange) -> Range<String.Index>? {
-        let from16 = utf16.startIndex.advancedBy(nsRange.location, limit: utf16.endIndex)
-        let to16 = from16.advancedBy(nsRange.length, limit: utf16.endIndex)
+    public func rangeFromNSRange(_ nsRange: NSRange) -> Range<String.Index>? {
+        let from16 = utf16.index(utf16.startIndex, offsetBy: nsRange.location, limitedBy: utf16.endIndex) ?? utf16.endIndex
+        let to16 = utf16.index(from16, offsetBy: nsRange.length, limitedBy: utf16.endIndex) ?? utf16.endIndex
         if let from = String.Index(from16, within: self),
             let to = String.Index(to16, within: self) {
             return from ..< to
@@ -54,50 +54,50 @@ public extension String {
         return nil
     }
     
-    public func substring(startIndex: Int, length: Int) -> String {
-        let start = self.startIndex.advancedBy(startIndex)
-        let end = start.advancedBy(length)
-        return self.substringWithRange(start..<end)
+    public func substring(_ startIndex: Int, length: Int) -> String {
+        let start = self.characters.index(self.startIndex, offsetBy: startIndex)
+        let end = self.characters.index(start, offsetBy: length)
+        return self.substring(with: start..<end)
     }
     
-    public func indexOf(target: String) -> Int? {
-        guard let range = self.rangeOfString(target) else { return nil }
-        return self.startIndex.distanceTo(range.startIndex)
+    public func indexOf(_ target: String) -> Int? {
+        guard let range = self.range(of: target) else { return nil }
+        return self.characters.distance(from: self.startIndex, to: range.lowerBound)
     }
     
-    public func indexOf(target: String, startIndex: Int) -> Int? {
-        let startRange = self.startIndex.advancedBy(startIndex)
-        guard let range = self.rangeOfString(target, options: NSStringCompareOptions.LiteralSearch, range: startRange..<self.endIndex)
+    public func indexOf(_ target: String, startIndex: Int) -> Int? {
+        let startRange = self.characters.index(self.startIndex, offsetBy: startIndex)
+        guard let range = self.range(of: target, options: NSString.CompareOptions.literal, range: startRange..<self.endIndex)
             else { return nil }
-        return self.startIndex.distanceTo(range.startIndex)
+        return self.characters.distance(from: self.startIndex, to: range.lowerBound)
     }
     
-    public func lastIndexOf(target: String) -> Int? {
-        guard let range: Range<Index> = self.rangeOfString(target, options: .BackwardsSearch) else { return nil }
-        return self.startIndex.distanceTo(range.startIndex)
+    public func lastIndexOf(_ target: String) -> Int? {
+        guard let range: Range<Index> = self.range(of: target, options: .backwards) else { return nil }
+        return self.characters.distance(from: self.startIndex, to: range.lowerBound)
     }
     
-    public func isMatch(regex: String, options: NSRegularExpressionOptions) -> Bool {
+    public func isMatch(_ regex: String, options: NSRegularExpression.Options) -> Bool {
         do {
             let exp = try NSRegularExpression(pattern: regex, options: options)
-            return exp.numberOfMatchesInString(self, options: [], range: NSMakeRange(0, self.length)) > 0
+            return exp.numberOfMatches(in: self, options: [], range: NSMakeRange(0, self.length)) > 0
         } catch {
             return false
         }
     }
     
-    public func getMatches(regex: String, options: NSRegularExpressionOptions) -> [String] {
+    public func getMatches(_ regex: String, options: NSRegularExpression.Options) -> [String] {
         do {
             let exp = try NSRegularExpression(pattern: regex, options: options)
             let nsString = self as NSString
-            let results = exp.matchesInString(self, options: [], range: NSMakeRange(0, self.length))
-            return results.map{nsString.substringWithRange($0.range)}
+            let results = exp.matches(in: self, options: [], range: NSMakeRange(0, self.length))
+            return results.map{nsString.substring(with: $0.range)}
         } catch {
             return []
         }
     }
     
     public func trim() -> String {
-        return self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
 }

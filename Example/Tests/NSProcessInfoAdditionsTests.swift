@@ -34,7 +34,7 @@ class NSProcessInfoAdditionsTests: XCTestCase {
     }
     
     func testOperatingSystemVersion() {
-        let osVersion = NSOperatingSystemVersion(majorVersion: 8, minorVersion: 1, patchVersion: 2)
+        let osVersion = OperatingSystemVersion(majorVersion: 8, minorVersion: 1, patchVersion: 2)
         XCTAssertTrue(osVersion == 8, "'== major' failed")
         XCTAssertTrue(osVersion == (8, 1), "'== (major, minor)' failed")
         XCTAssertTrue(osVersion == (8, 1, 2), "'== (major, minor, patch)' failed")
