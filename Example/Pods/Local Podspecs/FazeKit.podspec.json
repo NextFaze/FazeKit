@@ -9,7 +9,8 @@
     "file": "LICENSE"
   },
   "authors": {
-    "NextFaze": "contact@nextfaze.com"
+    "Ric Santos": "rics@ntos.me",
+    "Shane Woolcock": "samahnub@gmail.com"
   },
   "source": {
     "git": "https://github.com/NextFaze/FazeKit.git",
