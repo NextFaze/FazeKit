@@ -13,7 +13,7 @@
 // License for the specific language governing permissions and limitations
 // under the License.
 //
-// NSProcessInfoAdditions.swift
+// ProcessInfoAdditions.swift
 // FazeKit
 //
 // Created by swoolcock on 16/08/2016.

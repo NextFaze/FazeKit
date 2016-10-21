@@ -16,14 +16,14 @@
 		5535ED319233A70AC1C3C49280ECDEF2 /* UIResponderAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686E2C4233899ACAFB954ADFA991F90F /* UIResponderAdditions.swift */; };
 		5ABC9223246409B44AFA184E264261D2 /* Pods-FazeKit_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A1FEDE77480A01A2AC3F1BF93896358F /* Pods-FazeKit_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		64049AEA30380B2B26082F4CCDAD1947 /* StringAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EB5B784659EACA66F2D5917FBB8522 /* StringAdditions.swift */; };
-		7F072CBAE02C90475DD540B8D8ED3C09 /* NSDateAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F00FA13BBE84967D85F832192D687F9 /* NSDateAdditions.swift */; };
+		7F072CBAE02C90475DD540B8D8ED3C09 /* DateAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F00FA13BBE84967D85F832192D687F9 /* DateAdditions.swift */; };
 		8B65A494FA5856769DEFAC285BF052F6 /* FazeKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 61F13988EE68C11BE7E445E95CF8BFCE /* FazeKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		97D1E5959A6A6AD3083101B54EC863DB /* NSDateComponentAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358A02B2D078747F51B7D08DAA894B6B /* NSDateComponentAdditions.swift */; };
+		97D1E5959A6A6AD3083101B54EC863DB /* DateComponentAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358A02B2D078747F51B7D08DAA894B6B /* DateComponentAdditions.swift */; };
 		A36385A1F317D62E87EE7D5A8F21E911 /* UIViewAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F79D452925B39FBBCF569A722B2F00F /* UIViewAdditions.swift */; };
 		BAFA5C1A9A1BCC8128A101B35FC27A0F /* Pods-FazeKit_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2601B9E18AF362D1FA9762E15669E426 /* Pods-FazeKit_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CEFE6B1D1DD96BB2ECE4229B639DCA54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
 		DF727BD7BA75C68423B2C104D288F7AC /* Pods-FazeKit_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3C9BC2DA3BAC6164EE7AD012E3D24D /* Pods-FazeKit_Example-dummy.m */; };
-		E699A32D308161067BC9A5861E01BF22 /* NSProcessInfoAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AC4DCD938604C35E5C7EF469BC86CB /* NSProcessInfoAdditions.swift */; };
+		E699A32D308161067BC9A5861E01BF22 /* ProcessInfoAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AC4DCD938604C35E5C7EF469BC86CB /* ProcessInfoAdditions.swift */; };
 		E87975789209F1C028AAD5FF0D212735 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
 		EEB4A634AE9CBCE1FB10D93E96D975C3 /* Pods-FazeKit_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FB4DE631D9F51D1581B54389D414895 /* Pods-FazeKit_Tests-dummy.m */; };
 /* End PBXBuildFile section */
@@ -51,11 +51,11 @@
 		0F0F08748B9CF253855FDB33B0ADCD94 /* UIScreenAdditions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIScreenAdditions.swift; sourceTree = "<group>"; };
 		153164ABC2B080D4CDA4A652F53937E5 /* CollectionAdditions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionAdditions.swift; sourceTree = "<group>"; };
 		19587F9E62528DFFB17175BFD82BBC03 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1F00FA13BBE84967D85F832192D687F9 /* NSDateAdditions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NSDateAdditions.swift; sourceTree = "<group>"; };
+		1F00FA13BBE84967D85F832192D687F9 /* DateAdditions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DateAdditions.swift; sourceTree = "<group>"; };
 		2601B9E18AF362D1FA9762E15669E426 /* Pods-FazeKit_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FazeKit_Tests-umbrella.h"; sourceTree = "<group>"; };
 		2E942A43EB3BBDA851CB6D5BD44C7D4A /* Pods-FazeKit_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FazeKit_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		2FB4DE631D9F51D1581B54389D414895 /* Pods-FazeKit_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FazeKit_Tests-dummy.m"; sourceTree = "<group>"; };
-		358A02B2D078747F51B7D08DAA894B6B /* NSDateComponentAdditions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NSDateComponentAdditions.swift; sourceTree = "<group>"; };
+		358A02B2D078747F51B7D08DAA894B6B /* DateComponentAdditions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DateComponentAdditions.swift; sourceTree = "<group>"; };
 		43C467D8F6ED457259EB2B5548FEFBE3 /* Pods-FazeKit_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FazeKit_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		52C81A729DAA2801C0B6ACABDB5C4A89 /* FazeKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FazeKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55808AB1308422B28E9108292A9F3314 /* Pods_FazeKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FazeKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,7 +76,7 @@
 		A1FEDE77480A01A2AC3F1BF93896358F /* Pods-FazeKit_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FazeKit_Example-umbrella.h"; sourceTree = "<group>"; };
 		A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		B6C175E93F3958F4BA9490F1A9D6C3B4 /* Pods-FazeKit_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FazeKit_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		B9AC4DCD938604C35E5C7EF469BC86CB /* NSProcessInfoAdditions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NSProcessInfoAdditions.swift; sourceTree = "<group>"; };
+		B9AC4DCD938604C35E5C7EF469BC86CB /* ProcessInfoAdditions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProcessInfoAdditions.swift; sourceTree = "<group>"; };
 		CE2AD7B44607FA2CB0CD55F74EA74ECE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0EB5B784659EACA66F2D5917FBB8522 /* StringAdditions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StringAdditions.swift; sourceTree = "<group>"; };
 		D38757DECB6D6DFF9F71A77396712127 /* FazeKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FazeKit-prefix.pch"; sourceTree = "<group>"; };
@@ -245,9 +245,9 @@
 			isa = PBXGroup;
 			children = (
 				153164ABC2B080D4CDA4A652F53937E5 /* CollectionAdditions.swift */,
-				1F00FA13BBE84967D85F832192D687F9 /* NSDateAdditions.swift */,
-				358A02B2D078747F51B7D08DAA894B6B /* NSDateComponentAdditions.swift */,
-				B9AC4DCD938604C35E5C7EF469BC86CB /* NSProcessInfoAdditions.swift */,
+				1F00FA13BBE84967D85F832192D687F9 /* DateAdditions.swift */,
+				358A02B2D078747F51B7D08DAA894B6B /* DateComponentAdditions.swift */,
+				B9AC4DCD938604C35E5C7EF469BC86CB /* ProcessInfoAdditions.swift */,
 				D0EB5B784659EACA66F2D5917FBB8522 /* StringAdditions.swift */,
 				6B526E01BA789E6BB17F87D13B34BD12 /* UIDeviceAdditions.swift */,
 				686E2C4233899ACAFB954ADFA991F90F /* UIResponderAdditions.swift */,
@@ -394,9 +394,9 @@
 			files = (
 				200FA64F634D3A48CC2E5BBF7FB78F06 /* CollectionAdditions.swift in Sources */,
 				43B02F311EC05FCD899E3B8D915F8D67 /* FazeKit-dummy.m in Sources */,
-				7F072CBAE02C90475DD540B8D8ED3C09 /* NSDateAdditions.swift in Sources */,
-				97D1E5959A6A6AD3083101B54EC863DB /* NSDateComponentAdditions.swift in Sources */,
-				E699A32D308161067BC9A5861E01BF22 /* NSProcessInfoAdditions.swift in Sources */,
+				7F072CBAE02C90475DD540B8D8ED3C09 /* DateAdditions.swift in Sources */,
+				97D1E5959A6A6AD3083101B54EC863DB /* DateComponentAdditions.swift in Sources */,
+				E699A32D308161067BC9A5861E01BF22 /* ProcessInfoAdditions.swift in Sources */,
 				64049AEA30380B2B26082F4CCDAD1947 /* StringAdditions.swift in Sources */,
 				3C34EFACBE8AC97A73A65A7A54758AD2 /* UIDeviceAdditions.swift in Sources */,
 				5535ED319233A70AC1C3C49280ECDEF2 /* UIResponderAdditions.swift in Sources */,

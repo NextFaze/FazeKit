@@ -13,7 +13,7 @@
 // License for the specific language governing permissions and limitations
 // under the License.
 //
-// NSDateComponentAdditions.swift
+// DateComponentAdditions.swift
 // FazeKit
 //
 // Created by swoolcock on 12/08/2016.
