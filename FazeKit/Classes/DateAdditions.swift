@@ -35,7 +35,13 @@ public extension Date {
         return (Calendar.current as NSCalendar).components(units, from: self)
     }
     
-    public static func dateFromComponents(day: Int = 0, month: Int = 0, year: Int = 0, hour: Int = 0, minute: Int = 0, second: Int = 0, nanosecond: Int = 0) -> Date? {
+    public static func dateFromComponents(day: Int? = nil,
+                                          month: Int? = nil,
+                                          year: Int? = nil,
+                                          hour: Int? = nil,
+                                          minute: Int? = nil,
+                                          second: Int? = nil,
+                                          nanosecond: Int? = nil) -> Date? {
         var components = DateComponents()
         components.day = day
         components.month = month
@@ -47,7 +53,10 @@ public extension Date {
         return Calendar.current.date(from: components)
     }
     
-    public func dateWithTimeComponents(hour: Int, minute: Int, second: Int = 0, nanosecond: Int = 0) -> Date? {
+    public func dateWithTimeComponents(hour: Int? = 0,
+                                       minute: Int? = 0,
+                                       second: Int? = nil,
+                                       nanosecond: Int? = nil) -> Date? {
         var components = (Calendar.current as NSCalendar).components([.year, .month, .day], from: self)
         components.hour = hour
         components.minute = minute
@@ -62,24 +71,4 @@ public extension Date {
         formatter.locale = Locale.current
         return formatter.string(from: self)
     }
-}
-
-public func >(lhs: Date, rhs: Date) -> Bool {
-    return lhs.timeIntervalSince(rhs) > 0
-}
-
-public func <(lhs: Date, rhs: Date) -> Bool {
-    return lhs.timeIntervalSince(rhs) < 0
-}
-
-public func >=(lhs: Date, rhs: Date) -> Bool {
-    return lhs.timeIntervalSince(rhs) >= 0
-}
-
-public func <=(lhs: Date, rhs: Date) -> Bool {
-    return lhs.timeIntervalSince(rhs) <= 0
-}
-
-public func ==(lhs: Date, rhs: Date) -> Bool {
-    return lhs.timeIntervalSince(rhs) == 0
 }

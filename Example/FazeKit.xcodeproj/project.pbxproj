@@ -14,6 +14,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* UIViewAdditionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* UIViewAdditionsTests.swift */; };
 		78B6DD4BAF21BA4B263F3EF4 /* Pods_FazeKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB0AD919FBE4556CA363D8B /* Pods_FazeKit_Tests.framework */; };
+		C2B9A0321DD29F9100AF4E04 /* DateAdditionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B9A0301DD2941C00AF4E04 /* DateAdditionsTests.swift */; };
 		C2E94BAE1D62CDD5007A7A4C /* NSProcessInfoAdditionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E94BAD1D62CDD5007A7A4C /* NSProcessInfoAdditionsTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		607FACEB1AFB9204008FA782 /* UIViewAdditionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewAdditionsTests.swift; sourceTree = "<group>"; };
 		739B56FA57C1D0E13427B629 /* Pods-FazeKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FazeKit_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FazeKit_Tests/Pods-FazeKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		AE54F13DF076B827802B2E27 /* Pods-FazeKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FazeKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FazeKit_Example/Pods-FazeKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		C2B9A0301DD2941C00AF4E04 /* DateAdditionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateAdditionsTests.swift; sourceTree = "<group>"; };
 		C2E94BAD1D62CDD5007A7A4C /* NSProcessInfoAdditionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSProcessInfoAdditionsTests.swift; sourceTree = "<group>"; };
 		C5F04A4E1B4661BFB20EEE1D /* Pods_FazeKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FazeKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A7D960882894C1CF4EB4D0 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				C2B9A0301DD2941C00AF4E04 /* DateAdditionsTests.swift */,
 				C2E94BAD1D62CDD5007A7A4C /* NSProcessInfoAdditionsTests.swift */,
 				607FACEB1AFB9204008FA782 /* UIViewAdditionsTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
@@ -371,6 +374,7 @@
 			files = (
 				C2E94BAE1D62CDD5007A7A4C /* NSProcessInfoAdditionsTests.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* UIViewAdditionsTests.swift in Sources */,
+				C2B9A0321DD29F9100AF4E04 /* DateAdditionsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,133 +22,153 @@
 import Foundation
 
 public extension DateComponents {
-    public init(day: Int, month: Int, year: Int) {
-        self.init()
-        self.day = day
-        self.month = month
-        self.year = year
-        self.hour = 0
-        self.minute = 0
-        self.second = 0
-        self.nanosecond = 0
-    }
-    
-    public init(hour: Int, minute: Int, second: Int = 0, nanosecond: Int = 0) {
-        self.init()
-        self.day = 0
-        self.month = 0
-        self.year = 0
-        self.hour = hour
-        self.minute = minute
-        self.second = second
-        self.nanosecond = nanosecond
-    }
-    
-    public init(day: Int, month: Int, year: Int, hour: Int, minute: Int, second: Int = 0, nanosecond: Int = 0) {
-        self.init()
-        self.day = day
-        self.month = month
-        self.year = year
-        self.hour = hour
-        self.minute = minute
-        self.second = second
-        self.nanosecond = nanosecond
-    }
-    
     public init(datePortion: DateComponents) {
-        self.init(day: datePortion.day!, month: datePortion.month!, year: datePortion.year!)
+        self.init(year: datePortion.year, month: datePortion.month, day: datePortion.day)
     }
     
     public init(timePortion: DateComponents, includeSeconds: Bool = true, includeNanoseconds: Bool = false) {
-        self.init(hour: timePortion.hour, minute: timePortion.minute, second: includeSeconds ? timePortion.second : 0, nanosecond: includeNanoseconds ? timePortion.nanosecond : 0)
+        self.init(hour: timePortion.hour,
+                  minute: timePortion.minute,
+                  second: includeSeconds ? timePortion.second : nil,
+                  nanosecond: includeNanoseconds ? timePortion.nanosecond : nil)
     }
     
     public init(datePortion: DateComponents, timePortion: DateComponents, includeSeconds: Bool = true, includeNanoseconds: Bool = false) {
-        self.init(day: datePortion.day!, month: datePortion.month!, year: datePortion.year!, hour: timePortion.hour!, minute: timePortion.minute!, second: includeSeconds ? timePortion.second! : 0, nanosecond: includeNanoseconds ? timePortion.nanosecond! : 0)
+        self.init(year: datePortion.year,
+                  month: datePortion.month,
+                  day: datePortion.day,
+                  hour: timePortion.hour,
+                  minute: timePortion.minute,
+                  second: includeSeconds ? timePortion.second : nil,
+                  nanosecond: includeNanoseconds ? timePortion.nanosecond : nil)
+    }
+    
+    private static func comparePairs(pairs: [(Int?, Int?)]) -> ComparisonResult {
+        for pair in pairs {
+            if pair.0 == nil && pair.1 != nil {
+                return .orderedAscending
+            }
+            if pair.0 != nil && pair.1 == nil {
+                return .orderedDescending
+            }
+            if let lhs = pair.0, let rhs = pair.1 {
+                if lhs > rhs { return .orderedAscending }
+                if lhs < rhs { return .orderedDescending }
+            }
+        }
+        return .orderedSame
     }
     
     public func compareDatePortion(_ other: DateComponents) -> ComparisonResult {
-        if other.year! > self.year! { return .orderedAscending }
-        if other.year! < self.year! { return .orderedDescending }
-        if other.month! > self.month! { return .orderedAscending }
-        if other.month! < self.month! { return .orderedDescending }
-        if other.day! > self.day! { return .orderedAscending }
-        if other.day! < self.day! { return .orderedDescending }
-        return .orderedSame
+        let pairs = [(other.year, self.year),
+                     (other.month, self.month),
+                     (other.day, self.day)]
+        return DateComponents.comparePairs(pairs: pairs)
     }
     
     public func compareTimePortion(_ other: DateComponents, includeSeconds: Bool = true, includeNanoseconds: Bool = false) -> ComparisonResult {
-        if other.hour! > self.hour! { return .orderedAscending }
-        if other.hour! < self.hour! { return .orderedDescending }
-        if other.minute! > self.minute! { return .orderedAscending }
-        if other.minute! < self.minute! { return .orderedDescending }
+        var pairs = [(other.hour, self.hour),
+                     (other.minute, self.minute)]
         if includeSeconds {
-            if other.second! > self.second! { return .orderedAscending }
-            if other.second! < self.second! { return .orderedDescending }
+            pairs.append((other.second, self.second))
         }
         if includeNanoseconds {
-            if other.nanosecond! > self.nanosecond! { return .orderedAscending }
-            if other.nanosecond! < self.nanosecond! { return .orderedDescending }
+            pairs.append((other.nanosecond, self.nanosecond))
         }
-        return .orderedSame
+        return DateComponents.comparePairs(pairs: pairs)
     }
     
     public func compare(_ other: DateComponents, includeSeconds: Bool = true, includeNanoseconds: Bool = false) -> ComparisonResult {
-        if other.year! > self.year! { return .orderedAscending }
-        if other.year! < self.year! { return .orderedDescending }
-        if other.month! > self.month! { return .orderedAscending }
-        if other.month! < self.month! { return .orderedDescending }
-        if other.day! > self.day! { return .orderedAscending }
-        if other.day! < self.day! { return .orderedDescending }
-        if other.hour! > self.hour! { return .orderedAscending }
-        if other.hour! < self.hour! { return .orderedDescending }
-        if other.minute! > self.minute! { return .orderedAscending }
-        if other.minute! < self.minute! { return .orderedDescending }
+        var pairs = [(other.year, self.year),
+                     (other.month, self.month),
+                     (other.day, self.day),
+                     (other.hour, self.hour),
+                     (other.minute, self.minute)]
         if includeSeconds {
-            if other.second! > self.second! { return .orderedAscending }
-            if other.second! < self.second! { return .orderedDescending }
+            pairs.append((other.second, self.second))
         }
         if includeNanoseconds {
-            if other.nanosecond! > self.nanosecond! { return .orderedAscending }
-            if other.nanosecond! < self.nanosecond! { return .orderedDescending }
+            pairs.append((other.nanosecond, self.nanosecond))
         }
-        return .orderedSame
+        return DateComponents.comparePairs(pairs: pairs)
     }
 }
 
 public func +(lhs: DateComponents, rhs: DateComponents) -> DateComponents {
     var comp = DateComponents()
-    comp.day = lhs.day! + rhs.day!
-    comp.month = lhs.month! + rhs.month!
-    comp.year = lhs.year! + rhs.year!
-    comp.hour = lhs.hour! + rhs.hour!
-    comp.minute = lhs.minute! + rhs.minute!
-    comp.second = lhs.second! + rhs.second!
-    comp.nanosecond = lhs.nanosecond! + rhs.nanosecond!
+    if lhs.day != nil || rhs.day != nil {
+        comp.day = (lhs.day ?? 0) + (rhs.day ?? 0)
+    }
+    if lhs.month != nil || rhs.month != nil {
+        comp.month = (lhs.month ?? 0) + (rhs.month ?? 0)
+    }
+    if lhs.year != nil || rhs.year != nil {
+        comp.year = (lhs.year ?? 0) + (rhs.year ?? 0)
+    }
+    if lhs.hour != nil || rhs.hour != nil {
+        comp.hour = (lhs.hour ?? 0) + (rhs.hour ?? 0)
+    }
+    if lhs.minute != nil || rhs.minute != nil {
+        comp.minute = (lhs.minute ?? 0) + (rhs.minute ?? 0)
+    }
+    if lhs.second != nil || rhs.second != nil {
+        comp.second = (lhs.second ?? 0) + (rhs.second ?? 0)
+    }
+    if lhs.nanosecond != nil || rhs.nanosecond != nil {
+        comp.nanosecond = (lhs.nanosecond ?? 0) + (rhs.nanosecond ?? 0)
+    }
     return comp
 }
 
 public func -(lhs: DateComponents, rhs: DateComponents) -> DateComponents {
     var comp = DateComponents()
-    comp.day = lhs.day! - rhs.day!
-    comp.month = lhs.month! - rhs.month!
-    comp.year = lhs.year! - rhs.year!
-    comp.hour = lhs.hour! - rhs.hour!
-    comp.minute = lhs.minute! - rhs.minute!
-    comp.second = lhs.second! - rhs.second!
-    comp.nanosecond = lhs.nanosecond! - rhs.nanosecond!
+    if lhs.day != nil || rhs.day != nil {
+        comp.day = (lhs.day ?? 0) - (rhs.day ?? 0)
+    }
+    if lhs.month != nil || rhs.month != nil {
+        comp.month = (lhs.month ?? 0) - (rhs.month ?? 0)
+    }
+    if lhs.year != nil || rhs.year != nil {
+        comp.year = (lhs.year ?? 0) - (rhs.year ?? 0)
+    }
+    if lhs.hour != nil || rhs.hour != nil {
+        comp.hour = (lhs.hour ?? 0) - (rhs.hour ?? 0)
+    }
+    if lhs.minute != nil || rhs.minute != nil {
+        comp.minute = (lhs.minute ?? 0) - (rhs.minute ?? 0)
+    }
+    if lhs.second != nil || rhs.second != nil {
+        comp.second = (lhs.second ?? 0) - (rhs.second ?? 0)
+    }
+    if lhs.nanosecond != nil || rhs.nanosecond != nil {
+        comp.nanosecond = (lhs.nanosecond ?? 0) - (rhs.nanosecond ?? 0)
+    }
     return comp
 }
 
 public func *(lhs: DateComponents, rhs: Double) -> DateComponents {
     var comp = DateComponents()
-    comp.day = Int(Double(lhs.day!) * rhs)
-    comp.month = Int(Double(lhs.month!) * rhs)
-    comp.year = Int(Double(lhs.year!) * rhs)
-    comp.hour = Int(Double(lhs.hour!) * rhs)
-    comp.minute = Int(Double(lhs.minute!) * rhs)
-    comp.second = Int(Double(lhs.second!) * rhs)
-    comp.nanosecond = Int(Double(lhs.nanosecond!) * rhs)
+    if lhs.day != nil {
+        comp.day = Int(Double(lhs.day!) * rhs)
+    }
+    if lhs.month != nil {
+        comp.month = Int(Double(lhs.month!) * rhs)
+    }
+    if lhs.year != nil {
+        comp.year = Int(Double(lhs.year!) * rhs)
+    }
+    if lhs.hour != nil {
+        comp.hour = Int(Double(lhs.hour!) * rhs)
+    }
+    if lhs.minute != nil {
+        comp.minute = Int(Double(lhs.minute!) * rhs)
+    }
+    if lhs.second != nil {
+        comp.second = Int(Double(lhs.second!) * rhs)
+    }
+    if lhs.nanosecond != nil {
+        comp.nanosecond = Int(Double(lhs.nanosecond!) * rhs)
+    }
     return comp
 }
 
@@ -174,8 +194,4 @@ public func >=(lhs: DateComponents, rhs: DateComponents) -> Bool {
 
 public func <=(lhs: DateComponents, rhs: DateComponents) -> Bool {
     return lhs.compare(rhs, includeSeconds: true, includeNanoseconds: true) != .orderedAscending
-}
-
-public func ==(lhs: DateComponents, rhs: DateComponents) -> Bool {
-    return lhs.compare(rhs, includeSeconds: true, includeNanoseconds: true) == .orderedSame
 }
