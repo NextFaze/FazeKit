@@ -13,7 +13,7 @@
 // License for the specific language governing permissions and limitations
 // under the License.
 //
-// NSProcessInfoAdditionsTests.swift
+// ProcessInfoAdditionsTests.swift
 // FazeKit
 //
 // Created by swoolcock on 16/08/2016.
@@ -23,7 +23,7 @@ import UIKit
 import XCTest
 import FazeKit
 
-class NSProcessInfoAdditionsTests: XCTestCase {
+class ProcessInfoAdditionsTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
