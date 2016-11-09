@@ -74,4 +74,20 @@ class CollectionAdditionsTests: XCTestCase {
         XCTAssertEqual(categorised["M"]!.flatMap({$0.name}), ["Michael"])
         XCTAssertEqual(categorised["P"]!.flatMap({$0.name}).sorted(), ["Peter", "Philip"])
     }
+    
+    func testDictionaryOperators() {
+        var dict1 = ["Foo": 1, "Bar": 2]
+        let dict2 = ["Hello": 3, "World": 4, "Foo": 5]
+        XCTAssertEqual(dict1 + dict2, ["Foo": 5, "Bar": 2, "Hello": 3, "World": 4], "Dictionary + operator failed")
+        
+        dict1 += ["Bar": 6, "Test": 7]
+        XCTAssertEqual(dict1, ["Foo": 1, "Bar": 6, "Test": 7], "Dictionary += operator failed")
+        
+        var dict3 = ["Foo": 1, "Bar": 2]
+        let dict4 = ["Bar": 3, "Test": 5]
+        XCTAssertEqual(dict3 - dict4, ["Foo": 1], "Dictionary - operator failed")
+        
+        dict3 -= ["Bar": 3, "Test": 5, "Hello": 10]
+        XCTAssertEqual(dict3, ["Foo": 1], "Dictionary -= operator failed")
+    }
 }

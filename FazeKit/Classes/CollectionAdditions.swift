@@ -42,3 +42,26 @@ public extension Sequence {
         return dict
     }
 }
+
+public func +<K: Hashable, V>(lhs: Dictionary<K, V>, rhs: Dictionary<K, V>) -> Dictionary<K, V> {
+    var dict = Dictionary<K, V>()
+    lhs.forEach { dict[$0.key] = $0.value }
+    rhs.forEach { dict[$0.key] = $0.value }
+    return dict
+}
+
+public func -<K: Hashable, V>(lhs: Dictionary<K, V>, rhs: Dictionary<K, V>) -> Dictionary<K, V> {
+    var dict = Dictionary<K, V>()
+    lhs.forEach { dict[$0.key] = $0.value }
+    rhs.forEach { dict.removeValue(forKey: $0.key) }
+    return dict
+}
+
+public func +=<K: Hashable, V>(lhs: inout Dictionary<K, V>, rhs: Dictionary<K, V>) {
+    rhs.forEach { lhs[$0.key] = $0.value }
+}
+
+public func -=<K: Hashable, V>(lhs: inout Dictionary<K, V>, rhs: Dictionary<K, V>) {
+    rhs.forEach { lhs.removeValue(forKey: $0.key) }
+}
+
