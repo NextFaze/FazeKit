@@ -35,7 +35,9 @@ open class Multicast {
                     block()
                 }
                 for pairs in self.selectors {
-                    pairs.0.value?.perform(pairs.1)
+                    if let value = pairs.0.value, value.responds(to: pairs.1) {
+                        _ = value.perform(pairs.1)
+                    }
                 }
             }
         } else {
@@ -43,7 +45,7 @@ open class Multicast {
                 block()
             }
             for pairs in self.selectors {
-                pairs.0.value?.perform(pairs.1)
+                _ = pairs.0.value?.perform(pairs.1)
             }
         }
     }
