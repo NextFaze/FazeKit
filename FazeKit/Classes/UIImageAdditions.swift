@@ -96,10 +96,6 @@ extension UIImage {
             bounds.size.height = bounds.size.width
             bounds.size.width = boundsHeight
             transform = CGAffineTransform(translationX: imageSize.height, y: 0).rotated(by: CGFloat(M_PI / 2.0))
-            
-        default:
-            // TODO: throw error
-            return nil
         }
         
         UIGraphicsBeginImageContext(bounds.size)
