@@ -28,6 +28,19 @@ public extension Collection {
         guard let idx = try self.index(where: predicate) else { return nil }
         return self[idx]
     }
+    
+    public func partitioned(by comparisonBlock: (Iterator.Element) -> Bool) -> ([Iterator.Element], [Iterator.Element]) {
+        var trueArray: [Iterator.Element] = []
+        var falseArray: [Iterator.Element] = []
+        for item in self {
+            if comparisonBlock(item) {
+                trueArray.append(item)
+            } else {
+                falseArray.append(item)
+            }
+        }
+        return (trueArray, falseArray)
+    }
 }
 
 // Borrowed from: http://stackoverflow.com/a/31220067
@@ -64,4 +77,3 @@ public func +=<K: Hashable, V>(lhs: inout Dictionary<K, V>, rhs: Dictionary<K, V
 public func -=<K: Hashable, V>(lhs: inout Dictionary<K, V>, rhs: Dictionary<K, V>) {
     rhs.forEach { lhs.removeValue(forKey: $0.key) }
 }
-

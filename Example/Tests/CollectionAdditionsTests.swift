@@ -44,6 +44,13 @@ class CollectionAdditionsTests: XCTestCase {
         XCTAssertNil(stringArray.firstMatch { $0[0] == "z" }, "Collection.firstMatch: found something we shouldn't")
     }
     
+    func testCollectionPartitioned() {
+        let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        let parts = array.partitioned { $0 % 2 == 0 }
+        XCTAssertEqual(parts.0, [2, 4, 6, 8, 10], "Collection.partitioned: 'true' array did not match")
+        XCTAssertEqual(parts.1, [1, 3, 5, 7, 9], "Collection.partitioned: 'false' array did not match")
+    }
+    
     func testSequenceCategorise() {
         struct CategoriseTestStruct {
             var name: String
