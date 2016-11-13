@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name                = 'FazeKit'
-  s.version             = '0.1.3'
-  s.summary             = 'A collection of helper functions and extensions for Swift iOS apps'
+  s.version             = '1.0.0'
+  s.summary             = 'A collection of helper functions and extensions for Swift 3 iOS apps'
   s.description         = 'A collection of extensions and convenience functions on Foundation, UIKit and other Cocoa Frameworks, built in Swift for iOS development'
   s.homepage            = 'https://github.com/NextFaze/FazeKit'
   s.license             = { :type => 'APACHE', :file => 'LICENSE' }
