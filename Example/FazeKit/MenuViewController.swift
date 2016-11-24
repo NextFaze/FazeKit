@@ -22,19 +22,62 @@
 import UIKit
 import FazeKit
 
-class MenuViewController: UIViewController {
-
+class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    enum MenuItem {
+        case jailbreak
+    }
+    
+    let items: [MenuItem] = [.jailbreak]
+    
+    let tableView = UITableView()
+    static let cellReuseIdentifier = "MenuTableViewCell"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.title = "FazeKit"
         self.view.backgroundColor = UIColor.white
+        
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.tableFooterView = UIView()
+        self.view.addSubview(self.tableView)
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.tableView.frame = self.view.bounds
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        print("WARNING: Memory warning.")
     }
 
+    // MARK: UITableViewDataSource
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.items.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: MenuViewController.cellReuseIdentifier) ?? UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: MenuViewController.cellReuseIdentifier)
+        
+        let item = self.items[indexPath.row]
+        switch item {
+        case .jailbreak:
+            cell.textLabel?.text = "Jailbroken"
+            cell.detailTextLabel?.text = UIDevice.isJailbroken() ? "Yes" : "No"
+        }
+        
+        return cell
+    }
+    
+    // MARK: UITableViewDelegate
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
