@@ -31,7 +31,7 @@ class UIViewAdditionsTests: XCTestCase {
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        view = UIView(frame: CGRectMake(0.0, 0.0, width, height))
+        view = UIView(frame: CGRect(x: 0.0, y: 0.0, width: width, height: height))
     }
     
     override func tearDown() {
@@ -44,7 +44,7 @@ class UIViewAdditionsTests: XCTestCase {
         view.x = newX
         
         XCTAssertEqual(view.origin.x, newX, "origin.x is not as expected")
-        XCTAssertEqual(CGRectGetMinX(view.frame), newX, "minX is not as expected")
+        XCTAssertEqual(view.frame.minX, newX, "minX is not as expected")
         
         XCTAssertEqual(view.width, width, "width is not as expected")
         XCTAssertEqual(view.height, height, "height is not as expected")
@@ -55,7 +55,7 @@ class UIViewAdditionsTests: XCTestCase {
         view.y = newY
         
         XCTAssertEqual(view.origin.y, newY, "origin.y is not as expected")
-        XCTAssertEqual(CGRectGetMinY(view.frame), newY, "minY is not as expected")
+        XCTAssertEqual(view.frame.minY, newY, "minY is not as expected")
         
         XCTAssertEqual(view.width, width, "width is not as expected")
         XCTAssertEqual(view.height, height, "height is not as expected")
@@ -66,7 +66,7 @@ class UIViewAdditionsTests: XCTestCase {
         view.left = newLeft
         
         XCTAssertEqual(view.left, newLeft, "left is not as expected")
-        XCTAssertEqual(CGRectGetMinX(view.frame), newLeft, "minX is not as expected")
+        XCTAssertEqual(view.frame.minX, newLeft, "minX is not as expected")
         
         XCTAssertEqual(view.width, width, "width is not as expected")
         XCTAssertEqual(view.height, height, "height is not as expected")
@@ -77,7 +77,7 @@ class UIViewAdditionsTests: XCTestCase {
         view.right = newRight
         
         XCTAssertEqual(view.right, newRight, "right is not as expected")
-        XCTAssertEqual(CGRectGetMaxX(view.frame), newRight, "maxX is not as expected")
+        XCTAssertEqual(view.frame.maxX, newRight, "maxX is not as expected")
         
         XCTAssertEqual(view.width, width, "width is not as expected")
         XCTAssertEqual(view.height, height, "height is not as expected")
@@ -88,7 +88,7 @@ class UIViewAdditionsTests: XCTestCase {
         view.top = newTop
         
         XCTAssertEqual(view.top, newTop, "top is not as expected")
-        XCTAssertEqual(CGRectGetMinY(view.frame), newTop, "minY is not as expected")
+        XCTAssertEqual(view.frame.minY, newTop, "minY is not as expected")
         
         XCTAssertEqual(view.width, width, "width is not as expected")
         XCTAssertEqual(view.height, height, "height is not as expected")
@@ -99,7 +99,7 @@ class UIViewAdditionsTests: XCTestCase {
         view.bottom = newBottom
         
         XCTAssertEqual(view.bottom, newBottom, "bottom is not as expected")
-        XCTAssertEqual(CGRectGetMaxY(view.frame), newBottom, "maxY is not as expected")
+        XCTAssertEqual(view.frame.maxY, newBottom, "maxY is not as expected")
         
         XCTAssertEqual(view.width, width, "width is not as expected")
         XCTAssertEqual(view.height, height, "height is not as expected")
@@ -110,7 +110,7 @@ class UIViewAdditionsTests: XCTestCase {
         view.centerX = newCenterX
         
         XCTAssertEqual(view.centerX, newCenterX, "centerX is not as expected")
-        XCTAssertEqual(CGRectGetMidX(view.frame), newCenterX, "midX is not as expected")
+        XCTAssertEqual(view.frame.midX, newCenterX, "midX is not as expected")
         
         XCTAssertEqual(view.width, width, "width is not as expected")
         XCTAssertEqual(view.height, height, "height is not as expected")
@@ -121,7 +121,7 @@ class UIViewAdditionsTests: XCTestCase {
         view.centerY = newCenterY
         
         XCTAssertEqual(view.centerY, newCenterY, "centerY is not as expected")
-        XCTAssertEqual(CGRectGetMidY(view.frame), newCenterY, "midY is not as expected")
+        XCTAssertEqual(view.frame.midY, newCenterY, "midY is not as expected")
         
         XCTAssertEqual(view.width, width, "width is not as expected")
         XCTAssertEqual(view.height, height, "height is not as expected")
@@ -131,7 +131,7 @@ class UIViewAdditionsTests: XCTestCase {
         let newX: CGFloat = 50.0
         let newY: CGFloat = 150.0
         
-        view.origin = CGPointMake(newX, newY)
+        view.origin = CGPoint(x: newX, y: newY)
         
         XCTAssertEqual(view.origin.x, newX, "origin.x is not as expected")
         XCTAssertEqual(view.x, newX, "x is not as expected")
@@ -149,7 +149,7 @@ class UIViewAdditionsTests: XCTestCase {
         let newWidth: CGFloat = 50.0
         let newHeight: CGFloat = 100.0
         
-        view.size = CGSizeMake(newWidth, newHeight)
+        view.size = CGSize(width: newWidth, height: newHeight)
         
         XCTAssertEqual(view.width, newWidth, "width is not as expected")
         XCTAssertEqual(view.height, newHeight, "height is not as expected")
@@ -159,7 +159,7 @@ class UIViewAdditionsTests: XCTestCase {
         let newWidth: CGFloat = 50.0
         let newHeight: CGFloat = 100.0
         
-        view.size = CGSizeMake(newWidth, newHeight)
+        view.size = CGSize(width: newWidth, height: newHeight)
         
         XCTAssertEqual(view.aspect, newWidth/newHeight, "aspect is not as expected")
     }

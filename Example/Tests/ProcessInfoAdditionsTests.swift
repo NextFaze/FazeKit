@@ -13,7 +13,7 @@
 // License for the specific language governing permissions and limitations
 // under the License.
 //
-// NSProcessInfoAdditionsTests.swift
+// ProcessInfoAdditionsTests.swift
 // FazeKit
 //
 // Created by swoolcock on 16/08/2016.
@@ -23,7 +23,7 @@ import UIKit
 import XCTest
 import FazeKit
 
-class NSProcessInfoAdditionsTests: XCTestCase {
+class ProcessInfoAdditionsTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -34,7 +34,7 @@ class NSProcessInfoAdditionsTests: XCTestCase {
     }
     
     func testOperatingSystemVersion() {
-        let osVersion = NSOperatingSystemVersion(majorVersion: 8, minorVersion: 1, patchVersion: 2)
+        let osVersion = OperatingSystemVersion(majorVersion: 8, minorVersion: 1, patchVersion: 2)
         XCTAssertTrue(osVersion == 8, "'== major' failed")
         XCTAssertTrue(osVersion == (8, 1), "'== (major, minor)' failed")
         XCTAssertTrue(osVersion == (8, 1, 2), "'== (major, minor, patch)' failed")

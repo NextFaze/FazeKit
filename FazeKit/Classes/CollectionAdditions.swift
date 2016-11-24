@@ -19,26 +19,61 @@
 // Created by swoolcock on 12/08/2016.
 //
 
-public extension CollectionType {
-    public var last: Self.Generator.Element? {
-        return self[self.endIndex.advancedBy(-1)]
+public extension Collection {
+    public var last: Self.Iterator.Element? {
+        return self[self.index(self.endIndex, offsetBy: -1)]
     }
     
-    public func firstMatch(@noescape predicate: (Generator.Element) throws -> Bool) rethrows -> Generator.Element? {
-        guard let idx = try self.indexOf(predicate) else { return nil }
+    public func firstMatch(predicate: (Iterator.Element) throws -> Bool) rethrows -> Iterator.Element? {
+        guard let idx = try self.index(where: predicate) else { return nil }
         return self[idx]
+    }
+    
+    public func partitioned(by comparisonBlock: (Iterator.Element) -> Bool) -> ([Iterator.Element], [Iterator.Element]) {
+        var trueArray: [Iterator.Element] = []
+        var falseArray: [Iterator.Element] = []
+        for item in self {
+            if comparisonBlock(item) {
+                trueArray.append(item)
+            } else {
+                falseArray.append(item)
+            }
+        }
+        return (trueArray, falseArray)
     }
 }
 
 // Borrowed from: http://stackoverflow.com/a/31220067
-public extension SequenceType {
+public extension Sequence {
     /// Categorises elements of self into a dictionary, with the keys given by keyFunc
-    public func categorise<U: Hashable>(@noescape keyFunc: Generator.Element -> U) -> [U: [Generator.Element]] {
-        var dict: [U:[Generator.Element]] = [:]
+    public func categorise<U: Hashable>(_ keyFunc: (Iterator.Element) -> U) -> [U: [Iterator.Element]] {
+        var dict: [U:[Iterator.Element]] = [:]
         for el in self {
             let key = keyFunc(el)
             if case nil = dict[key]?.append(el) { dict[key] = [el] }
         }
         return dict
     }
+}
+
+public func +<K: Hashable, V>(lhs: Dictionary<K, V>, rhs: Dictionary<K, V>) -> Dictionary<K, V> {
+    var dict = Dictionary<K, V>()
+    lhs.forEach { dict[$0.key] = $0.value }
+    rhs.forEach { dict[$0.key] = $0.value }
+    return dict
+}
+
+public func -<K: Hashable, V>(lhs: Dictionary<K, V>, rhs: Dictionary<K, V>) -> Dictionary<K, V> {
+    var dict = Dictionary<K, V>()
+    lhs.forEach { dict[$0.key] = $0.value }
+    rhs.forEach { dict.removeValue(forKey: $0.key) }
+    return dict
+}
+
+public func +=<K: Hashable, V>(lhs: inout Dictionary<K, V>, rhs: Dictionary<K, V>) {
+    rhs.forEach { lhs[$0.key] = $0.value }
+}
+
+public func -=<K: Hashable, V>(lhs: inout Dictionary<K, V>, rhs: Dictionary<K, V>) {
+    rhs.forEach { lhs.removeValue(forKey: $0.key) }
 }
