@@ -55,10 +55,12 @@ public extension UIDevice {
             return false
         #else
             let filenames = ["/Applications/Cydia.app", "/Library/MobileSubstrate/MobileSubstrate.dylib", "/bin/bash", "/usr/sbin/sshd", "/etc/apt", "/usr/bin/ssh"]
-            let fileManager = NSFileManager.defaultManager()
-            guard filenames.firstMatch({fileManager.fileExistsAtPath($0)}) == nil else { return true }
-            guard let url = NSURL(string: "cydia://package/com.example.package") else { return false }
-            return UIApplication.sharedApplication().canOpenURL(url)
+            let fileManager = Foundation.FileManager.default
+            if filenames.first(where: {fileManager.fileExists(atPath: $0)}) != nil {
+                return true
+            }
+            guard let url = URL(string: "cydia://package/com.example.package") else { return false }
+            return UIApplication.shared.canOpenURL(url)
         #endif
     }
 }
