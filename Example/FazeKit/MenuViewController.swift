@@ -38,6 +38,12 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.title = "FazeKit"
         self.view.backgroundColor = UIColor.white
         
+        self.navigationController?.navigationBar.barStyle = .black
+        self.navigationController?.navigationBar.isOpaque = true
+        self.navigationController?.navigationBar.barTintColor = UIColor(hexString: "#ee4136")
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.tableFooterView = UIView()
