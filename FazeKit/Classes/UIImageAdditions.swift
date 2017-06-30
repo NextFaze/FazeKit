@@ -68,7 +68,7 @@ extension UIImage {
             transform = CGAffineTransform(translationX: imageSize.width, y: 0).scaledBy(x: -1, y: 1)
             
         case .down: // EXIF = 3
-            transform = CGAffineTransform(translationX: imageSize.width, y: imageSize.height).rotated(by: CGFloat(M_PI))
+            transform = CGAffineTransform(translationX: imageSize.width, y: imageSize.height).rotated(by: CGFloat(Double.pi))
             
         case .downMirrored: // EXIF = 4
             transform = CGAffineTransform(translationX: 0, y: imageSize.height).scaledBy(x: 1, y: -1)
@@ -77,25 +77,25 @@ extension UIImage {
             let boundsHeight = bounds.size.height
             bounds.size.height = bounds.size.width
             bounds.size.width = boundsHeight
-            transform = CGAffineTransform(translationX: imageSize.height, y: imageSize.width).scaledBy(x: -1, y: 1).rotated(by: CGFloat(3.0 * M_PI / 2.0))
+            transform = CGAffineTransform(translationX: imageSize.height, y: imageSize.width).scaledBy(x: -1, y: 1).rotated(by: CGFloat(3.0 * Double.pi / 2.0))
             
         case .left: // EXIF = 6
             let boundsHeight = bounds.size.height
             bounds.size.height = bounds.size.width
             bounds.size.width = boundsHeight
-            transform = CGAffineTransform(translationX: 0, y: imageSize.width).rotated(by: CGFloat(3.0 * M_PI / 2.0))
+            transform = CGAffineTransform(translationX: 0, y: imageSize.width).rotated(by: CGFloat(3.0 * Double.pi / 2.0))
             
         case .rightMirrored: // EXIF = 7
             let boundsHeight = bounds.size.height
             bounds.size.height = bounds.size.width
             bounds.size.width = boundsHeight
-            transform = CGAffineTransform(scaleX: -1, y: 1).rotated(by: CGFloat(M_PI / 2.0))
+            transform = CGAffineTransform(scaleX: -1, y: 1).rotated(by: CGFloat(Double.pi / 2.0))
             
         case .right: // EXIF = 8
             let boundsHeight = bounds.size.height
             bounds.size.height = bounds.size.width
             bounds.size.width = boundsHeight
-            transform = CGAffineTransform(translationX: imageSize.height, y: 0).rotated(by: CGFloat(M_PI / 2.0))
+            transform = CGAffineTransform(translationX: imageSize.height, y: 0).rotated(by: CGFloat(Double.pi / 2.0))
         }
         
         UIGraphicsBeginImageContext(bounds.size)
