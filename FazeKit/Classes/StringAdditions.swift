@@ -41,7 +41,7 @@ public extension String {
     public subscript(r: Range<Int>) -> String {
         let startIndex = self.characters.index(self.startIndex, offsetBy: max(0, r.lowerBound))
         let endIndex = self.characters.index(self.startIndex, offsetBy: min(self.length, r.upperBound))
-        return self[startIndex..<endIndex]
+        return String(self[startIndex..<endIndex])
     }
     
     public func rangeFromNSRange(_ nsRange: NSRange) -> Range<String.Index>? {
