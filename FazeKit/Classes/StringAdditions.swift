@@ -23,6 +23,11 @@
 // stackoverflow: http://stackoverflow.com/questions/27570910/swift-fast-low-level-string-lastindexof
 public extension String {
     
+    @available(*, deprecated, message: "Use count instead")
+    public var length: Int {
+        return self.count
+    }
+    
     public func contains(_ s: String) -> Bool {
         return self.range(of: s) != nil
     }
