@@ -14,6 +14,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* UIViewAdditionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* UIViewAdditionsTests.swift */; };
 		78B6DD4BAF21BA4B263F3EF4 /* Pods_FazeKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB0AD919FBE4556CA363D8B /* Pods_FazeKit_Tests.framework */; };
+		7CDA2BCA1FE872FE00CBA532 /* StringAdditionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDA2BC91FE872FE00CBA532 /* StringAdditionsTests.swift */; };
 		C20FAFE21DD42EAA009E5C3F /* MulticastTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20FAFE01DD42E7D009E5C3F /* MulticastTests.swift */; };
 		C2B9A0321DD29F9100AF4E04 /* DateAdditionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B9A0301DD2941C00AF4E04 /* DateAdditionsTests.swift */; };
 		C2B9A0381DD2DAE500AF4E04 /* CollectionAdditionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B9A0361DD2DAB500AF4E04 /* CollectionAdditionsTests.swift */; };
@@ -45,6 +46,7 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* UIViewAdditionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewAdditionsTests.swift; sourceTree = "<group>"; };
 		739B56FA57C1D0E13427B629 /* Pods-FazeKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FazeKit_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FazeKit_Tests/Pods-FazeKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		7CDA2BC91FE872FE00CBA532 /* StringAdditionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringAdditionsTests.swift; sourceTree = "<group>"; };
 		AE54F13DF076B827802B2E27 /* Pods-FazeKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FazeKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FazeKit_Example/Pods-FazeKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		C20FAFE01DD42E7D009E5C3F /* MulticastTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MulticastTests.swift; sourceTree = "<group>"; };
 		C2B9A0301DD2941C00AF4E04 /* DateAdditionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateAdditionsTests.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				C2B9A0301DD2941C00AF4E04 /* DateAdditionsTests.swift */,
 				C20FAFE01DD42E7D009E5C3F /* MulticastTests.swift */,
 				C2E94BAD1D62CDD5007A7A4C /* ProcessInfoAdditionsTests.swift */,
+				7CDA2BC91FE872FE00CBA532 /* StringAdditionsTests.swift */,
 				607FACEB1AFB9204008FA782 /* UIViewAdditionsTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
@@ -384,6 +387,7 @@
 				607FACEC1AFB9204008FA782 /* UIViewAdditionsTests.swift in Sources */,
 				C2B9A0321DD29F9100AF4E04 /* DateAdditionsTests.swift in Sources */,
 				C20FAFE21DD42EAA009E5C3F /* MulticastTests.swift in Sources */,
+				7CDA2BCA1FE872FE00CBA532 /* StringAdditionsTests.swift in Sources */,
 				C2B9A0381DD2DAE500AF4E04 /* CollectionAdditionsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
