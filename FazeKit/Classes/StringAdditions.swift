@@ -37,31 +37,31 @@ public extension String {
     }
     
     public subscript(i: Int) -> Character {
-        return self[self.characters.index(self.startIndex, offsetBy: i)]
+        return self[self.index(self.startIndex, offsetBy: i)]
     }
     
     
     public func substring(_ startIndex: Int, length: Int) -> String {
-        let start = self.characters.index(self.startIndex, offsetBy: startIndex)
-        let end = self.characters.index(start, offsetBy: length)
-        return self.substring(with: start..<end)
+        let start = self.index(self.startIndex, offsetBy: startIndex)
+        let end = self.index(start, offsetBy: length)
+        return String(self[start..<end])
     }
     
     public func indexOf(_ target: String) -> Int? {
         guard let range = self.range(of: target) else { return nil }
-        return self.characters.distance(from: self.startIndex, to: range.lowerBound)
+        return self.distance(from: self.startIndex, to: range.lowerBound)
     }
     
     public func indexOf(_ target: String, startIndex: Int) -> Int? {
-        let startRange = self.characters.index(self.startIndex, offsetBy: startIndex)
+        let startRange = self.index(self.startIndex, offsetBy: startIndex)
         guard let range = self.range(of: target, options: NSString.CompareOptions.literal, range: startRange..<self.endIndex)
             else { return nil }
-        return self.characters.distance(from: self.startIndex, to: range.lowerBound)
+        return self.distance(from: self.startIndex, to: range.lowerBound)
     }
     
     public func lastIndexOf(_ target: String) -> Int? {
         guard let range: Range<Index> = self.range(of: target, options: .backwards) else { return nil }
-        return self.characters.distance(from: self.startIndex, to: range.lowerBound)
+        return self.distance(from: self.startIndex, to: range.lowerBound)
     }
     
     public func isMatch(_ regex: String, options: NSRegularExpression.Options) -> Bool {
