@@ -40,21 +40,6 @@ public extension String {
         return self[self.characters.index(self.startIndex, offsetBy: i)]
     }
     
-    public subscript(r: Range<Int>) -> String {
-        let startIndex = self.characters.index(self.startIndex, offsetBy: max(0, r.lowerBound))
-        let endIndex = self.characters.index(self.startIndex, offsetBy: min(self.count, r.upperBound))
-        return String(self[startIndex..<endIndex])
-    }
-    
-    public func rangeFromNSRange(_ nsRange: NSRange) -> Range<String.Index>? {
-        let from16 = utf16.index(utf16.startIndex, offsetBy: nsRange.location, limitedBy: utf16.endIndex) ?? utf16.endIndex
-        let to16 = utf16.index(from16, offsetBy: nsRange.length, limitedBy: utf16.endIndex) ?? utf16.endIndex
-        if let from = String.Index(from16, within: self),
-            let to = String.Index(to16, within: self) {
-            return from ..< to
-        }
-        return nil
-    }
     
     public func substring(_ startIndex: Int, length: Int) -> String {
         let start = self.characters.index(self.startIndex, offsetBy: startIndex)
