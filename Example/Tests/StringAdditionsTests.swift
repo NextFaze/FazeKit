@@ -50,8 +50,8 @@ class StringAdditionsTests: XCTestCase {
     func testSubscript() {
         let string = "OMG. I can't believe it's a thing!"
         XCTAssertTrue(string[0] == "O", "String.subscript: should return the Character O")
-        XCTAssertTrue(string[1] == "M", "String.subscript: should return the Character O")
-        XCTAssertTrue(string[2] == "G", "String.subscript: should return the Character O")
+        XCTAssertTrue(string[1] == "M", "String.subscript: should return the Character M")
+        XCTAssertTrue(string[2] == "G", "String.subscript: should return the Character G")
     }
     
     func testSubstring() {
