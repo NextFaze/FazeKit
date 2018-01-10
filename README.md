@@ -4,6 +4,7 @@
 [![Version](https://img.shields.io/cocoapods/v/FazeKit.svg?style=flat)](http://cocoapods.org/pods/FazeKit)
 [![License](https://img.shields.io/cocoapods/l/FazeKit.svg?style=flat)](http://cocoapods.org/pods/FazeKit)
 [![Platform](https://img.shields.io/cocoapods/p/FazeKit.svg?style=flat)](http://cocoapods.org/pods/FazeKit)
+[![Swift Version](https://img.shields.io/badge/Swift-4.0-F16D39.svg?style=flat)](https://developer.apple.com/swift)
 
 A collection of extensions and convenience functions on Foundation, UIKit and other Cocoa Frameworks, built in Swift for iOS development. The spiritual successor to [NFAllocInit](https://github.com/NextFaze/NFAllocInit).
 
