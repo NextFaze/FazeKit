@@ -22,15 +22,7 @@
 // gist: https://gist.github.com/albertbori/0faf7de867d96eb83591
 // stackoverflow: http://stackoverflow.com/questions/27570910/swift-fast-low-level-string-lastindexof
 public extension String {
-    @available(*, deprecated, message: "Use count instead")
-    var length: Int {
-        return self.count
-    }
-    
-    func contains(_ s: String) -> Bool {
-        return self.range(of: s) != nil
-    }
-    
+    @available(*, deprecated, message: "Use replacingOccurrences(of:, with:) instead")
     func replace(_ target: String, withString: String) -> String {
         return self.replacingOccurrences(of: target, with: withString, options: NSString.CompareOptions.literal, range: nil)
     }

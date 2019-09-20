@@ -20,10 +20,6 @@
 //
 
 public extension Collection {
-    var last: Self.Iterator.Element? {
-        return self[self.index(self.endIndex, offsetBy: -1)]
-    }
-    
     func firstMatch(predicate: (Iterator.Element) throws -> Bool) rethrows -> Iterator.Element? {
         guard let idx = try self.index(where: predicate) else { return nil }
         return self[idx]
