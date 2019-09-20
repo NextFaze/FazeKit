@@ -20,16 +20,16 @@
 //
 
 public extension Collection {
-    public var last: Self.Iterator.Element? {
+    var last: Self.Iterator.Element? {
         return self[self.index(self.endIndex, offsetBy: -1)]
     }
     
-    public func firstMatch(predicate: (Iterator.Element) throws -> Bool) rethrows -> Iterator.Element? {
+    func firstMatch(predicate: (Iterator.Element) throws -> Bool) rethrows -> Iterator.Element? {
         guard let idx = try self.index(where: predicate) else { return nil }
         return self[idx]
     }
     
-    public func partitioned(by comparisonBlock: (Iterator.Element) -> Bool) -> ([Iterator.Element], [Iterator.Element]) {
+    func partitioned(by comparisonBlock: (Iterator.Element) -> Bool) -> ([Iterator.Element], [Iterator.Element]) {
         var trueArray: [Iterator.Element] = []
         var falseArray: [Iterator.Element] = []
         for item in self {
@@ -46,7 +46,7 @@ public extension Collection {
 // Borrowed from: http://stackoverflow.com/a/31220067
 public extension Sequence {
     /// Categorises elements of self into a dictionary, with the keys given by keyFunc
-    public func categorise<U: Hashable>(_ keyFunc: (Iterator.Element) -> U) -> [U: [Iterator.Element]] {
+    func categorise<U: Hashable>(_ keyFunc: (Iterator.Element) -> U) -> [U: [Iterator.Element]] {
         var dict: [U:[Iterator.Element]] = [:]
         for el in self {
             let key = keyFunc(el)

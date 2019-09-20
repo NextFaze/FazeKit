@@ -22,36 +22,36 @@
 import UIKit
 
 public extension UIDevice {
-    public static func isPad() -> Bool {
+    static func isPad() -> Bool {
         return UIDevice.current.userInterfaceIdiom == .pad
     }
     
-    public static func is3_5Inch() -> Bool {
+    static func is3_5Inch() -> Bool {
         return !isPad() && UIScreen.screenMaxLength == UIScreen.maxLength3_5Inch
     }
     
-    public static func is4Inch() -> Bool {
+    static func is4Inch() -> Bool {
         return !isPad() && UIScreen.screenMaxLength == UIScreen.maxLength4Inch
     }
     
-    public static func is4_7Inch() -> Bool {
+    static func is4_7Inch() -> Bool {
         return !isPad() && UIScreen.screenMaxLength == UIScreen.maxLength4_7Inch
     }
     
-    public static func is5_5Inch() -> Bool {
+    static func is5_5Inch() -> Bool {
         return !isPad() && UIScreen.screenMaxLength == UIScreen.maxLength5_5Inch
     }
     
-    public static func isSimulator() -> Bool {
-        #if (arch(i386) || arch(x86_64)) && (os(iOS) || os(watchOS) || os(tvOS))
+    static func isSimulator() -> Bool {
+        #if targetEnvironment(simulator)
             return true
         #else
             return false
         #endif
     }
     
-    public static func isJailbroken() -> Bool {
-        #if (arch(i386) || arch(x86_64)) && (os(iOS) || os(watchOS) || os(tvOS))
+    static func isJailbroken() -> Bool {
+        #if targetEnvironment(simulator)
             return false
         #else
             let filenames = ["/Applications/Cydia.app", "/Library/MobileSubstrate/MobileSubstrate.dylib", "/bin/bash", "/usr/sbin/sshd", "/etc/apt", "/usr/bin/ssh"]
