@@ -23,7 +23,6 @@
 import UIKit
 
 public extension UIColor {
-    
     convenience init(redInt: Int, greenInt: Int, blueInt: Int, alpha: CGFloat) {
         self.init(red: CGFloat(redInt)/255.0, green: CGFloat(greenInt)/255.0, blue: CGFloat(blueInt)/255.0, alpha: alpha)
     }
@@ -44,5 +43,4 @@ public extension UIColor {
         }
         self.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(255 * alpha) / 255)
     }
-
 }

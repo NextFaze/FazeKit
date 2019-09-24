@@ -22,7 +22,7 @@
 import Foundation
 
 public extension Date {
-    public func timeComponents(includeSeconds: Bool = false) -> DateComponents {
+    func timeComponents(includeSeconds: Bool = false) -> DateComponents {
         var units: NSCalendar.Unit = [NSCalendar.Unit.hour, NSCalendar.Unit.minute]
         if includeSeconds {
             units = [NSCalendar.Unit.hour, NSCalendar.Unit.minute, NSCalendar.Unit.second]
@@ -30,18 +30,18 @@ public extension Date {
         return (Calendar.current as NSCalendar).components(units, from: self)
     }
     
-    public func dateComponents() -> DateComponents {
+    func dateComponents() -> DateComponents {
         let units: NSCalendar.Unit = [.year, .month, .day, .weekday]
         return (Calendar.current as NSCalendar).components(units, from: self)
     }
     
-    public static func dateFromComponents(day: Int? = nil,
-                                          month: Int? = nil,
-                                          year: Int? = nil,
-                                          hour: Int? = nil,
-                                          minute: Int? = nil,
-                                          second: Int? = nil,
-                                          nanosecond: Int? = nil) -> Date? {
+    static func dateFromComponents(day: Int? = nil,
+                                   month: Int? = nil,
+                                   year: Int? = nil,
+                                   hour: Int? = nil,
+                                   minute: Int? = nil,
+                                   second: Int? = nil,
+                                   nanosecond: Int? = nil) -> Date? {
         var components = DateComponents()
         components.day = day
         components.month = month
@@ -53,10 +53,10 @@ public extension Date {
         return Calendar.current.date(from: components)
     }
     
-    public func dateWithTimeComponents(hour: Int? = 0,
-                                       minute: Int? = 0,
-                                       second: Int? = nil,
-                                       nanosecond: Int? = nil) -> Date? {
+    func dateWithTimeComponents(hour: Int? = 0,
+                                minute: Int? = 0,
+                                second: Int? = nil,
+                                nanosecond: Int? = nil) -> Date? {
         var components = (Calendar.current as NSCalendar).components([.year, .month, .day], from: self)
         components.hour = hour
         components.minute = minute
@@ -65,7 +65,7 @@ public extension Date {
         return Calendar.current.date(from: components)
     }
     
-    public func stringWithFormat(_ format: String) -> String {
+    func stringWithFormat(_ format: String) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = format
         formatter.locale = Locale.current

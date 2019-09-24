@@ -22,8 +22,8 @@
 import Foundation
 import UIKit
 
-extension UIImage {
-    public static func coloredImage(color: UIColor, size: CGSize? = nil) -> UIImage? {
+public extension UIImage {
+    static func coloredImage(color: UIColor, size: CGSize? = nil) -> UIImage? {
         let size = size ?? CGSize(width: 1.0, height: 1.0)
         
         UIGraphicsBeginImageContext(size)
@@ -38,7 +38,7 @@ extension UIImage {
         return image
     }
     
-    public func imageByScalingAndRotating(maxSize: CGFloat) -> UIImage? {
+    func imageByScalingAndRotating(maxSize: CGFloat) -> UIImage? {
         guard let imageRef = self.cgImage else { return nil }
         let width: CGFloat = CGFloat(imageRef.width)
         let height: CGFloat = CGFloat(imageRef.height)
