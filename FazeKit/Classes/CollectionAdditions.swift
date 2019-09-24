@@ -20,6 +20,7 @@
 //
 
 public extension Collection {
+    @available(*, deprecated, message: "Use first(where:) instead")
     func firstMatch(predicate: (Iterator.Element) throws -> Bool) rethrows -> Iterator.Element? {
         guard let idx = try self.index(where: predicate) else { return nil }
         return self[idx]
