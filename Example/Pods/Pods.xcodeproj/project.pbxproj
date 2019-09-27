@@ -24,6 +24,7 @@
 		AE3DA3BE740A6DDD7532D37AC1680BF1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */; };
 		B12A293205C578BB5818E9252D273518 /* Pods-FazeKit_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A1FEDE77480A01A2AC3F1BF93896358F /* Pods-FazeKit_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B38333103E2FE222D6A2FF35C7C5634F /* UIColorAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE40F45D207E074F017986DDA4E64E7 /* UIColorAdditions.swift */; };
+		C26D1FB2233DC9AD0049BA29 /* CIFilterAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26D1FB1233DC9AD0049BA29 /* CIFilterAdditions.swift */; };
 		C8833C6AAED1C2F8AD9619C10CFB9861 /* Pods-FazeKit_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2601B9E18AF362D1FA9762E15669E426 /* Pods-FazeKit_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C8C662B208D9227CD05EBE5D68F243C7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */; };
 		CCFA88DE3395483B82E2163887AC31A5 /* UIDeviceAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDC20002A39692064207768B22006B3 /* UIDeviceAdditions.swift */; };
@@ -81,6 +82,7 @@
 		A1CD940A8AD4FA777BE306168B504ACD /* Pods-FazeKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FazeKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		A1FEDE77480A01A2AC3F1BF93896358F /* Pods-FazeKit_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FazeKit_Example-umbrella.h"; sourceTree = "<group>"; };
 		B6C175E93F3958F4BA9490F1A9D6C3B4 /* Pods-FazeKit_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FazeKit_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		C26D1FB1233DC9AD0049BA29 /* CIFilterAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CIFilterAdditions.swift; sourceTree = "<group>"; };
 		C34AC1758779CFB9CF4DB4A37BF7BCA1 /* UIViewAdditions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIViewAdditions.swift; sourceTree = "<group>"; };
 		CE2AD7B44607FA2CB0CD55F74EA74ECE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D38757DECB6D6DFF9F71A77396712127 /* FazeKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FazeKit-prefix.pch"; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				6A734B72A07808FCC9DEDB28E8865A8B /* UIResponderAdditions.swift */,
 				4D9F97B3143EF51F4505B645A119EA92 /* UIScreenAdditions.swift */,
 				C34AC1758779CFB9CF4DB4A37BF7BCA1 /* UIViewAdditions.swift */,
+				C26D1FB1233DC9AD0049BA29 /* CIFilterAdditions.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				AD693E3399BCF33459B68A0ABE2035DC /* StringAdditions.swift in Sources */,
 				B38333103E2FE222D6A2FF35C7C5634F /* UIColorAdditions.swift in Sources */,
 				CCFA88DE3395483B82E2163887AC31A5 /* UIDeviceAdditions.swift in Sources */,
+				C26D1FB2233DC9AD0049BA29 /* CIFilterAdditions.swift in Sources */,
 				4B05733FB1E85F6CD0EBE129F996D4B8 /* UIImageAdditions.swift in Sources */,
 				3AE76A95CF3C6A7816A660E73AA46A83 /* UIResponderAdditions.swift in Sources */,
 				0433DC8874C1F974CB3340259695B7D0 /* UIScreenAdditions.swift in Sources */,
