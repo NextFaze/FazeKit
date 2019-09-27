@@ -26,6 +26,9 @@ public extension UIScreen {
     @nonobjc static let maxLength4Inch: CGFloat = 568.0
     @nonobjc static let maxLength4_7Inch: CGFloat = 667.0
     @nonobjc static let maxLength5_5Inch: CGFloat = 736.0
+    @nonobjc static let maxLength5_8Inch: CGFloat = 812.0
+    @nonobjc static let maxLength6_1Inch: CGFloat = 896.0
+    @nonobjc static let maxLength6_5Inch: CGFloat = 896.0
     @nonobjc static let screenWidth: CGFloat = { UIScreen.main.bounds.size.width }()
     @nonobjc static let screenHeight: CGFloat = { UIScreen.main.bounds.size.height }()
     @nonobjc static let screenMaxLength: CGFloat = { max(screenWidth, screenHeight) }()
