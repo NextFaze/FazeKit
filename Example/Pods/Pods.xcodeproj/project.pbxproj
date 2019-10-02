@@ -27,6 +27,7 @@
 		C26D1FB2233DC9AD0049BA29 /* CIFilterAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26D1FB1233DC9AD0049BA29 /* CIFilterAdditions.swift */; };
 		C26D1FB6233DE2670049BA29 /* ResourceUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26D1FB5233DE2670049BA29 /* ResourceUtils.swift */; };
 		C26D1FE123447BFC0049BA29 /* DataAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26D1FE023447BFC0049BA29 /* DataAdditions.swift */; };
+		C26D1FE523456E570049BA29 /* UIApplicationAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26D1FE423456E570049BA29 /* UIApplicationAdditions.swift */; };
 		C8833C6AAED1C2F8AD9619C10CFB9861 /* Pods-FazeKit_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2601B9E18AF362D1FA9762E15669E426 /* Pods-FazeKit_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C8C662B208D9227CD05EBE5D68F243C7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */; };
 		CCFA88DE3395483B82E2163887AC31A5 /* UIDeviceAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDC20002A39692064207768B22006B3 /* UIDeviceAdditions.swift */; };
@@ -87,6 +88,7 @@
 		C26D1FB1233DC9AD0049BA29 /* CIFilterAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CIFilterAdditions.swift; sourceTree = "<group>"; };
 		C26D1FB5233DE2670049BA29 /* ResourceUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceUtils.swift; sourceTree = "<group>"; };
 		C26D1FE023447BFC0049BA29 /* DataAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataAdditions.swift; sourceTree = "<group>"; };
+		C26D1FE423456E570049BA29 /* UIApplicationAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationAdditions.swift; sourceTree = "<group>"; };
 		C34AC1758779CFB9CF4DB4A37BF7BCA1 /* UIViewAdditions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIViewAdditions.swift; sourceTree = "<group>"; };
 		CE2AD7B44607FA2CB0CD55F74EA74ECE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D38757DECB6D6DFF9F71A77396712127 /* FazeKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FazeKit-prefix.pch"; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				C26D1FB1233DC9AD0049BA29 /* CIFilterAdditions.swift */,
 				C26D1FB5233DE2670049BA29 /* ResourceUtils.swift */,
 				C26D1FE023447BFC0049BA29 /* DataAdditions.swift */,
+				C26D1FE423456E570049BA29 /* UIApplicationAdditions.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 			files = (
 				88A2A7C46F5BD9BE3FDFBA0745C17295 /* CollectionAdditions.swift in Sources */,
 				E044BC869122E5ACF31CB6741176B9A7 /* DateAdditions.swift in Sources */,
+				C26D1FE523456E570049BA29 /* UIApplicationAdditions.swift in Sources */,
 				316A7786160F6B96D76FDC343C4D71E2 /* DateComponentAdditions.swift in Sources */,
 				05C278C96E23FF80132145D673EAA5D7 /* FazeKit-dummy.m in Sources */,
 				888510317F65C7F5220C8AD1A38116CF /* Multicast.swift in Sources */,

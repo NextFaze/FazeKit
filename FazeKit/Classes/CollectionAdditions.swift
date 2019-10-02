@@ -38,6 +38,14 @@ public extension Collection {
         }
         return (trueArray, falseArray)
     }
+    
+    // Makes nil coalescing look nicer:
+    //    Nice:     if foo?.isNotEmpty ?? false
+    // Rather than:
+    //    Ugly:     if foo?.isEmpty == false
+    //    Uglier:   if !(foo ?? []).isEmpty
+    //    Ugliest:  if !(foo?.isEmpty ?? true)
+    var isNotEmpty: Bool { return !self.isEmpty }
 }
 
 // Borrowed from: http://stackoverflow.com/a/31220067
