@@ -1,0 +1,16 @@
+PODS:
+  - FazeKit (2.0)
+
+DEPENDENCIES:
+  - FazeKit (from `../`)
+
+EXTERNAL SOURCES:
+  FazeKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  FazeKit: 16cbe08b46b50e93723b5982cc89e95758350be3
+
+PODFILE CHECKSUM: fa12f807dae8d93a6a5a1166a5439a23410201c1
+
+COCOAPODS: 1.8.0
