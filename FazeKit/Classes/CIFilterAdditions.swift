@@ -1141,14 +1141,16 @@ extension CIFilter {
     /// [CICrop](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CICrop)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
-    /// - parameter inputRectangle: The rectangle that specifies the crop to apply to the image. defaultValue = [-8.98847e+307 -8.98847e+307 1.79769e+308 1.79769e+308].
+    /// - parameter inputRectangle: The rectangle that specifies the crop to apply to the image. defaultValue = inputImage.extent.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 5, *)
-    static func crop(inputImage: CIImage, inputRectangle: CIVector = CIVector(x: -8.98846567431158e+307, y: -8.98846567431158e+307, z: 1.79769313486232e+308, w: 1.79769313486232e+308)) -> CIFilter? {
+    static func crop(inputImage: CIImage, inputRectangle: CIVector? = nil) -> CIFilter? {
         guard let filter = CIFilter(name: "CICrop") else {
             return nil
         }
+        let extent = inputImage.extent
+        let inputRectangle = inputRectangle ?? CIVector(x: extent.origin.x, y: extent.origin.y, z: extent.size.width, w: extent.size.height)
         filter.setDefaults()
         filter.setValue(inputImage, forKey: kCIInputImageKey)
         filter.setValue(inputRectangle, forKey: "inputRectangle")
