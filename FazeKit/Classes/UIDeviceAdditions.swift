@@ -42,6 +42,22 @@ public extension UIDevice {
         return !isPad() && UIScreen.screenMaxLength == UIScreen.maxLength5_5Inch
     }
     
+    static func is5_8Inch() -> Bool {
+        return !isPad() && UIScreen.screenMaxLength == UIScreen.maxLength5_8Inch
+    }
+    
+    static func is6_1Inch() -> Bool {
+        return !isPad() && UIScreen.screenMaxLength == UIScreen.maxLength6_1Inch && UIScreen.main.scale == 2
+    }
+    
+    static func is6_5Inch() -> Bool {
+        return !isPad() && UIScreen.screenMaxLength == UIScreen.maxLength6_5Inch && UIScreen.main.scale == 3
+    }
+    
+    static func isSmallPhone() -> Bool {
+        return is3_5Inch() || is4Inch()
+    }
+    
     static func isSimulator() -> Bool {
         #if targetEnvironment(simulator)
             return true
@@ -62,5 +78,18 @@ public extension UIDevice {
             guard let url = URL(string: "cydia://package/com.example.package") else { return false }
             return UIApplication.shared.canOpenURL(url)
         #endif
+    }
+    
+    static func isTwitterAvailable() -> Bool {
+        return NSClassFromString("TWTweetComposeViewController") != nil
+    }
+    
+    static func isSocialAvailable() -> Bool {
+        return NSClassFromString("SLComposeViewController") != nil
+    }
+    
+    static func isPirated() -> Bool {
+        // http://thwart-ipa-cracks.blogspot.com/2008/11/detection.html
+        return Bundle.main.infoDictionary?.keys.contains("SignerIdentity") ?? false
     }
 }

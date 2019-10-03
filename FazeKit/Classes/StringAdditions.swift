@@ -77,4 +77,12 @@ public extension String {
     func trim() -> String {
         return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
+    
+    func md5(encoding: String.Encoding = .utf8) -> String? {
+        return self.data(using: encoding)?.md5()
+    }
+    
+    func hex(encoding: String.Encoding = .utf8) -> String? {
+        return self.data(using: encoding)?.hex()
+    }
 }

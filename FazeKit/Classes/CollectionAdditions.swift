@@ -38,13 +38,21 @@ public extension Collection {
         }
         return (trueArray, falseArray)
     }
+    
+    // Makes nil coalescing look nicer:
+    //    Nice:     if foo?.isNotEmpty ?? false
+    // Rather than:
+    //    Ugly:     if foo?.isEmpty == false
+    //    Uglier:   if !(foo ?? []).isEmpty
+    //    Ugliest:  if !(foo?.isEmpty ?? true)
+    var isNotEmpty: Bool { return !self.isEmpty }
 }
 
 // Borrowed from: http://stackoverflow.com/a/31220067
 public extension Sequence {
     /// Categorises elements of self into a dictionary, with the keys given by keyFunc
     func categorise<U: Hashable>(_ keyFunc: (Iterator.Element) -> U) -> [U: [Iterator.Element]] {
-        var dict: [U:[Iterator.Element]] = [:]
+        var dict: [U: [Iterator.Element]] = [:]
         for el in self {
             let key = keyFunc(el)
             if case nil = dict[key]?.append(el) { dict[key] = [el] }

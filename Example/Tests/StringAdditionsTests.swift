@@ -33,20 +33,6 @@ class StringAdditionsTests: XCTestCase {
         super.tearDown()
     }
     
-    func testContains() {
-        let string = "Abcdefgh"
-        XCTAssertTrue(string.contains("A"), "String.contains: should have found a match")
-        XCTAssertFalse(string.contains("a"), "String.contains: should not have found a match")
-        XCTAssertFalse(string.contains("z"), "String.contains: should not have found a match")
-    }
-    
-    func testReplace() {
-        var string = "The cat jumped over the hat"
-        string = string.replace("cat", withString: "dog")
-        XCTAssertTrue(string.contains("dog"), "String.replace: should contain the replacement substring")
-        XCTAssertFalse(string.contains("cat"), "String.replace: should not still contain the original substring")
-    }
-    
     func testSubscript() {
         let string = "OMG. I can't believe it's a thing!"
         XCTAssertTrue(string[0] == "O", "String.subscript: should return the Character O")
