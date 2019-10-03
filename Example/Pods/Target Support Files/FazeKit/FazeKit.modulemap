@@ -1,0 +1,6 @@
+framework module FazeKit {
+  umbrella header "FazeKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
