@@ -19,6 +19,7 @@
 		C2B9A0321DD29F9100AF4E04 /* DateAdditionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B9A0301DD2941C00AF4E04 /* DateAdditionsTests.swift */; };
 		C2B9A0381DD2DAE500AF4E04 /* CollectionAdditionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B9A0361DD2DAB500AF4E04 /* CollectionAdditionsTests.swift */; };
 		C2E94BAE1D62CDD5007A7A4C /* ProcessInfoAdditionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E94BAD1D62CDD5007A7A4C /* ProcessInfoAdditionsTests.swift */; };
+		C2FE1897234EBEDD007027FB /* DisposableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FE1896234EBEDD007027FB /* DisposableTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		C2B9A0301DD2941C00AF4E04 /* DateAdditionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateAdditionsTests.swift; sourceTree = "<group>"; };
 		C2B9A0361DD2DAB500AF4E04 /* CollectionAdditionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionAdditionsTests.swift; sourceTree = "<group>"; };
 		C2E94BAD1D62CDD5007A7A4C /* ProcessInfoAdditionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessInfoAdditionsTests.swift; sourceTree = "<group>"; };
+		C2FE1896234EBEDD007027FB /* DisposableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisposableTests.swift; sourceTree = "<group>"; };
 		C5F04A4E1B4661BFB20EEE1D /* Pods_FazeKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FazeKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A7D960882894C1CF4EB4D0 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		FAD6E5E790BC646CAF8A952D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				C2FE1896234EBEDD007027FB /* DisposableTests.swift */,
 				C2B9A0361DD2DAB500AF4E04 /* CollectionAdditionsTests.swift */,
 				C2B9A0301DD2941C00AF4E04 /* DateAdditionsTests.swift */,
 				C20FAFE01DD42E7D009E5C3F /* MulticastTests.swift */,
@@ -241,6 +244,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -365,6 +369,7 @@
 			files = (
 				C2E94BAE1D62CDD5007A7A4C /* ProcessInfoAdditionsTests.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* UIViewAdditionsTests.swift in Sources */,
+				C2FE1897234EBEDD007027FB /* DisposableTests.swift in Sources */,
 				C2B9A0321DD29F9100AF4E04 /* DateAdditionsTests.swift in Sources */,
 				C20FAFE21DD42EAA009E5C3F /* MulticastTests.swift in Sources */,
 				7CDA2BCA1FE872FE00CBA532 /* StringAdditionsTests.swift in Sources */,
