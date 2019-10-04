@@ -56,8 +56,8 @@ public extension UIImage {
         }
         
         @available(iOS 5, *)
-        static func checkerboard(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputColor0: UIColor, inputColor1: UIColor, inputWidth: Float = 80, inputSharpness: Float = 1) -> UIImage? {
-            return CIFilter.checkerboardGenerator(inputCenter: inputCenter,
+        static func checkerboard(inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0), inputColor0: UIColor, inputColor1: UIColor, inputWidth: Float = 80, inputSharpness: Float = 1) -> UIImage? {
+            return CIFilter.checkerboardGenerator(inputCenter: CIVector(cgPoint: inputCenter),
                                                   inputColor0: inputColor0.ciColor,
                                                   inputColor1: inputColor1.ciColor,
                                                   inputWidth: inputWidth as NSNumber,
@@ -77,8 +77,11 @@ public extension UIImage {
         }
         
         @available(iOS 5, *)
-        static func gaussianGradient(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputColor0: UIColor, inputColor1: UIColor, inputRadius: Float = 300) -> UIImage? {
-            return CIFilter.gaussianGradient(inputCenter: inputCenter, inputColor0: inputColor0.ciColor, inputColor1: inputColor1.ciColor, inputRadius: inputRadius as NSNumber)?.outputUIImage
+        static func gaussianGradient(inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0), inputColor0: UIColor, inputColor1: UIColor, inputRadius: Float = 300) -> UIImage? {
+            return CIFilter.gaussianGradient(inputCenter: CIVector(cgPoint: inputCenter),
+                                             inputColor0: inputColor0.ciColor,
+                                             inputColor1: inputColor1.ciColor,
+                                             inputRadius: inputRadius as NSNumber)?.outputUIImage
         }
         
         @available(iOS 10, *)
@@ -91,7 +94,7 @@ public extension UIImage {
         }
         
         @available(iOS 9, *)
-        static func lenticularHalo(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0),
+        static func lenticularHalo(inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0),
                                    inputColor: UIColor,
                                    inputHaloRadius: Float = 70,
                                    inputHaloWidth: Float = 87,
@@ -99,7 +102,7 @@ public extension UIImage {
                                    inputStriationStrength: Float = 0.5,
                                    inputStriationContrast: Float = 1,
                                    inputTime: Float = 0) -> UIImage? {
-            return CIFilter.lenticularHaloGenerator(inputCenter: inputCenter,
+            return CIFilter.lenticularHaloGenerator(inputCenter: CIVector(cgPoint: inputCenter),
                                                     inputColor: inputColor.ciColor,
                                                     inputHaloRadius: inputHaloRadius as NSNumber,
                                                     inputHaloWidth: inputHaloWidth as NSNumber,
@@ -110,8 +113,11 @@ public extension UIImage {
         }
         
         @available(iOS 5, *)
-        static func linearGradient(inputPoint0: CIVector = CIVector(x: 0.0, y: 0.0), inputPoint1: CIVector = CIVector(x: 200.0, y: 200.0), inputColor0: UIColor, inputColor1: UIColor) -> UIImage? {
-            return CIFilter.linearGradient(inputPoint0: inputPoint0, inputPoint1: inputPoint1, inputColor0: inputColor0.ciColor, inputColor1: inputColor1.ciColor)?.outputUIImage
+        static func linearGradient(inputPoint0: CGPoint = CGPoint(x: 0.0, y: 0.0), inputPoint1: CGPoint = CGPoint(x: 200.0, y: 200.0), inputColor0: UIColor, inputColor1: UIColor) -> UIImage? {
+            return CIFilter.linearGradient(inputPoint0: CIVector(cgPoint: inputPoint0),
+                                           inputPoint1: CIVector(cgPoint: inputPoint1),
+                                           inputColor0: inputColor0.ciColor,
+                                           inputColor1: inputColor1.ciColor)?.outputUIImage
         }
         
         enum PDF417Compaction {
@@ -164,8 +170,8 @@ public extension UIImage {
         }
         
         @available(iOS 5, *)
-        static func radialGradient(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputRadius0: Float = 5, inputRadius1: Float = 100, inputColor0: UIColor, inputColor1: UIColor) -> UIImage? {
-            return CIFilter.radialGradient(inputCenter: inputCenter,
+        static func radialGradient(inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0), inputRadius0: Float = 5, inputRadius1: Float = 100, inputColor0: UIColor, inputColor1: UIColor) -> UIImage? {
+            return CIFilter.radialGradient(inputCenter: CIVector(cgPoint: inputCenter),
                                            inputRadius0: inputRadius0 as NSNumber,
                                            inputRadius1: inputRadius1 as NSNumber,
                                            inputColor0: inputColor0.ciColor,
@@ -178,12 +184,15 @@ public extension UIImage {
         }
         
         @available(iOS 6, *)
-        static func smoothLinearGradient(inputPoint0: CIVector = CIVector(x: 0.0, y: 0.0), inputPoint1: CIVector = CIVector(x: 200.0, y: 200.0), inputColor0: UIColor, inputColor1: UIColor) -> UIImage? {
-            return CIFilter.smoothLinearGradient(inputPoint0: inputPoint0, inputPoint1: inputPoint1, inputColor0: inputColor0.ciColor, inputColor1: inputColor1.ciColor)?.outputUIImage
+        static func smoothLinearGradient(inputPoint0: CGPoint = CGPoint(x: 0.0, y: 0.0), inputPoint1: CGPoint = CGPoint(x: 200.0, y: 200.0), inputColor0: UIColor, inputColor1: UIColor) -> UIImage? {
+            return CIFilter.smoothLinearGradient(inputPoint0: CIVector(cgPoint: inputPoint0),
+                                                 inputPoint1: CIVector(cgPoint: inputPoint1),
+                                                 inputColor0: inputColor0.ciColor,
+                                                 inputColor1: inputColor1.ciColor)?.outputUIImage
         }
         
         @available(iOS 6, *)
-        static func starShine(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0),
+        static func starShine(inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0),
                               inputColor: UIColor,
                               inputRadius: Float = 50,
                               inputCrossScale: Float = 15,
@@ -191,7 +200,7 @@ public extension UIImage {
                               inputCrossOpacity: Float = -2,
                               inputCrossWidth: Float = 2.5,
                               inputEpsilon: Float = -2) -> UIImage? {
-            return CIFilter.starShineGenerator(inputCenter: inputCenter,
+            return CIFilter.starShineGenerator(inputCenter: CIVector(cgPoint: inputCenter),
                                                inputColor: inputColor.ciColor,
                                                inputRadius: inputRadius as NSNumber,
                                                inputCrossScale: inputCrossScale as NSNumber,
@@ -202,8 +211,8 @@ public extension UIImage {
         }
         
         @available(iOS 5, *)
-        static func stripes(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputColor0: UIColor, inputColor1: UIColor, inputWidth: Float = 80, inputSharpness: Float = 1) -> UIImage? {
-            return CIFilter.stripesGenerator(inputCenter: inputCenter,
+        static func stripes(inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0), inputColor0: UIColor, inputColor1: UIColor, inputWidth: Float = 80, inputSharpness: Float = 1) -> UIImage? {
+            return CIFilter.stripesGenerator(inputCenter: CIVector(cgPoint: inputCenter),
                                              inputColor0: inputColor0.ciColor,
                                              inputColor1: inputColor1.ciColor,
                                              inputWidth: inputWidth as NSNumber,
@@ -211,14 +220,14 @@ public extension UIImage {
         }
         
         @available(iOS 9, *)
-        static func sunbeams(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0),
+        static func sunbeams(inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0),
                              inputColor: UIColor,
                              inputSunRadius: Float = 40,
                              inputMaxStriationRadius: Float = 2.58,
                              inputStriationStrength: Float = 0.5,
                              inputStriationContrast: Float = 1.375,
                              inputTime: Float = 0) -> UIImage? {
-            return CIFilter.sunbeamsGenerator(inputCenter: inputCenter,
+            return CIFilter.sunbeamsGenerator(inputCenter: CIVector(cgPoint: inputCenter),
                                               inputColor: inputColor.ciColor,
                                               inputSunRadius: inputSunRadius as NSNumber,
                                               inputMaxStriationRadius: inputMaxStriationRadius as NSNumber,
@@ -276,45 +285,48 @@ public struct ImageFilters {
     }
     
     @available(iOS 9, *)
-    func areaAverage(inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 640.0, w: 80.0)) -> UIImage? {
+    func areaAverage(inputExtent: CGRect = CGRect(x: 0.0, y: 0.0, width: 640.0, height: 80.0)) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
-        return CIFilter.areaAverage(inputImage: inputImage, inputExtent: inputExtent)?.outputUIImage
+        return CIFilter.areaAverage(inputImage: inputImage, inputExtent: CIVector(cgRect: inputExtent))?.outputUIImage
     }
     
     @available(iOS 8, *)
-    func areaHistogram(inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 640.0, w: 80.0), inputScale: Float = 1, inputCount: Float = 64) -> UIImage? {
+    func areaHistogram(inputExtent: CGRect = CGRect(x: 0.0, y: 0.0, width: 640.0, height: 80.0), inputScale: Float = 1, inputCount: Float = 64) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
-        return CIFilter.areaHistogram(inputImage: inputImage, inputExtent: inputExtent, inputScale: inputScale as NSNumber, inputCount: inputCount as NSNumber)?.outputUIImage
+        return CIFilter.areaHistogram(inputImage: inputImage,
+                                      inputExtent: CIVector(cgRect: inputExtent),
+                                      inputScale: inputScale as NSNumber,
+                                      inputCount: inputCount as NSNumber)?.outputUIImage
     }
     
     @available(iOS 9, *)
-    func areaMaximum(inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 640.0, w: 80.0)) -> UIImage? {
+    func areaMaximum(inputExtent: CGRect = CGRect(x: 0.0, y: 0.0, width: 640.0, height: 80.0)) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
-        return CIFilter.areaMaximum(inputImage: inputImage, inputExtent: inputExtent)?.outputUIImage
+        return CIFilter.areaMaximum(inputImage: inputImage, inputExtent: CIVector(cgRect: inputExtent))?.outputUIImage
     }
     
     @available(iOS 9, *)
-    func areaMaximumAlpha(inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 640.0, w: 80.0)) -> UIImage? {
+    func areaMaximumAlpha(inputExtent: CGRect = CGRect(x: 0.0, y: 0.0, width: 640.0, height: 80.0)) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
-        return CIFilter.areaMaximumAlpha(inputImage: inputImage, inputExtent: inputExtent)?.outputUIImage
+        return CIFilter.areaMaximumAlpha(inputImage: inputImage, inputExtent: CIVector(cgRect: inputExtent))?.outputUIImage
     }
     
     @available(iOS 9, *)
-    func areaMinimum(inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 640.0, w: 80.0)) -> UIImage? {
+    func areaMinimum(inputExtent: CGRect = CGRect(x: 0.0, y: 0.0, width: 640.0, height: 80.0)) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
-        return CIFilter.areaMinimum(inputImage: inputImage, inputExtent: inputExtent)?.outputUIImage
+        return CIFilter.areaMinimum(inputImage: inputImage, inputExtent: CIVector(cgRect: inputExtent))?.outputUIImage
     }
     
     @available(iOS 9, *)
-    func areaMinimumAlpha(inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 640.0, w: 80.0)) -> UIImage? {
+    func areaMinimumAlpha(inputExtent: CGRect = CGRect(x: 0.0, y: 0.0, width: 640.0, height: 80.0)) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
-        return CIFilter.areaMinimumAlpha(inputImage: inputImage, inputExtent: inputExtent)?.outputUIImage
+        return CIFilter.areaMinimumAlpha(inputImage: inputImage, inputExtent: CIVector(cgRect: inputExtent))?.outputUIImage
     }
     
     @available(iOS 11, *)
-    func areaMinMaxRed(inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 640.0, w: 80.0)) -> UIImage? {
+    func areaMinMaxRed(inputExtent: CGRect = CGRect(x: 0.0, y: 0.0, width: 640.0, height: 80.0)) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
-        return CIFilter.areaMinMaxRed(inputImage: inputImage, inputExtent: inputExtent)?.outputUIImage
+        return CIFilter.areaMinMaxRed(inputImage: inputImage, inputExtent: CIVector(cgRect: inputExtent))?.outputUIImage
     }
     
     @available(iOS 6, *)
@@ -385,56 +397,66 @@ public struct ImageFilters {
     }
     
     @available(iOS 6, *)
-    func bumpDistortion(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputRadius: Float = 300, inputScale: Float = 0.5) -> UIImage? {
+    func bumpDistortion(inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0), inputRadius: Float = 300, inputScale: Float = 0.5) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
-        return CIFilter.bumpDistortion(inputImage: inputImage, inputCenter: inputCenter, inputRadius: inputRadius as NSNumber, inputScale: inputScale as NSNumber)?.outputUIImage
+        return CIFilter.bumpDistortion(inputImage: inputImage,
+                                       inputCenter: CIVector(cgPoint: inputCenter),
+                                       inputRadius: inputRadius as NSNumber,
+                                       inputScale: inputScale as NSNumber)?.outputUIImage
     }
     
     @available(iOS 6, *)
-    func bumpDistortionLinear(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputRadius: Float = 300, inputAngle: Float = 0, inputScale: Float = 0.5) -> UIImage? {
+    func bumpDistortionLinear(inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0), inputRadius: Float = 300, inputAngle: Float = 0, inputScale: Float = 0.5) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
         return CIFilter.bumpDistortionLinear(inputImage: inputImage,
-                                             inputCenter: inputCenter,
+                                             inputCenter: CIVector(cgPoint: inputCenter),
                                              inputRadius: inputRadius as NSNumber,
                                              inputAngle: inputAngle as NSNumber,
                                              inputScale: inputScale as NSNumber)?.outputUIImage
     }
     
     @available(iOS 6, *)
-    func circleSplashDistortion(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputRadius: Float = 150) -> UIImage? {
+    func circleSplashDistortion(inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0), inputRadius: Float = 150) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
-        return CIFilter.circleSplashDistortion(inputImage: inputImage, inputCenter: inputCenter, inputRadius: inputRadius as NSNumber)?.outputUIImage
+        return CIFilter.circleSplashDistortion(inputImage: inputImage,
+                                               inputCenter: CIVector(cgPoint: inputCenter),
+                                               inputRadius: inputRadius as NSNumber)?.outputUIImage
     }
     
     @available(iOS 6, *)
-    func circularScreen(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputWidth: Float = 6, inputSharpness: Float = 0.7) -> UIImage? {
+    func circularScreen(inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0), inputWidth: Float = 6, inputSharpness: Float = 0.7) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
         return CIFilter.circularScreen(inputImage: inputImage,
-                                       inputCenter: inputCenter,
+                                       inputCenter: CIVector(cgPoint: inputCenter),
                                        inputWidth: inputWidth as NSNumber,
                                        inputSharpness: inputSharpness as NSNumber)?.outputUIImage
     }
     
     @available(iOS 9, *)
-    func circularWrap(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputRadius: Float = 150, inputAngle: Float = 0) -> UIImage? {
+    func circularWrap(inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0), inputRadius: Float = 150, inputAngle: Float = 0) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
         return CIFilter.circularWrap(inputImage: inputImage,
-                                     inputCenter: inputCenter,
+                                     inputCenter: CIVector(cgPoint: inputCenter),
                                      inputRadius: inputRadius as NSNumber,
                                      inputAngle: inputAngle as NSNumber)?.outputUIImage
     }
     
     @available(iOS 10, *)
-    func clamp(inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 640.0, w: 80.0)) -> UIImage? {
+    func clamp(inputExtent: CGRect = CGRect(x: 0.0, y: 0.0, width: 640.0, height: 80.0)) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
-        return CIFilter.clamp(inputImage: inputImage, inputExtent: inputExtent)?.outputUIImage
+        return CIFilter.clamp(inputImage: inputImage, inputExtent: CIVector(cgRect: inputExtent))?.outputUIImage
     }
     
     @available(iOS 9, *)
-    func cmykHalftone(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputWidth: Float = 6, inputAngle: Float = 0, inputSharpness: Float = 0.7, inputGCR: Float = 1, inputUCR: Float = 0.5) -> UIImage? {
+    func cmykHalftone(inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0),
+                      inputWidth: Float = 6,
+                      inputAngle: Float = 0,
+                      inputSharpness: Float = 0.7,
+                      inputGCR: Float = 1,
+                      inputUCR: Float = 0.5) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
         return CIFilter.cmykHalftone(inputImage: inputImage,
-                                     inputCenter: inputCenter,
+                                     inputCenter: CIVector(cgPoint: inputCenter),
                                      inputWidth: inputWidth as NSNumber,
                                      inputAngle: inputAngle as NSNumber,
                                      inputSharpness: inputSharpness as NSNumber,
@@ -455,7 +477,8 @@ public struct ImageFilters {
     }
     
     @available(iOS 7, *)
-    func colorClamp(inputMinComponents: CIVector = CIVector(x: 0.0, y: 0.0, z: 0.0, w: 0.0), inputMaxComponents: CIVector = CIVector(x: 1.0, y: 1.0, z: 1.0, w: 1.0)) -> UIImage? {
+    func colorClamp(inputMinComponents: CIVector = CIVector(x: 0.0, y: 0.0, z: 0.0, w: 0.0),
+                    inputMaxComponents: CIVector = CIVector(x: 1.0, y: 1.0, z: 1.0, w: 1.0)) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
         return CIFilter.colorClamp(inputImage: inputImage, inputMinComponents: inputMinComponents, inputMaxComponents: inputMaxComponents)?.outputUIImage
     }
@@ -505,9 +528,9 @@ public struct ImageFilters {
     }
     
     @available(iOS 11, *)
-    func colorCurves(inputCurvesData: Data, inputCurvesDomain: CIVector = CIVector(x: 0.0, y: 1.0), inputColorSpace: CGColorSpace) -> UIImage? {
+    func colorCurves(inputCurvesData: Data, inputCurvesDomain: CGPoint = CGPoint(x: 0.0, y: 1.0), inputColorSpace: CGColorSpace) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
-        return CIFilter.colorCurves(inputImage: inputImage, inputCurvesData: inputCurvesData as NSData, inputCurvesDomain: inputCurvesDomain, inputColorSpace: inputColorSpace)?.outputUIImage
+        return CIFilter.colorCurves(inputImage: inputImage, inputCurvesData: inputCurvesData as NSData, inputCurvesDomain: CIVector(cgPoint: inputCurvesDomain), inputColorSpace: inputColorSpace)?.outputUIImage
     }
     
     @available(iOS 5, *)
@@ -529,9 +552,18 @@ public struct ImageFilters {
     }
     
     @available(iOS 5, *)
-    func colorMatrix(inputRVector: CIVector = CIVector(x: 1.0, y: 0.0, z: 0.0, w: 0.0), inputGVector: CIVector = CIVector(x: 0.0, y: 1.0, z: 0.0, w: 0.0), inputBVector: CIVector = CIVector(x: 0.0, y: 0.0, z: 1.0, w: 0.0), inputAVector: CIVector = CIVector(x: 0.0, y: 0.0, z: 0.0, w: 1.0), inputBiasVector: CIVector = CIVector(x: 0.0, y: 0.0, z: 0.0, w: 0.0)) -> UIImage? {
+    func colorMatrix(inputRVector: CIVector = CIVector(x: 1.0, y: 0.0, z: 0.0, w: 0.0),
+                     inputGVector: CIVector = CIVector(x: 0.0, y: 1.0, z: 0.0, w: 0.0),
+                     inputBVector: CIVector = CIVector(x: 0.0, y: 0.0, z: 1.0, w: 0.0),
+                     inputAVector: CIVector = CIVector(x: 0.0, y: 0.0, z: 0.0, w: 1.0),
+                     inputBiasVector: CIVector = CIVector(x: 0.0, y: 0.0, z: 0.0, w: 0.0)) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
-        return CIFilter.colorMatrix(inputImage: inputImage, inputRVector: inputRVector, inputGVector: inputGVector, inputBVector: inputBVector, inputAVector: inputAVector, inputBiasVector: inputBiasVector)?.outputUIImage
+        return CIFilter.colorMatrix(inputImage: inputImage,
+                                    inputRVector: inputRVector,
+                                    inputGVector: inputGVector,
+                                    inputBVector: inputBVector,
+                                    inputAVector: inputAVector,
+                                    inputBiasVector: inputBiasVector)?.outputUIImage
     }
     
     @available(iOS 5, *)
@@ -560,9 +592,9 @@ public struct ImageFilters {
     }
     
     @available(iOS 9, *)
-    func columnAverage(inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 640.0, w: 80.0)) -> UIImage? {
+    func columnAverage(inputExtent: CGRect = CGRect(x: 0.0, y: 0.0, width: 640.0, height: 80.0)) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
-        return CIFilter.columnAverage(inputImage: inputImage, inputExtent: inputExtent)?.outputUIImage
+        return CIFilter.columnAverage(inputImage: inputImage, inputExtent: CIVector(cgRect: inputExtent))?.outputUIImage
     }
     
     @available(iOS 9, *)
@@ -603,7 +635,7 @@ public struct ImageFilters {
     
     @available(iOS 6, *)
     func copyMachineTransition(inputTargetImage: UIImage,
-                               inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 300.0, w: 300.0),
+                               inputExtent: CGRect = CGRect(x: 0.0, y: 0.0, width: 300.0, height: 300.0),
                                inputColor: UIColor,
                                inputTime: Float = 0,
                                inputAngle: Float = 0,
@@ -612,7 +644,7 @@ public struct ImageFilters {
         guard let inputImage = self.image.ciImage, let inputTargetImage = inputTargetImage.ciImage else { return nil }
         return CIFilter.copyMachineTransition(inputImage: inputImage,
                                               inputTargetImage: inputTargetImage,
-                                              inputExtent: inputExtent,
+                                              inputExtent: CIVector(cgRect: inputExtent),
                                               inputColor: inputColor.ciColor,
                                               inputTime: inputTime as NSNumber,
                                               inputAngle: inputAngle as NSNumber,
@@ -621,15 +653,16 @@ public struct ImageFilters {
     }
     
     @available(iOS 5, *)
-    func crop(inputRectangle: CIVector? = nil) -> UIImage? {
+    func crop(inputRectangle: CGRect? = nil) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
-        return CIFilter.crop(inputImage: inputImage, inputRectangle: inputRectangle)?.outputUIImage
+        return CIFilter.crop(inputImage: inputImage,
+                             inputRectangle: inputRectangle == nil ? nil : CIVector(cgRect: inputRectangle!))?.outputUIImage
     }
     
     @available(iOS 9, *)
-    func crystallize(inputRadius: Float = 20, inputCenter: CIVector = CIVector(x: 150.0, y: 150.0)) -> UIImage? {
+    func crystallize(inputRadius: Float = 20, inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0)) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
-        return CIFilter.crystallize(inputImage: inputImage, inputRadius: inputRadius as NSNumber, inputCenter: inputCenter)?.outputUIImage
+        return CIFilter.crystallize(inputImage: inputImage, inputRadius: inputRadius as NSNumber, inputCenter: CIVector(cgPoint: inputCenter))?.outputUIImage
     }
     
     @available(iOS 5, *)
@@ -645,7 +678,7 @@ public struct ImageFilters {
                          inputRightEyePositions: CIVector,
                          inputChinPositions: CIVector,
                          inputNosePositions: CIVector,
-                         inputFocusRect: CIVector,
+                         inputFocusRect: CGRect,
                          inputLumaNoiseScale: Float = 0,
                          inputScaleFactor: Float = 1,
                          inputCalibrationData: AVCameraCalibrationData,
@@ -658,7 +691,7 @@ public struct ImageFilters {
                                         inputRightEyePositions: inputRightEyePositions,
                                         inputChinPositions: inputChinPositions,
                                         inputNosePositions: inputNosePositions,
-                                        inputFocusRect: inputFocusRect,
+                                        inputFocusRect: CIVector(cgRect: inputFocusRect),
                                         inputLumaNoiseScale: inputLumaNoiseScale as NSNumber,
                                         inputScaleFactor: inputScaleFactor as NSNumber,
                                         inputCalibrationData: inputCalibrationData,
@@ -666,16 +699,16 @@ public struct ImageFilters {
     }
     
     @available(iOS 9, *)
-    func depthOfField(inputPoint0: CIVector = CIVector(x: 0.0, y: 300.0),
-                      inputPoint1: CIVector = CIVector(x: 300.0, y: 300.0),
+    func depthOfField(inputPoint0: CGPoint = CGPoint(x: 0.0, y: 300.0),
+                      inputPoint1: CGPoint = CGPoint(x: 300.0, y: 300.0),
                       inputSaturation: Float = 1.5,
                       inputUnsharpMaskRadius: Float = 2.5,
                       inputUnsharpMaskIntensity: Float = 0.5,
                       inputRadius: Float = 6) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
         return CIFilter.depthOfField(inputImage: inputImage,
-                                     inputPoint0: inputPoint0,
-                                     inputPoint1: inputPoint1,
+                                     inputPoint0: CIVector(cgPoint: inputPoint0),
+                                     inputPoint1: CIVector(cgPoint: inputPoint1),
                                      inputSaturation: inputSaturation as NSNumber,
                                      inputUnsharpMaskRadius: inputUnsharpMaskRadius as NSNumber,
                                      inputUnsharpMaskIntensity: inputUnsharpMaskIntensity as NSNumber,
@@ -706,7 +739,7 @@ public struct ImageFilters {
                                         inputTime: Float = 0,
                                         inputShadowRadius: Float = 8,
                                         inputShadowDensity: Float = 0.65,
-                                        inputShadowOffset: CIVector = CIVector(x: 0.0, y: -10.0)) -> UIImage? {
+                                        inputShadowOffset: CGPoint = CGPoint(x: 0.0, y: -10.0)) -> UIImage? {
         guard let inputImage = self.image.ciImage, let inputTargetImage = inputTargetImage.ciImage, let inputMaskImage = inputMaskImage.ciImage else { return nil }
         return CIFilter.disintegrateWithMaskTransition(inputImage: inputImage,
                                                        inputTargetImage: inputTargetImage,
@@ -714,7 +747,7 @@ public struct ImageFilters {
                                                        inputTime: inputTime as NSNumber,
                                                        inputShadowRadius: inputShadowRadius as NSNumber,
                                                        inputShadowDensity: inputShadowDensity as NSNumber,
-                                                       inputShadowOffset: inputShadowOffset)?.outputUIImage
+                                                       inputShadowOffset: CIVector(cgPoint: inputShadowOffset))?.outputUIImage
     }
     
     @available(iOS 11, *)
@@ -742,29 +775,29 @@ public struct ImageFilters {
     }
     
     @available(iOS 6, *)
-    func dotScreen(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0),
+    func dotScreen(inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0),
                    inputAngle: Float = 0,
                    inputWidth: Float = 6,
                    inputSharpness: Float = 0.7) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
         return CIFilter.dotScreen(inputImage: inputImage,
-                                  inputCenter: inputCenter,
+                                  inputCenter: CIVector(cgPoint: inputCenter),
                                   inputAngle: inputAngle as NSNumber,
                                   inputWidth: inputWidth as NSNumber,
                                   inputSharpness: inputSharpness as NSNumber)?.outputUIImage
     }
     
     @available(iOS 9, *)
-    func droste(inputInsetPoint0: CIVector = CIVector(x: 200.0, y: 200.0),
-                inputInsetPoint1: CIVector = CIVector(x: 400.0, y: 400.0),
+    func droste(inputInsetPoint0: CGPoint = CGPoint(x: 200.0, y: 200.0),
+                inputInsetPoint1: CGPoint = CGPoint(x: 400.0, y: 400.0),
                 inputStrands: Float = 1,
                 inputPeriodicity: Float = 1,
                 inputRotation: Float = 0,
                 inputZoom: Float = 1) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
         return CIFilter.droste(inputImage: inputImage,
-                               inputInsetPoint0: inputInsetPoint0,
-                               inputInsetPoint1: inputInsetPoint1,
+                               inputInsetPoint0: CIVector(cgPoint: inputInsetPoint0),
+                               inputInsetPoint1: CIVector(cgPoint: inputInsetPoint1),
                                inputStrands: inputStrands as NSNumber,
                                inputPeriodicity: inputPeriodicity as NSNumber,
                                inputRotation: inputRotation as NSNumber,
@@ -793,9 +826,12 @@ public struct ImageFilters {
     }
     
     @available(iOS 6, *)
-    func eightfoldReflectedTile(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputAngle: Float = 0, inputWidth: Float = 100) -> UIImage? {
+    func eightfoldReflectedTile(inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0), inputAngle: Float = 0, inputWidth: Float = 100) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
-        return CIFilter.eightfoldReflectedTile(inputImage: inputImage, inputCenter: inputCenter, inputAngle: inputAngle as NSNumber, inputWidth: inputWidth as NSNumber)?.outputUIImage
+        return CIFilter.eightfoldReflectedTile(inputImage: inputImage,
+                                               inputCenter: CIVector(cgPoint: inputCenter),
+                                               inputAngle: inputAngle as NSNumber,
+                                               inputWidth: inputWidth as NSNumber)?.outputUIImage
     }
     
     @available(iOS 5, *)
@@ -818,8 +854,8 @@ public struct ImageFilters {
     
     @available(iOS 6, *)
     func flashTransition(inputTargetImage: UIImage,
-                         inputCenter: CIVector = CIVector(x: 150.0, y: 150.0),
-                         inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 300.0, w: 300.0),
+                         inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0),
+                         inputExtent: CGRect = CGRect(x: 0.0, y: 0.0, width: 300.0, height: 300.0),
                          inputColor: UIColor,
                          inputTime: Float = 0,
                          inputMaxStriationRadius: Float = 2.58,
@@ -829,8 +865,8 @@ public struct ImageFilters {
         guard let inputImage = self.image.ciImage, let inputTargetImage = inputTargetImage.ciImage else { return nil }
         return CIFilter.flashTransition(inputImage: inputImage,
                                         inputTargetImage: inputTargetImage,
-                                        inputCenter: inputCenter,
-                                        inputExtent: inputExtent,
+                                        inputCenter: CIVector(cgPoint: inputCenter),
+                                        inputExtent: CIVector(cgRect: inputExtent),
                                         inputColor: inputColor.ciColor,
                                         inputTime: inputTime as NSNumber,
                                         inputMaxStriationRadius: inputMaxStriationRadius as NSNumber,
@@ -840,29 +876,32 @@ public struct ImageFilters {
     }
     
     @available(iOS 6, *)
-    func fourfoldReflectedTile(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0),
+    func fourfoldReflectedTile(inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0),
                                inputAngle: Float = 0,
                                inputWidth: Float = 100,
                                inputAcuteAngle: Float = 1.570796326794897) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
         return CIFilter.fourfoldReflectedTile(inputImage: inputImage,
-                                              inputCenter: inputCenter,
+                                              inputCenter: CIVector(cgPoint: inputCenter),
                                               inputAngle: inputAngle as NSNumber,
                                               inputWidth: inputWidth as NSNumber,
                                               inputAcuteAngle: inputAcuteAngle as NSNumber)?.outputUIImage
     }
     
     @available(iOS 6, *)
-    func fourfoldRotatedTile(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputAngle: Float = 0, inputWidth: Float = 100) -> UIImage? {
+    func fourfoldRotatedTile(inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0), inputAngle: Float = 0, inputWidth: Float = 100) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
-        return CIFilter.fourfoldRotatedTile(inputImage: inputImage, inputCenter: inputCenter, inputAngle: inputAngle as NSNumber, inputWidth: inputWidth as NSNumber)?.outputUIImage
+        return CIFilter.fourfoldRotatedTile(inputImage: inputImage,
+                                            inputCenter: CIVector(cgPoint: inputCenter),
+                                            inputAngle: inputAngle as NSNumber,
+                                            inputWidth: inputWidth as NSNumber)?.outputUIImage
     }
     
     @available(iOS 6, *)
-    func fourfoldTranslatedTile(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputAngle: Float = 0, inputWidth: Float = 100, inputAcuteAngle: Float = 1.570796326794897) -> UIImage? {
+    func fourfoldTranslatedTile(inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0), inputAngle: Float = 0, inputWidth: Float = 100, inputAcuteAngle: Float = Float.pi / 2) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
         return CIFilter.fourfoldTranslatedTile(inputImage: inputImage,
-                                               inputCenter: inputCenter,
+                                               inputCenter: CIVector(cgPoint: inputCenter),
                                                inputAngle: inputAngle as NSNumber,
                                                inputWidth: inputWidth as NSNumber,
                                                inputAcuteAngle: inputAcuteAngle as NSNumber)?.outputUIImage
@@ -881,25 +920,31 @@ public struct ImageFilters {
     }
     
     @available(iOS 8, *)
-    func glassDistortion(inputTexture: UIImage, inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputScale: Float = 200) -> UIImage? {
+    func glassDistortion(inputTexture: UIImage, inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0), inputScale: Float = 200) -> UIImage? {
         guard let inputImage = self.image.ciImage, let inputTexture = inputTexture.ciImage else { return nil }
-        return CIFilter.glassDistortion(inputImage: inputImage, inputTexture: inputTexture, inputCenter: inputCenter, inputScale: inputScale as NSNumber)?.outputUIImage
+        return CIFilter.glassDistortion(inputImage: inputImage,
+                                        inputTexture: inputTexture,
+                                        inputCenter: CIVector(cgPoint: inputCenter),
+                                        inputScale: inputScale as NSNumber)?.outputUIImage
     }
     
     @available(iOS 9, *)
-    func glassLozenge(inputPoint0: CIVector = CIVector(x: 150.0, y: 150.0), inputPoint1: CIVector = CIVector(x: 350.0, y: 150.0), inputRadius: Float = 100, inputRefraction: Float = 1.7) -> UIImage? {
+    func glassLozenge(inputPoint0: CGPoint = CGPoint(x: 150.0, y: 150.0), inputPoint1: CGPoint = CGPoint(x: 350.0, y: 150.0), inputRadius: Float = 100, inputRefraction: Float = 1.7) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
         return CIFilter.glassLozenge(inputImage: inputImage,
-                                     inputPoint0: inputPoint0,
-                                     inputPoint1: inputPoint1,
+                                     inputPoint0: CIVector(cgPoint: inputPoint0),
+                                     inputPoint1: CIVector(cgPoint: inputPoint1),
                                      inputRadius: inputRadius as NSNumber,
                                      inputRefraction: inputRefraction as NSNumber)?.outputUIImage
     }
     
     @available(iOS 6, *)
-    func glideReflectedTile(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputAngle: Float = 0, inputWidth: Float = 100) -> UIImage? {
+    func glideReflectedTile(inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0), inputAngle: Float = 0, inputWidth: Float = 100) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
-        return CIFilter.glideReflectedTile(inputImage: inputImage, inputCenter: inputCenter, inputAngle: inputAngle as NSNumber, inputWidth: inputWidth as NSNumber)?.outputUIImage
+        return CIFilter.glideReflectedTile(inputImage: inputImage,
+                                           inputCenter: CIVector(cgPoint: inputCenter),
+                                           inputAngle: inputAngle as NSNumber,
+                                           inputWidth: inputWidth as NSNumber)?.outputUIImage
     }
     
     @available(iOS 6, *)
@@ -915,10 +960,10 @@ public struct ImageFilters {
     }
     
     @available(iOS 6, *)
-    func hatchedScreen(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputAngle: Float = 0, inputWidth: Float = 6, inputSharpness: Float = 0.7) -> UIImage? {
+    func hatchedScreen(inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0), inputAngle: Float = 0, inputWidth: Float = 6, inputSharpness: Float = 0.7) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
         return CIFilter.hatchedScreen(inputImage: inputImage,
-                                      inputCenter: inputCenter,
+                                      inputCenter: CIVector(cgPoint: inputCenter),
                                       inputAngle: inputAngle as NSNumber,
                                       inputWidth: inputWidth as NSNumber,
                                       inputSharpness: inputSharpness as NSNumber)?.outputUIImage
@@ -931,9 +976,9 @@ public struct ImageFilters {
     }
     
     @available(iOS 9, *)
-    func hexagonalPixellate(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputScale: Float = 8) -> UIImage? {
+    func hexagonalPixellate(inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0), inputScale: Float = 8) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
-        return CIFilter.hexagonalPixellate(inputImage: inputImage, inputCenter: inputCenter, inputScale: inputScale as NSNumber)?.outputUIImage
+        return CIFilter.hexagonalPixellate(inputImage: inputImage, inputCenter: CIVector(cgPoint: inputCenter), inputScale: inputScale as NSNumber)?.outputUIImage
     }
     
     @available(iOS 5, *)
@@ -955,10 +1000,10 @@ public struct ImageFilters {
     }
     
     @available(iOS 6, *)
-    func holeDistortion(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputRadius: Float = 150) -> UIImage? {
+    func holeDistortion(inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0), inputRadius: Float = 150) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
         return CIFilter.holeDistortion(inputImage: inputImage,
-                                       inputCenter: inputCenter,
+                                       inputCenter: CIVector(cgPoint: inputCenter),
                                        inputRadius: inputRadius as NSNumber)?.outputUIImage
     }
     
@@ -975,11 +1020,11 @@ public struct ImageFilters {
     }
     
     @available(iOS 9, *)
-    func kaleidoscope(inputCount: Float = 6, inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputAngle: Float = 0) -> UIImage? {
+    func kaleidoscope(inputCount: Float = 6, inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0), inputAngle: Float = 0) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
         return CIFilter.kaleidoscope(inputImage: inputImage,
                                      inputCount: inputCount as NSNumber,
-                                     inputCenter: inputCenter,
+                                     inputCenter: CIVector(cgPoint: inputCenter),
                                      inputAngle: inputAngle as NSNumber)?.outputUIImage
     }
     
@@ -1004,10 +1049,10 @@ public struct ImageFilters {
     }
     
     @available(iOS 6, *)
-    func lightTunnel(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputRotation: Float = 0, inputRadius: Float = 100) -> UIImage? {
+    func lightTunnel(inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0), inputRotation: Float = 0, inputRadius: Float = 100) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
         return CIFilter.lightTunnel(inputImage: inputImage,
-                                    inputCenter: inputCenter,
+                                    inputCenter: CIVector(cgPoint: inputCenter),
                                     inputRotation: inputRotation as NSNumber,
                                     inputRadius: inputRadius as NSNumber)?.outputUIImage
     }
@@ -1042,10 +1087,10 @@ public struct ImageFilters {
     }
     
     @available(iOS 6, *)
-    func lineScreen(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputAngle: Float = 0, inputWidth: Float = 6, inputSharpness: Float = 0.7) -> UIImage? {
+    func lineScreen(inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0), inputAngle: Float = 0, inputWidth: Float = 6, inputSharpness: Float = 0.7) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
         return CIFilter.lineScreen(inputImage: inputImage,
-                                   inputCenter: inputCenter,
+                                   inputCenter: CIVector(cgPoint: inputCenter),
                                    inputAngle: inputAngle as NSNumber,
                                    inputWidth: inputWidth as NSNumber,
                                    inputSharpness: inputSharpness as NSNumber)?.outputUIImage
@@ -1100,11 +1145,11 @@ public struct ImageFilters {
     }
     
     @available(iOS 6, *)
-    func modTransition(inputTargetImage: UIImage, inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputTime: Float = 0, inputAngle: Float = 2, inputRadius: Float = 150, inputCompression: Float = 300) -> UIImage? {
+    func modTransition(inputTargetImage: UIImage, inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0), inputTime: Float = 0, inputAngle: Float = 2, inputRadius: Float = 150, inputCompression: Float = 300) -> UIImage? {
         guard let inputImage = self.image.ciImage, let inputTargetImage = inputTargetImage.ciImage else { return nil }
         return CIFilter.modTransition(inputImage: inputImage,
                                       inputTargetImage: inputTargetImage,
-                                      inputCenter: inputCenter,
+                                      inputCenter: CIVector(cgPoint: inputCenter),
                                       inputTime: inputTime as NSNumber,
                                       inputAngle: inputAngle as NSNumber,
                                       inputRadius: inputRadius as NSNumber,
@@ -1148,21 +1193,26 @@ public struct ImageFilters {
     }
     
     @available(iOS 10, *)
-    func ninePartStretched(inputBreakpoint0: CIVector = CIVector(x: 50.0, y: 50.0), inputBreakpoint1: CIVector = CIVector(x: 150.0, y: 150.0), inputGrowAmount: CIVector = CIVector(x: 100.0, y: 100.0)) -> UIImage? {
+    func ninePartStretched(inputBreakpoint0: CGPoint = CGPoint(x: 50.0, y: 50.0),
+                           inputBreakpoint1: CGPoint = CGPoint(x: 150.0, y: 150.0),
+                           inputGrowAmount: CGSize = CGSize(width: 100.0, height: 100.0)) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
-        return CIFilter.ninePartStretched(inputImage: inputImage, inputBreakpoint0: inputBreakpoint0, inputBreakpoint1: inputBreakpoint1, inputGrowAmount: inputGrowAmount)?.outputUIImage
+        return CIFilter.ninePartStretched(inputImage: inputImage,
+                                          inputBreakpoint0: CIVector(cgPoint: inputBreakpoint0),
+                                          inputBreakpoint1: CIVector(cgPoint: inputBreakpoint1),
+                                          inputGrowAmount: CIVector(x: inputGrowAmount.width, y: inputGrowAmount.height))?.outputUIImage
     }
     
     @available(iOS 10, *)
-    func ninePartTiled(inputBreakpoint0: CIVector = CIVector(x: 50.0, y: 50.0),
-                       inputBreakpoint1: CIVector = CIVector(x: 150.0, y: 150.0),
-                       inputGrowAmount: CIVector = CIVector(x: 100.0, y: 100.0),
+    func ninePartTiled(inputBreakpoint0: CGPoint = CGPoint(x: 50.0, y: 50.0),
+                       inputBreakpoint1: CGPoint = CGPoint(x: 150.0, y: 150.0),
+                       inputGrowAmount: CGSize = CGSize(width: 100.0, height: 100.0),
                        inputFlipYTiles: Bool = true) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
         return CIFilter.ninePartTiled(inputImage: inputImage,
-                                      inputBreakpoint0: inputBreakpoint0,
-                                      inputBreakpoint1: inputBreakpoint1,
-                                      inputGrowAmount: inputGrowAmount,
+                                      inputBreakpoint0: CIVector(cgPoint: inputBreakpoint0),
+                                      inputBreakpoint1: CIVector(cgPoint: inputBreakpoint1),
+                                      inputGrowAmount: CIVector(x: inputGrowAmount.width, y: inputGrowAmount.height),
                                       inputFlipYTiles: inputFlipYTiles as NSNumber)?.outputUIImage
     }
     
@@ -1175,10 +1225,10 @@ public struct ImageFilters {
     }
     
     @available(iOS 9, *)
-    func opTile(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputScale: Float = 2.8, inputAngle: Float = 0, inputWidth: Float = 65) -> UIImage? {
+    func opTile(inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0), inputScale: Float = 2.8, inputAngle: Float = 0, inputWidth: Float = 65) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
         return CIFilter.opTile(inputImage: inputImage,
-                               inputCenter: inputCenter,
+                               inputCenter: CIVector(cgPoint: inputCenter),
                                inputScale: inputScale as NSNumber,
                                inputAngle: inputAngle as NSNumber,
                                inputWidth: inputWidth as NSNumber)?.outputUIImage
@@ -1194,7 +1244,7 @@ public struct ImageFilters {
     func pageCurlTransition(inputTargetImage: UIImage,
                             inputBacksideImage: UIImage,
                             inputShadingImage: UIImage,
-                            inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 300.0, w: 300.0),
+                            inputExtent: CGRect = CGRect(x: 0.0, y: 0.0, width: 300.0, height: 300.0),
                             inputTime: Float = 0,
                             inputAngle: Float = 0,
                             inputRadius: Float = 100) -> UIImage? {
@@ -1203,7 +1253,7 @@ public struct ImageFilters {
                                            inputTargetImage: inputTargetImage,
                                            inputBacksideImage: inputBacksideImage,
                                            inputShadingImage: inputShadingImage,
-                                           inputExtent: inputExtent,
+                                           inputExtent: CIVector(cgRect: inputExtent),
                                            inputTime: inputTime as NSNumber,
                                            inputAngle: inputAngle as NSNumber,
                                            inputRadius: inputRadius as NSNumber)?.outputUIImage
@@ -1212,82 +1262,90 @@ public struct ImageFilters {
     @available(iOS 9, *)
     func pageCurlWithShadowTransition(inputTargetImage: UIImage,
                                       inputBacksideImage: UIImage,
-                                      inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 0.0, w: 0.0),
+                                      inputExtent: CGRect = .zero,
                                       inputTime: Float = 0,
                                       inputAngle: Float = 0,
                                       inputRadius: Float = 100,
                                       inputShadowSize: Float = 0.5,
                                       inputShadowAmount: Float = 0.7,
-                                      inputShadowExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 0.0, w: 0.0)) -> UIImage? {
+                                      inputShadowExtent: CGRect = .zero) -> UIImage? {
         guard let inputImage = self.image.ciImage, let inputTargetImage = inputTargetImage.ciImage, let inputBacksideImage = inputBacksideImage.ciImage else { return nil }
         return CIFilter.pageCurlWithShadowTransition(inputImage: inputImage,
                                                      inputTargetImage: inputTargetImage,
                                                      inputBacksideImage: inputBacksideImage,
-                                                     inputExtent: inputExtent,
+                                                     inputExtent: CIVector(cgRect: inputExtent),
                                                      inputTime: inputTime as NSNumber,
                                                      inputAngle: inputAngle as NSNumber,
                                                      inputRadius: inputRadius as NSNumber,
                                                      inputShadowSize: inputShadowSize as NSNumber,
                                                      inputShadowAmount: inputShadowAmount as NSNumber,
-                                                     inputShadowExtent: inputShadowExtent)?.outputUIImage
+                                                     inputShadowExtent: CIVector(cgRect: inputShadowExtent))?.outputUIImage
     }
     
     @available(iOS 9, *)
-    func parallelogramTile(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputAngle: Float = 0, inputAcuteAngle: Float = Float.pi / 2, inputWidth: Float = 100) -> UIImage? {
+    func parallelogramTile(inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0), inputAngle: Float = 0, inputAcuteAngle: Float = Float.pi / 2, inputWidth: Float = 100) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
         return CIFilter.parallelogramTile(inputImage: inputImage,
-                                          inputCenter: inputCenter,
+                                          inputCenter: CIVector(cgPoint: inputCenter),
                                           inputAngle: inputAngle as NSNumber,
                                           inputAcuteAngle: inputAcuteAngle as NSNumber,
                                           inputWidth: inputWidth as NSNumber)?.outputUIImage
     }
     
     @available(iOS 8, *)
-    func perspectiveCorrection(inputTopLeft: CIVector = CIVector(x: 118.0, y: 484.0),
-                               inputTopRight: CIVector = CIVector(x: 646.0, y: 507.0),
-                               inputBottomRight: CIVector = CIVector(x: 548.0, y: 140.0),
-                               inputBottomLeft: CIVector = CIVector(x: 155.0, y: 153.0),
+    func perspectiveCorrection(inputTopLeft: CGPoint = CGPoint(x: 118.0, y: 484.0),
+                               inputTopRight: CGPoint = CGPoint(x: 646.0, y: 507.0),
+                               inputBottomRight: CGPoint = CGPoint(x: 548.0, y: 140.0),
+                               inputBottomLeft: CGPoint = CGPoint(x: 155.0, y: 153.0),
                                inputCrop: Bool = true) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
         return CIFilter.perspectiveCorrection(inputImage: inputImage,
-                                              inputTopLeft: inputTopLeft,
-                                              inputTopRight: inputTopRight,
-                                              inputBottomRight: inputBottomRight,
-                                              inputBottomLeft: inputBottomLeft,
+                                              inputTopLeft: CIVector(cgPoint: inputTopLeft),
+                                              inputTopRight: CIVector(cgPoint: inputTopRight),
+                                              inputBottomRight: CIVector(cgPoint: inputBottomRight),
+                                              inputBottomLeft: CIVector(cgPoint: inputBottomLeft),
                                               inputCrop: inputCrop as NSNumber)?.outputUIImage
     }
     
     @available(iOS 6, *)
-    func perspectiveTile(inputTopLeft: CIVector = CIVector(x: 118.0, y: 484.0),
-                         inputTopRight: CIVector = CIVector(x: 646.0, y: 507.0),
-                         inputBottomRight: CIVector = CIVector(x: 548.0, y: 140.0),
-                         inputBottomLeft: CIVector = CIVector(x: 155.0, y: 153.0)) -> UIImage? {
+    func perspectiveTile(inputTopLeft: CGPoint = CGPoint(x: 118.0, y: 484.0),
+                         inputTopRight: CGPoint = CGPoint(x: 646.0, y: 507.0),
+                         inputBottomRight: CGPoint = CGPoint(x: 548.0, y: 140.0),
+                         inputBottomLeft: CGPoint = CGPoint(x: 155.0, y: 153.0)) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
-        return CIFilter.perspectiveTile(inputImage: inputImage, inputTopLeft: inputTopLeft, inputTopRight: inputTopRight, inputBottomRight: inputBottomRight, inputBottomLeft: inputBottomLeft)?.outputUIImage
+        return CIFilter.perspectiveTile(inputImage: inputImage,
+                                        inputTopLeft: CIVector(cgPoint: inputTopLeft),
+                                        inputTopRight: CIVector(cgPoint: inputTopRight),
+                                        inputBottomRight: CIVector(cgPoint: inputBottomRight),
+                                        inputBottomLeft: CIVector(cgPoint: inputBottomLeft))?.outputUIImage
     }
     
     @available(iOS 6, *)
-    func perspectiveTransform(inputTopLeft: CIVector = CIVector(x: 118.0, y: 484.0),
-                              inputTopRight: CIVector = CIVector(x: 646.0, y: 507.0),
-                              inputBottomRight: CIVector = CIVector(x: 548.0, y: 140.0),
-                              inputBottomLeft: CIVector = CIVector(x: 155.0, y: 153.0)) -> UIImage? {
+    func perspectiveTransform(inputTopLeft: CGPoint = CGPoint(x: 118.0, y: 484.0),
+                              inputTopRight: CGPoint = CGPoint(x: 646.0, y: 507.0),
+                              inputBottomRight: CGPoint = CGPoint(x: 548.0, y: 140.0),
+                              inputBottomLeft: CGPoint = CGPoint(x: 155.0, y: 153.0)) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
-        return CIFilter.perspectiveTransform(inputImage: inputImage, inputTopLeft: inputTopLeft, inputTopRight: inputTopRight, inputBottomRight: inputBottomRight, inputBottomLeft: inputBottomLeft)?.outputUIImage
+        return CIFilter.perspectiveTransform(inputImage: inputImage,
+                                             inputTopLeft: CIVector(cgPoint: inputTopLeft),
+                                             inputTopRight: CIVector(cgPoint: inputTopRight),
+                                             inputBottomRight: CIVector(cgPoint: inputBottomRight),
+                                             inputBottomLeft: CIVector(cgPoint: inputBottomLeft))?.outputUIImage
     }
     
     @available(iOS 6, *)
-    func perspectiveTransformWithExtent(inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 300.0, w: 300.0),
-                                        inputTopLeft: CIVector = CIVector(x: 118.0, y: 484.0),
-                                        inputTopRight: CIVector = CIVector(x: 646.0, y: 507.0),
-                                        inputBottomRight: CIVector = CIVector(x: 548.0, y: 140.0),
-                                        inputBottomLeft: CIVector = CIVector(x: 155.0, y: 153.0)) -> UIImage? {
+    func perspectiveTransformWithExtent(inputExtent: CGRect = CGRect(x: 0.0, y: 0.0, width: 300.0, height: 300.0),
+                                        inputTopLeft: CGPoint = CGPoint(x: 118.0, y: 484.0),
+                                        inputTopRight: CGPoint = CGPoint(x: 646.0, y: 507.0),
+                                        inputBottomRight: CGPoint = CGPoint(x: 548.0, y: 140.0),
+                                        inputBottomLeft: CGPoint = CGPoint(x: 155.0, y: 153.0)) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
         return CIFilter.perspectiveTransformWithExtent(inputImage: inputImage,
-                                                       inputExtent: inputExtent,
-                                                       inputTopLeft: inputTopLeft,
-                                                       inputTopRight: inputTopRight,
-                                                       inputBottomRight: inputBottomRight,
-                                                       inputBottomLeft: inputBottomLeft)?.outputUIImage
+                                                       inputExtent: CIVector(cgRect: inputExtent),
+                                                       inputTopLeft: CIVector(cgPoint: inputTopLeft),
+                                                       inputTopRight: CIVector(cgPoint: inputTopRight),
+                                                       inputBottomRight: CIVector(cgPoint: inputBottomRight),
+                                                       inputBottomLeft: CIVector(cgPoint: inputBottomLeft))?.outputUIImage
     }
     
     @available(iOS 7, *)
@@ -1339,9 +1397,12 @@ public struct ImageFilters {
     }
     
     @available(iOS 6, *)
-    func pinchDistortion(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputRadius: Float = 300, inputScale: Float = 0.5) -> UIImage? {
+    func pinchDistortion(inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0), inputRadius: Float = 300, inputScale: Float = 0.5) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
-        return CIFilter.pinchDistortion(inputImage: inputImage, inputCenter: inputCenter, inputRadius: inputRadius as NSNumber, inputScale: inputScale as NSNumber)?.outputUIImage
+        return CIFilter.pinchDistortion(inputImage: inputImage,
+                                        inputCenter: CIVector(cgPoint: inputCenter),
+                                        inputRadius: inputRadius as NSNumber,
+                                        inputScale: inputScale as NSNumber)?.outputUIImage
     }
     
     @available(iOS 8, *)
@@ -1351,22 +1412,26 @@ public struct ImageFilters {
     }
     
     @available(iOS 6, *)
-    func pixellate(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputScale: Float = 8) -> UIImage? {
+    func pixellate(inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0), inputScale: Float = 8) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
-        return CIFilter.pixellate(inputImage: inputImage, inputCenter: inputCenter, inputScale: inputScale as NSNumber)?.outputUIImage
+        return CIFilter.pixellate(inputImage: inputImage,
+                                  inputCenter: CIVector(cgPoint: inputCenter),
+                                  inputScale: inputScale as NSNumber)?.outputUIImage
     }
     
     @available(iOS 9, *)
-    func pointillize(inputRadius: Float = 20, inputCenter: CIVector = CIVector(x: 150.0, y: 150.0)) -> UIImage? {
+    func pointillize(inputRadius: Float = 20, inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0)) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
-        return CIFilter.pointillize(inputImage: inputImage, inputRadius: inputRadius as NSNumber, inputCenter: inputCenter)?.outputUIImage
+        return CIFilter.pointillize(inputImage: inputImage,
+                                    inputRadius: inputRadius as NSNumber,
+                                    inputCenter: CIVector(cgPoint: inputCenter))?.outputUIImage
     }
     
     @available(iOS 9, *)
     func rippleTransition(inputTargetImage: UIImage,
                           inputShadingImage: UIImage,
-                          inputCenter: CIVector = CIVector(x: 150.0, y: 150.0),
-                          inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 300.0, w: 300.0),
+                          inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0),
+                          inputExtent: CGRect = CGRect(x: 0.0, y: 0.0, width: 300.0, height: 300.0),
                           inputTime: Float = 0,
                           inputWidth: Float = 100,
                           inputScale: Float = 50) -> UIImage? {
@@ -1374,17 +1439,17 @@ public struct ImageFilters {
         return CIFilter.rippleTransition(inputImage: inputImage,
                                          inputTargetImage: inputTargetImage,
                                          inputShadingImage: inputShadingImage,
-                                         inputCenter: inputCenter,
-                                         inputExtent: inputExtent,
+                                         inputCenter: CIVector(cgPoint: inputCenter),
+                                         inputExtent: CIVector(cgRect: inputExtent),
                                          inputTime: inputTime as NSNumber,
                                          inputWidth: inputWidth as NSNumber,
                                          inputScale: inputScale as NSNumber)?.outputUIImage
     }
     
     @available(iOS 9, *)
-    func rowAverage(inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 640.0, w: 80.0)) -> UIImage? {
+    func rowAverage(inputExtent: CGRect = CGRect(x: 0.0, y: 0.0, width: 640.0, height: 80.0)) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
-        return CIFilter.rowAverage(inputImage: inputImage, inputExtent: inputExtent)?.outputUIImage
+        return CIFilter.rowAverage(inputImage: inputImage, inputExtent: CIVector(cgRect: inputExtent))?.outputUIImage
     }
     
     @available(iOS 5, *)
@@ -1418,19 +1483,19 @@ public struct ImageFilters {
     }
     
     @available(iOS 6, *)
-    func sixfoldReflectedTile(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputAngle: Float = 0, inputWidth: Float = 100) -> UIImage? {
+    func sixfoldReflectedTile(inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0), inputAngle: Float = 0, inputWidth: Float = 100) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
         return CIFilter.sixfoldReflectedTile(inputImage: inputImage,
-                                             inputCenter: inputCenter,
+                                             inputCenter: CIVector(cgPoint: inputCenter),
                                              inputAngle: inputAngle as NSNumber,
                                              inputWidth: inputWidth as NSNumber)?.outputUIImage
     }
     
     @available(iOS 6, *)
-    func sixfoldRotatedTile(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputAngle: Float = 0, inputWidth: Float = 100) -> UIImage? {
+    func sixfoldRotatedTile(inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0), inputAngle: Float = 0, inputWidth: Float = 100) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
         return CIFilter.sixfoldRotatedTile(inputImage: inputImage,
-                                           inputCenter: inputCenter,
+                                           inputCenter: CIVector(cgPoint: inputCenter),
                                            inputAngle: inputAngle as NSNumber,
                                            inputWidth: inputWidth as NSNumber)?.outputUIImage
     }
@@ -1523,10 +1588,10 @@ public struct ImageFilters {
     }
     
     @available(iOS 9, *)
-    func stretchCrop(inputSize: CIVector = CIVector(x: 1280.0, y: 720.0), inputCropAmount: Float = 0.25, inputCenterStretchAmount: Float = 0.25) -> UIImage? {
+    func stretchCrop(inputSize: CGSize = CGSize(width: 1280.0, height: 720.0), inputCropAmount: Float = 0.25, inputCenterStretchAmount: Float = 0.25) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
         return CIFilter.stretchCrop(inputImage: inputImage,
-                                    inputSize: inputSize,
+                                    inputSize: CIVector(x: inputSize.width, y: inputSize.height),
                                     inputCropAmount: inputCropAmount as NSNumber,
                                     inputCenterStretchAmount: inputCenterStretchAmount as NSNumber)?.outputUIImage
     }
@@ -1539,7 +1604,7 @@ public struct ImageFilters {
     
     @available(iOS 6, *)
     func swipeTransition(inputTargetImage: UIImage,
-                         inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 300.0, w: 300.0),
+                         inputExtent: CGRect = CGRect(x: 0.0, y: 0.0, width: 300.0, height: 300.0),
                          inputColor: UIColor,
                          inputTime: Float = 0,
                          inputAngle: Float = 0,
@@ -1548,7 +1613,7 @@ public struct ImageFilters {
         guard let inputImage = self.image.ciImage, let inputTargetImage = inputTargetImage.ciImage else { return nil }
         return CIFilter.swipeTransition(inputImage: inputImage,
                                         inputTargetImage: inputTargetImage,
-                                        inputExtent: inputExtent,
+                                        inputExtent: CIVector(cgRect: inputExtent),
                                         inputColor: inputColor.ciColor,
                                         inputTime: inputTime as NSNumber,
                                         inputAngle: inputAngle as NSNumber,
@@ -1569,63 +1634,63 @@ public struct ImageFilters {
     }
     
     @available(iOS 5, *)
-    func toneCurve(inputPoint0: CIVector = CIVector(x: 0.0, y: 0.0),
-                   inputPoint1: CIVector = CIVector(x: 0.25, y: 0.25),
-                   inputPoint2: CIVector = CIVector(x: 0.5, y: 0.5),
-                   inputPoint3: CIVector = CIVector(x: 0.75, y: 0.75),
-                   inputPoint4: CIVector = CIVector(x: 1.0, y: 1.0)) -> UIImage? {
+    func toneCurve(inputPoint0: CGPoint = CGPoint(x: 0.0, y: 0.0),
+                   inputPoint1: CGPoint = CGPoint(x: 0.25, y: 0.25),
+                   inputPoint2: CGPoint = CGPoint(x: 0.5, y: 0.5),
+                   inputPoint3: CGPoint = CGPoint(x: 0.75, y: 0.75),
+                   inputPoint4: CGPoint = CGPoint(x: 1.0, y: 1.0)) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
         return CIFilter.toneCurve(inputImage: inputImage,
-                                  inputPoint0: inputPoint0,
-                                  inputPoint1: inputPoint1,
-                                  inputPoint2: inputPoint2,
-                                  inputPoint3: inputPoint3,
-                                  inputPoint4: inputPoint4)?.outputUIImage
+                                  inputPoint0: CIVector(cgPoint: inputPoint0),
+                                  inputPoint1: CIVector(cgPoint: inputPoint1),
+                                  inputPoint2: CIVector(cgPoint: inputPoint2),
+                                  inputPoint3: CIVector(cgPoint: inputPoint3),
+                                  inputPoint4: CIVector(cgPoint: inputPoint4))?.outputUIImage
     }
     
     @available(iOS 9, *)
-    func torusLensDistortion(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputRadius: Float = 160, inputWidth: Float = 80, inputRefraction: Float = 1.7) -> UIImage? {
+    func torusLensDistortion(inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0), inputRadius: Float = 160, inputWidth: Float = 80, inputRefraction: Float = 1.7) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
         return CIFilter.torusLensDistortion(inputImage: inputImage,
-                                            inputCenter: inputCenter,
+                                            inputCenter: CIVector(cgPoint: inputCenter),
                                             inputRadius: inputRadius as NSNumber,
                                             inputWidth: inputWidth as NSNumber,
                                             inputRefraction: inputRefraction as NSNumber)?.outputUIImage
     }
     
     @available(iOS 6, *)
-    func triangleKaleidoscope(inputPoint: CIVector = CIVector(x: 150.0, y: 150.0), inputSize: Float = 700, inputRotation: Float = 5.924285296593801, inputDecay: Float = 0.85) -> UIImage? {
+    func triangleKaleidoscope(inputPoint: CGPoint = CGPoint(x: 150.0, y: 150.0), inputSize: Float = 700, inputRotation: Float = 5.924285296593801, inputDecay: Float = 0.85) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
         return CIFilter.triangleKaleidoscope(inputImage: inputImage,
-                                             inputPoint: inputPoint,
+                                             inputPoint: CIVector(cgPoint: inputPoint),
                                              inputSize: inputSize as NSNumber,
                                              inputRotation: inputRotation as NSNumber,
                                              inputDecay: inputDecay as NSNumber)?.outputUIImage
     }
     
     @available(iOS 9, *)
-    func triangleTile(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputAngle: Float = 0, inputWidth: Float = 100) -> UIImage? {
+    func triangleTile(inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0), inputAngle: Float = 0, inputWidth: Float = 100) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
         return CIFilter.triangleTile(inputImage: inputImage,
-                                     inputCenter: inputCenter,
+                                     inputCenter: CIVector(cgPoint: inputCenter),
                                      inputAngle: inputAngle as NSNumber,
                                      inputWidth: inputWidth as NSNumber)?.outputUIImage
     }
     
     @available(iOS 6, *)
-    func twelvefoldReflectedTile(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputAngle: Float = 0, inputWidth: Float = 100) -> UIImage? {
+    func twelvefoldReflectedTile(inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0), inputAngle: Float = 0, inputWidth: Float = 100) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
         return CIFilter.twelvefoldReflectedTile(inputImage: inputImage,
-                                                inputCenter: inputCenter,
+                                                inputCenter: CIVector(cgPoint: inputCenter),
                                                 inputAngle: inputAngle as NSNumber,
                                                 inputWidth: inputWidth as NSNumber)?.outputUIImage
     }
     
     @available(iOS 5, *)
-    func twirlDistortion(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputRadius: Float = 300, inputAngle: Float = 3.141592653589793) -> UIImage? {
+    func twirlDistortion(inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0), inputRadius: Float = 300, inputAngle: Float = 3.141592653589793) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
         return CIFilter.twirlDistortion(inputImage: inputImage,
-                                        inputCenter: inputCenter,
+                                        inputCenter: CIVector(cgPoint: inputCenter),
                                         inputRadius: inputRadius as NSNumber,
                                         inputAngle: inputAngle as NSNumber)?.outputUIImage
     }
@@ -1649,20 +1714,20 @@ public struct ImageFilters {
     }
     
     @available(iOS 7, *)
-    func vignetteEffect(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputRadius: Float = 150, inputIntensity: Float = 1, inputFalloff: Float = 0.5) -> UIImage? {
+    func vignetteEffect(inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0), inputRadius: Float = 150, inputIntensity: Float = 1, inputFalloff: Float = 0.5) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
         return CIFilter.vignetteEffect(inputImage: inputImage,
-                                       inputCenter: inputCenter,
+                                       inputCenter: CIVector(cgPoint: inputCenter),
                                        inputRadius: inputRadius as NSNumber,
                                        inputIntensity: inputIntensity as NSNumber,
                                        inputFalloff: inputFalloff as NSNumber)?.outputUIImage
     }
     
     @available(iOS 6, *)
-    func vortexDistortion(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputRadius: Float = 300, inputAngle: Float = 56.54866776461628) -> UIImage? {
+    func vortexDistortion(inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0), inputRadius: Float = 300, inputAngle: Float = 56.54866776461628) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
         return CIFilter.vortexDistortion(inputImage: inputImage,
-                                         inputCenter: inputCenter,
+                                         inputCenter: CIVector(cgPoint: inputCenter),
                                          inputRadius: inputRadius as NSNumber,
                                          inputAngle: inputAngle as NSNumber)?.outputUIImage
     }
@@ -1680,8 +1745,10 @@ public struct ImageFilters {
     }
     
     @available(iOS 8.3, *)
-    func zoomBlur(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputAmount: Float = 20) -> UIImage? {
+    func zoomBlur(inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0), inputAmount: Float = 20) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
-        return CIFilter.zoomBlur(inputImage: inputImage, inputCenter: inputCenter, inputAmount: inputAmount as NSNumber)?.outputUIImage
+        return CIFilter.zoomBlur(inputImage: inputImage,
+                                 inputCenter: CIVector(cgPoint: inputCenter),
+                                 inputAmount: inputAmount as NSNumber)?.outputUIImage
     }
 }
