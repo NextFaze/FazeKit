@@ -2723,7 +2723,7 @@ extension CIFilter {
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage", "outputCGImage"])
     @available(iOS 9, *)
-    static func pdf417BarcodeGenerator(inputMessage: NSData, inputMinWidth: NSNumber, inputMaxWidth: NSNumber, inputMinHeight: NSNumber, inputMaxHeight: NSNumber, inputDataColumns: NSNumber, inputRows: NSNumber, inputPreferredAspectRatio: NSNumber, inputCompactionMode: NSNumber, inputCompactStyle: NSNumber, inputCorrectionLevel: NSNumber, inputAlwaysSpecifyCompaction: NSNumber) -> CIFilter? {
+    static func pdf417BarcodeGenerator(inputMessage: NSData, inputMinWidth: NSNumber, inputMaxWidth: NSNumber, inputMinHeight: NSNumber, inputMaxHeight: NSNumber, inputDataColumns: NSNumber, inputRows: NSNumber, inputPreferredAspectRatio: NSNumber, inputCompactionMode: NSNumber, inputCompactStyle: NSNumber, inputCorrectionLevel: NSNumber, inputAlwaysSpecifyCompaction: NSNumber?) -> CIFilter? {
         guard let filter = CIFilter(name: "CIPDF417BarcodeGenerator") else {
             return nil
         }
