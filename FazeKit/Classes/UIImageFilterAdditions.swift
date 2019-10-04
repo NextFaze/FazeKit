@@ -570,7 +570,7 @@ public struct ImageFilters {
     }
     
     @available(iOS 5, *)
-    func colorMonochrome(inputColor: UIColor, inputIntensity: Float = 1) -> UIImage? {
+    func colorMonochrome(inputColor: UIColor = .white, inputIntensity: Float = 1) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
         return CIFilter.colorMonochrome(inputImage: inputImage, inputColor: inputColor.ciColor, inputIntensity: inputIntensity as NSNumber)?.outputUIImage
     }
