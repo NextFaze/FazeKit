@@ -267,21 +267,24 @@ public struct ImageFilters {
     }
     
     @available(iOS 6, *)
-    func affineClamp(inputTransform: NSValue = NSValue(cgAffineTransform: CGAffineTransform(a: 1.0, b: 0.0, c: 0.0, d: 1.0, tx: 0.0, ty: 0.0))) -> UIImage? {
+    func affineClamp(inputTransform: CGAffineTransform = CGAffineTransform(a: 1.0, b: 0.0, c: 0.0, d: 1.0, tx: 0.0, ty: 0.0)) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
-        return CIFilter.affineClamp(inputImage: inputImage, inputTransform: inputTransform)?.outputUIImage
+        return CIFilter.affineClamp(inputImage: inputImage,
+                                    inputTransform: NSValue(cgAffineTransform: inputTransform))?.outputUIImage
     }
     
     @available(iOS 6, *)
-    func affineTile(inputTransform: NSValue = NSValue(cgAffineTransform: CGAffineTransform(a: 1.0, b: 0.0, c: 0.0, d: 1.0, tx: 0.0, ty: 0.0))) -> UIImage? {
+    func affineTile(inputTransform: CGAffineTransform = CGAffineTransform(a: 1.0, b: 0.0, c: 0.0, d: 1.0, tx: 0.0, ty: 0.0)) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
-        return CIFilter.affineTile(inputImage: inputImage, inputTransform: inputTransform)?.outputUIImage
+        return CIFilter.affineTile(inputImage: inputImage,
+                                   inputTransform: NSValue(cgAffineTransform: inputTransform))?.outputUIImage
     }
     
     @available(iOS 5, *)
-    func affineTransform(inputTransform: NSValue = NSValue(cgAffineTransform: CGAffineTransform(a: 1.0, b: 0.0, c: 0.0, d: 1.0, tx: 0.0, ty: 0.0))) -> UIImage? {
+    func affineTransform(inputTransform: CGAffineTransform = CGAffineTransform(a: 1.0, b: 0.0, c: 0.0, d: 1.0, tx: 0.0, ty: 0.0)) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
-        return CIFilter.affineTransform(inputImage: inputImage, inputTransform: inputTransform)?.outputUIImage
+        return CIFilter.affineTransform(inputImage: inputImage,
+                                        inputTransform: NSValue(cgAffineTransform: inputTransform))?.outputUIImage
     }
     
     @available(iOS 9, *)
@@ -330,7 +333,7 @@ public struct ImageFilters {
     }
     
     @available(iOS 6, *)
-    func barsSwipeTransition(inputTargetImage: UIImage, inputAngle: Float = 3.141592653589793, inputWidth: Float = 30, inputBarOffset: Float = 10, inputTime: Float = 0) -> UIImage? {
+    func barsSwipeTransition(inputTargetImage: UIImage, inputAngle: Float = Float.pi, inputWidth: Float = 30, inputBarOffset: Float = 10, inputTime: Float = 0) -> UIImage? {
         guard let inputImage = self.image.ciImage, let inputTargetImage = inputTargetImage.ciImage else { return nil }
         return CIFilter.barsSwipeTransition(inputImage: inputImage,
                                             inputTargetImage: inputTargetImage,
@@ -879,7 +882,7 @@ public struct ImageFilters {
     func fourfoldReflectedTile(inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0),
                                inputAngle: Float = 0,
                                inputWidth: Float = 100,
-                               inputAcuteAngle: Float = 1.570796326794897) -> UIImage? {
+                               inputAcuteAngle: Float = Float.pi / 2) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
         return CIFilter.fourfoldReflectedTile(inputImage: inputImage,
                                               inputCenter: CIVector(cgPoint: inputCenter),
@@ -1687,7 +1690,7 @@ public struct ImageFilters {
     }
     
     @available(iOS 5, *)
-    func twirlDistortion(inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0), inputRadius: Float = 300, inputAngle: Float = 3.141592653589793) -> UIImage? {
+    func twirlDistortion(inputCenter: CGPoint = CGPoint(x: 150.0, y: 150.0), inputRadius: Float = 300, inputAngle: Float = Float.pi) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
         return CIFilter.twirlDistortion(inputImage: inputImage,
                                         inputCenter: CIVector(cgPoint: inputCenter),
