@@ -23,6 +23,42 @@
 import UIKit
 
 public extension UIColor {
+    var redInt: Int {
+        var red: CGFloat = 0
+        self.getRed(&red, green: nil, blue: nil, alpha: nil)
+        return Int(red * 255)
+    }
+    
+    var greenInt: Int {
+        var green: CGFloat = 0
+        self.getRed(nil, green: &green, blue: nil, alpha: nil)
+        return Int(green * 255)
+    }
+    
+    var blueInt: Int {
+        var blue: CGFloat = 0
+        self.getRed(nil, green: nil, blue: &blue, alpha: nil)
+        return Int(blue * 255)
+    }
+    
+    var alphaInt: Int {
+        var alpha: CGFloat = 0
+        self.getRed(nil, green: nil, blue: nil, alpha: &alpha)
+        return Int(alpha * 255)
+    }
+    
+    var rgba: (r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat) {
+        var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0, alpha: CGFloat = 0
+        guard self.getRed(&red, green: &green, blue: &blue, alpha: &alpha) else { return (0, 0, 0, 0) }
+        return (red, green, blue, alpha)
+    }
+    
+    var rgbaInt: (r: Int, g: Int, b: Int, a: Int) {
+        var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0, alpha: CGFloat = 0
+        guard self.getRed(&red, green: &green, blue: &blue, alpha: &alpha) else { return (0, 0, 0, 0) }
+        return (Int(red * 255), Int(green * 255), Int(blue * 255), Int(alpha * 255))
+    }
+    
     convenience init(redInt: Int, greenInt: Int, blueInt: Int, alpha: CGFloat) {
         self.init(red: CGFloat(redInt)/255.0, green: CGFloat(greenInt)/255.0, blue: CGFloat(blueInt)/255.0, alpha: alpha)
     }
@@ -42,5 +78,23 @@ public extension UIColor {
             (r, g, b) = (1, 1, 0)
         }
         self.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(255 * alpha) / 255)
+    }
+    
+    var hexStringRGB: String {
+        let rgbaInt = self.rgbaInt
+        return String(format: "%02x%02x%02x", rgbaInt.r, rgbaInt.g, rgbaInt.b)
+    }
+    
+    var hexStringARGB: String {
+        let rgbaInt = self.rgbaInt
+        return String(format: "%02x%02x%02x%02x", rgbaInt.a, rgbaInt.r, rgbaInt.g, rgbaInt.b)
+    }
+    
+    var htmlStringRGB: String {
+        return "#" + self.hexStringRGB
+    }
+    
+    var htmlStringARGB: String {
+        return "#" + self.hexStringARGB
     }
 }
