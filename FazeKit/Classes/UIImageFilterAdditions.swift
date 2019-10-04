@@ -33,8 +33,8 @@ public extension UIImage {
         }
         
         @available(iOS 8, *)
-        static func aztecCode(inputMessage: NSData, inputCorrectionLevel: NSNumber = 23, inputLayers: NSNumber, inputCompactStyle: NSNumber) -> UIImage? {
-            return CIFilter.aztecCodeGenerator(inputMessage: inputMessage, inputCorrectionLevel: inputCorrectionLevel, inputLayers: inputLayers, inputCompactStyle: inputCompactStyle)?.outputUIImage
+        static func aztecCode(inputMessage: Data, inputCorrectionLevel: NSNumber = 23, inputLayers: NSNumber, inputCompactStyle: NSNumber) -> UIImage? {
+            return CIFilter.aztecCodeGenerator(inputMessage: inputMessage as NSData, inputCorrectionLevel: inputCorrectionLevel, inputLayers: inputLayers, inputCompactStyle: inputCompactStyle)?.outputUIImage
         }
         
         @available(iOS 11, *)
@@ -48,8 +48,8 @@ public extension UIImage {
         }
         
         @available(iOS 8, *)
-        static func code128Barcode(inputMessage: NSData, inputQuietSpace: NSNumber = 7, inputBarcodeHeight: NSNumber = 32) -> UIImage? {
-            return CIFilter.code128BarcodeGenerator(inputMessage: inputMessage, inputQuietSpace: inputQuietSpace, inputBarcodeHeight: inputBarcodeHeight)?.outputUIImage
+        static func code128Barcode(inputMessage: Data, inputQuietSpace: NSNumber = 7, inputBarcodeHeight: NSNumber = 32) -> UIImage? {
+            return CIFilter.code128BarcodeGenerator(inputMessage: inputMessage as NSData, inputQuietSpace: inputQuietSpace, inputBarcodeHeight: inputBarcodeHeight)?.outputUIImage
         }
         
         @available(iOS 5, *)
@@ -85,8 +85,8 @@ public extension UIImage {
         }
         
         @available(iOS 9, *)
-        static func pdf417Barcode(inputMessage: NSData, inputMinWidth: NSNumber, inputMaxWidth: NSNumber, inputMinHeight: NSNumber, inputMaxHeight: NSNumber, inputDataColumns: NSNumber, inputRows: NSNumber, inputPreferredAspectRatio: NSNumber, inputCompactionMode: NSNumber, inputCompactStyle: NSNumber, inputCorrectionLevel: NSNumber, inputAlwaysSpecifyCompaction: NSNumber) -> UIImage? {
-            return CIFilter.pdf417BarcodeGenerator(inputMessage: inputMessage,
+        static func pdf417Barcode(inputMessage: Data, inputMinWidth: NSNumber, inputMaxWidth: NSNumber, inputMinHeight: NSNumber, inputMaxHeight: NSNumber, inputDataColumns: NSNumber, inputRows: NSNumber, inputPreferredAspectRatio: NSNumber, inputCompactionMode: NSNumber, inputCompactStyle: NSNumber, inputCorrectionLevel: NSNumber, inputAlwaysSpecifyCompaction: NSNumber) -> UIImage? {
+            return CIFilter.pdf417BarcodeGenerator(inputMessage: inputMessage as NSData,
                                                    inputMinWidth: inputMinWidth,
                                                    inputMaxWidth: inputMaxWidth,
                                                    inputMinHeight: inputMinHeight,
@@ -101,8 +101,8 @@ public extension UIImage {
         }
         
         @available(iOS 7, *)
-        static func qrCode(inputMessage: NSData, inputCorrectionLevel: NSString = "M") -> UIImage? {
-            return CIFilter.qrCodeGenerator(inputMessage: inputMessage, inputCorrectionLevel: inputCorrectionLevel)?.outputUIImage
+        static func qrCode(inputMessage: Data, inputCorrectionLevel: NSString = "M") -> UIImage? {
+            return CIFilter.qrCodeGenerator(inputMessage: inputMessage as NSData, inputCorrectionLevel: inputCorrectionLevel)?.outputUIImage
         }
         
         @available(iOS 5, *)
@@ -374,32 +374,32 @@ public struct ImageFilters {
     }
     
     @available(iOS 5, *)
-    func colorCube(inputCubeDimension: NSNumber = 2, inputCubeData: NSData) -> UIImage? {
+    func colorCube(inputCubeDimension: NSNumber = 2, inputCubeData: Data) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
-        return CIFilter.colorCube(inputImage: inputImage, inputCubeDimension: inputCubeDimension, inputCubeData: inputCubeData)?.outputUIImage
+        return CIFilter.colorCube(inputImage: inputImage, inputCubeDimension: inputCubeDimension, inputCubeData: inputCubeData as NSData)?.outputUIImage
     }
     
     @available(iOS 11, *)
-    func colorCubesMixedWithMask(inputMaskImage: UIImage, inputCubeDimension: NSNumber = 2, inputCube0Data: NSData, inputCube1Data: NSData, inputColorSpace: NSObject) -> UIImage? {
+    func colorCubesMixedWithMask(inputMaskImage: UIImage, inputCubeDimension: NSNumber = 2, inputCube0Data: Data, inputCube1Data: Data, inputColorSpace: NSObject) -> UIImage? {
         guard let inputImage = self.image.ciImage, let inputMaskImage = inputMaskImage.ciImage else { return nil }
         return CIFilter.colorCubesMixedWithMask(inputImage: inputImage,
                                                 inputMaskImage: inputMaskImage,
                                                 inputCubeDimension: inputCubeDimension,
-                                                inputCube0Data: inputCube0Data,
-                                                inputCube1Data: inputCube1Data,
+                                                inputCube0Data: inputCube0Data as NSData,
+                                                inputCube1Data: inputCube1Data as NSData,
                                                 inputColorSpace: inputColorSpace)?.outputUIImage
     }
     
     @available(iOS 7, *)
-    func colorCubeWithColorSpace(inputCubeDimension: NSNumber = 2, inputCubeData: NSData, inputColorSpace: NSObject) -> UIImage? {
+    func colorCubeWithColorSpace(inputCubeDimension: NSNumber = 2, inputCubeData: Data, inputColorSpace: NSObject) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
-        return CIFilter.colorCubeWithColorSpace(inputImage: inputImage, inputCubeDimension: inputCubeDimension, inputCubeData: inputCubeData, inputColorSpace: inputColorSpace)?.outputUIImage
+        return CIFilter.colorCubeWithColorSpace(inputImage: inputImage, inputCubeDimension: inputCubeDimension, inputCubeData: inputCubeData as NSData, inputColorSpace: inputColorSpace)?.outputUIImage
     }
     
     @available(iOS 11, *)
-    func colorCurves(inputCurvesData: NSData, inputCurvesDomain: CIVector = CIVector(x: 0.0, y: 1.0), inputColorSpace: NSObject) -> UIImage? {
+    func colorCurves(inputCurvesData: Data, inputCurvesDomain: CIVector = CIVector(x: 0.0, y: 1.0), inputColorSpace: NSObject) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
-        return CIFilter.colorCurves(inputImage: inputImage, inputCurvesData: inputCurvesData, inputCurvesDomain: inputCurvesDomain, inputColorSpace: inputColorSpace)?.outputUIImage
+        return CIFilter.colorCurves(inputImage: inputImage, inputCurvesData: inputCurvesData as NSData, inputCurvesDomain: inputCurvesDomain, inputColorSpace: inputColorSpace)?.outputUIImage
     }
     
     @available(iOS 5, *)
