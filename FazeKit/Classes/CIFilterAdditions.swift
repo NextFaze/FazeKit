@@ -3955,6 +3955,7 @@ extension CIFilter {
 
 extension CIFilter {
     var outputUIImage: UIImage? {
-        return self.outputImage == nil ? nil : UIImage(ciImage: self.outputImage!)
+        guard let outputImage = self.outputImage else { return nil }
+        return UIImage(ciImage: outputImage)
     }
 }
