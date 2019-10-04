@@ -252,7 +252,7 @@ extension CIFilter {
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage", "outputCGImage"])
     @available(iOS 8, *)
-    static func aztecCodeGenerator(inputMessage: NSData, inputCorrectionLevel: NSNumber = 23, inputLayers: NSNumber, inputCompactStyle: NSNumber) -> CIFilter? {
+    static func aztecCodeGenerator(inputMessage: NSData, inputCorrectionLevel: NSNumber = 23, inputLayers: NSNumber, inputCompactStyle: NSNumber?) -> CIFilter? {
         guard let filter = CIFilter(name: "CIAztecCodeGenerator") else {
             return nil
         }
@@ -778,7 +778,7 @@ extension CIFilter {
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 11, *)
-    static func colorCubesMixedWithMask(inputImage: CIImage, inputMaskImage: CIImage, inputCubeDimension: NSNumber = 2, inputCube0Data: NSData, inputCube1Data: NSData, inputColorSpace: NSObject) -> CIFilter? {
+    static func colorCubesMixedWithMask(inputImage: CIImage, inputMaskImage: CIImage, inputCubeDimension: NSNumber = 2, inputCube0Data: NSData, inputCube1Data: NSData, inputColorSpace: Any) -> CIFilter? {
         guard let filter = CIFilter(name: "CIColorCubesMixedWithMask") else {
             return nil
         }
@@ -801,7 +801,7 @@ extension CIFilter {
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 7, *)
-    static func colorCubeWithColorSpace(inputImage: CIImage, inputCubeDimension: NSNumber = 2, inputCubeData: NSData, inputColorSpace: NSObject) -> CIFilter? {
+    static func colorCubeWithColorSpace(inputImage: CIImage, inputCubeDimension: NSNumber = 2, inputCubeData: NSData, inputColorSpace: Any) -> CIFilter? {
         guard let filter = CIFilter(name: "CIColorCubeWithColorSpace") else {
             return nil
         }
@@ -822,7 +822,7 @@ extension CIFilter {
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 11, *)
-    static func colorCurves(inputImage: CIImage, inputCurvesData: NSData, inputCurvesDomain: CIVector = CIVector(x: 0.0, y: 1.0), inputColorSpace: NSObject) -> CIFilter? {
+    static func colorCurves(inputImage: CIImage, inputCurvesData: NSData, inputCurvesDomain: CIVector = CIVector(x: 0.0, y: 1.0), inputColorSpace: Any) -> CIFilter? {
         guard let filter = CIFilter(name: "CIColorCurves") else {
             return nil
         }
@@ -2002,7 +2002,7 @@ extension CIFilter {
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 10, *)
-    static func hueSaturationValueGradient(inputValue: NSNumber = 1, inputRadius: NSNumber = 300, inputSoftness: NSNumber = 1, inputDither: NSNumber = 1, inputColorSpace: NSObject) -> CIFilter? {
+    static func hueSaturationValueGradient(inputValue: NSNumber = 1, inputRadius: NSNumber = 300, inputSoftness: NSNumber = 1, inputDither: NSNumber = 1, inputColorSpace: Any) -> CIFilter? {
         guard let filter = CIFilter(name: "CIHueSaturationValueGradient") else {
             return nil
         }
