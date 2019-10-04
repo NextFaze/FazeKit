@@ -43,8 +43,8 @@ public extension UIImage {
         }
         
         @available(iOS 5, *)
-        static func checkerboard(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputColor0: CIColor, inputColor1: CIColor, inputWidth: NSNumber = 80, inputSharpness: NSNumber = 1) -> UIImage? {
-            return CIFilter.checkerboardGenerator(inputCenter: inputCenter, inputColor0: inputColor0, inputColor1: inputColor1, inputWidth: inputWidth, inputSharpness: inputSharpness)?.outputUIImage
+        static func checkerboard(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputColor0: UIColor, inputColor1: UIColor, inputWidth: NSNumber = 80, inputSharpness: NSNumber = 1) -> UIImage? {
+            return CIFilter.checkerboardGenerator(inputCenter: inputCenter, inputColor0: inputColor0.ciColor, inputColor1: inputColor1.ciColor, inputWidth: inputWidth, inputSharpness: inputSharpness)?.outputUIImage
         }
         
         @available(iOS 8, *)
@@ -58,8 +58,8 @@ public extension UIImage {
         }
         
         @available(iOS 5, *)
-        static func gaussianGradient(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputColor0: CIColor, inputColor1: CIColor, inputRadius: NSNumber = 300) -> UIImage? {
-            return CIFilter.gaussianGradient(inputCenter: inputCenter, inputColor0: inputColor0, inputColor1: inputColor1, inputRadius: inputRadius)?.outputUIImage
+        static func gaussianGradient(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputColor0: UIColor, inputColor1: UIColor, inputRadius: NSNumber = 300) -> UIImage? {
+            return CIFilter.gaussianGradient(inputCenter: inputCenter, inputColor0: inputColor0.ciColor, inputColor1: inputColor1.ciColor, inputRadius: inputRadius)?.outputUIImage
         }
         
         @available(iOS 10, *)
@@ -68,9 +68,9 @@ public extension UIImage {
         }
         
         @available(iOS 9, *)
-        static func lenticularHalo(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputColor: CIColor, inputHaloRadius: NSNumber = 70, inputHaloWidth: NSNumber = 87, inputHaloOverlap: NSNumber = 0.77, inputStriationStrength: NSNumber = 0.5, inputStriationContrast: NSNumber = 1, inputTime: NSNumber = 0) -> UIImage? {
+        static func lenticularHalo(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputColor: UIColor, inputHaloRadius: NSNumber = 70, inputHaloWidth: NSNumber = 87, inputHaloOverlap: NSNumber = 0.77, inputStriationStrength: NSNumber = 0.5, inputStriationContrast: NSNumber = 1, inputTime: NSNumber = 0) -> UIImage? {
             return CIFilter.lenticularHaloGenerator(inputCenter: inputCenter,
-                                                    inputColor: inputColor,
+                                                    inputColor: inputColor.ciColor,
                                                     inputHaloRadius: inputHaloRadius,
                                                     inputHaloWidth: inputHaloWidth,
                                                     inputHaloOverlap: inputHaloOverlap,
@@ -80,8 +80,8 @@ public extension UIImage {
         }
         
         @available(iOS 5, *)
-        static func linearGradient(inputPoint0: CIVector = CIVector(x: 0.0, y: 0.0), inputPoint1: CIVector = CIVector(x: 200.0, y: 200.0), inputColor0: CIColor, inputColor1: CIColor) -> UIImage? {
-            return CIFilter.linearGradient(inputPoint0: inputPoint0, inputPoint1: inputPoint1, inputColor0: inputColor0, inputColor1: inputColor1)?.outputUIImage
+        static func linearGradient(inputPoint0: CIVector = CIVector(x: 0.0, y: 0.0), inputPoint1: CIVector = CIVector(x: 200.0, y: 200.0), inputColor0: UIColor, inputColor1: UIColor) -> UIImage? {
+            return CIFilter.linearGradient(inputPoint0: inputPoint0, inputPoint1: inputPoint1, inputColor0: inputColor0.ciColor, inputColor1: inputColor1.ciColor)?.outputUIImage
         }
         
         @available(iOS 9, *)
@@ -106,8 +106,8 @@ public extension UIImage {
         }
         
         @available(iOS 5, *)
-        static func radialGradient(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputRadius0: NSNumber = 5, inputRadius1: NSNumber = 100, inputColor0: CIColor, inputColor1: CIColor) -> UIImage? {
-            return CIFilter.radialGradient(inputCenter: inputCenter, inputRadius0: inputRadius0, inputRadius1: inputRadius1, inputColor0: inputColor0, inputColor1: inputColor1)?.outputUIImage
+        static func radialGradient(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputRadius0: NSNumber = 5, inputRadius1: NSNumber = 100, inputColor0: UIColor, inputColor1: UIColor) -> UIImage? {
+            return CIFilter.radialGradient(inputCenter: inputCenter, inputRadius0: inputRadius0, inputRadius1: inputRadius1, inputColor0: inputColor0.ciColor, inputColor1: inputColor1.ciColor)?.outputUIImage
         }
         
         @available(iOS 6, *)
@@ -116,14 +116,14 @@ public extension UIImage {
         }
         
         @available(iOS 6, *)
-        static func smoothLinearGradient(inputPoint0: CIVector = CIVector(x: 0.0, y: 0.0), inputPoint1: CIVector = CIVector(x: 200.0, y: 200.0), inputColor0: CIColor, inputColor1: CIColor) -> UIImage? {
-            return CIFilter.smoothLinearGradient(inputPoint0: inputPoint0, inputPoint1: inputPoint1, inputColor0: inputColor0, inputColor1: inputColor1)?.outputUIImage
+        static func smoothLinearGradient(inputPoint0: CIVector = CIVector(x: 0.0, y: 0.0), inputPoint1: CIVector = CIVector(x: 200.0, y: 200.0), inputColor0: UIColor, inputColor1: UIColor) -> UIImage? {
+            return CIFilter.smoothLinearGradient(inputPoint0: inputPoint0, inputPoint1: inputPoint1, inputColor0: inputColor0.ciColor, inputColor1: inputColor1.ciColor)?.outputUIImage
         }
         
         @available(iOS 6, *)
-        static func starShine(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputColor: CIColor, inputRadius: NSNumber = 50, inputCrossScale: NSNumber = 15, inputCrossAngle: NSNumber = 0.6, inputCrossOpacity: NSNumber = -2, inputCrossWidth: NSNumber = 2.5, inputEpsilon: NSNumber = -2) -> UIImage? {
+        static func starShine(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputColor: UIColor, inputRadius: NSNumber = 50, inputCrossScale: NSNumber = 15, inputCrossAngle: NSNumber = 0.6, inputCrossOpacity: NSNumber = -2, inputCrossWidth: NSNumber = 2.5, inputEpsilon: NSNumber = -2) -> UIImage? {
             return CIFilter.starShineGenerator(inputCenter: inputCenter,
-                                               inputColor: inputColor,
+                                               inputColor: inputColor.ciColor,
                                                inputRadius: inputRadius,
                                                inputCrossScale: inputCrossScale,
                                                inputCrossAngle: inputCrossAngle,
@@ -133,18 +133,18 @@ public extension UIImage {
         }
         
         @available(iOS 5, *)
-        static func stripes(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputColor0: CIColor, inputColor1: CIColor, inputWidth: NSNumber = 80, inputSharpness: NSNumber = 1) -> UIImage? {
+        static func stripes(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputColor0: UIColor, inputColor1: UIColor, inputWidth: NSNumber = 80, inputSharpness: NSNumber = 1) -> UIImage? {
             return CIFilter.stripesGenerator(inputCenter: inputCenter,
-                                             inputColor0: inputColor0,
-                                             inputColor1: inputColor1,
+                                             inputColor0: inputColor0.ciColor,
+                                             inputColor1: inputColor1.ciColor,
                                              inputWidth: inputWidth,
                                              inputSharpness: inputSharpness)?.outputUIImage
         }
         
         @available(iOS 9, *)
-        static func sunbeams(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputColor: CIColor, inputSunRadius: NSNumber = 40, inputMaxStriationRadius: NSNumber = 2.58, inputStriationStrength: NSNumber = 0.5, inputStriationContrast: NSNumber = 1.375, inputTime: NSNumber = 0) -> UIImage? {
+        static func sunbeams(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputColor: UIColor, inputSunRadius: NSNumber = 40, inputMaxStriationRadius: NSNumber = 2.58, inputStriationStrength: NSNumber = 0.5, inputStriationContrast: NSNumber = 1.375, inputTime: NSNumber = 0) -> UIImage? {
             return CIFilter.sunbeamsGenerator(inputCenter: inputCenter,
-                                              inputColor: inputColor,
+                                              inputColor: inputColor.ciColor,
                                               inputSunRadius: inputSunRadius,
                                               inputMaxStriationRadius: inputMaxStriationRadius,
                                               inputStriationStrength: inputStriationStrength,
@@ -659,19 +659,19 @@ public struct ImageFilters {
     }
     
     @available(iOS 5, *)
-    func falseColor(inputColor0: CIColor, inputColor1: CIColor) -> UIImage? {
+    func falseColor(inputColor0: UIColor, inputColor1: UIColor) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
-        return CIFilter.falseColor(inputImage: inputImage, inputColor0: inputColor0, inputColor1: inputColor1)?.outputUIImage
+        return CIFilter.falseColor(inputImage: inputImage, inputColor0: inputColor0.ciColor, inputColor1: inputColor1.ciColor)?.outputUIImage
     }
     
     @available(iOS 6, *)
-    func flashTransition(inputTargetImage: UIImage, inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 300.0, w: 300.0), inputColor: CIColor, inputTime: NSNumber = 0, inputMaxStriationRadius: NSNumber = 2.58, inputStriationStrength: NSNumber = 0.5, inputStriationContrast: NSNumber = 1.375, inputFadeThreshold: NSNumber = 0.85) -> UIImage? {
+    func flashTransition(inputTargetImage: UIImage, inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 300.0, w: 300.0), inputColor: UIColor, inputTime: NSNumber = 0, inputMaxStriationRadius: NSNumber = 2.58, inputStriationStrength: NSNumber = 0.5, inputStriationContrast: NSNumber = 1.375, inputFadeThreshold: NSNumber = 0.85) -> UIImage? {
         guard let inputImage = self.image.ciImage, let inputTargetImage = inputTargetImage.ciImage else { return nil }
         return CIFilter.flashTransition(inputImage: inputImage,
                                         inputTargetImage: inputTargetImage,
                                         inputCenter: inputCenter,
                                         inputExtent: inputExtent,
-                                        inputColor: inputColor,
+                                        inputColor: inputColor.ciColor,
                                         inputTime: inputTime,
                                         inputMaxStriationRadius: inputMaxStriationRadius,
                                         inputStriationStrength: inputStriationStrength,
@@ -1189,27 +1189,32 @@ public struct ImageFilters {
     }
     
     @available(iOS 9, *)
-    func spotColor(inputCenterColor1: CIColor, inputReplacementColor1: CIColor, inputCloseness1: NSNumber = 0.22, inputContrast1: NSNumber = 0.98, inputCenterColor2: CIColor, inputReplacementColor2: CIColor, inputCloseness2: NSNumber = 0.15, inputContrast2: NSNumber = 0.98, inputCenterColor3: CIColor, inputReplacementColor3: CIColor, inputCloseness3: NSNumber = 0.5, inputContrast3: NSNumber = 0.99) -> UIImage? {
+    func spotColor(inputCenterColor1: UIColor, inputReplacementColor1: UIColor, inputCloseness1: NSNumber = 0.22, inputContrast1: NSNumber = 0.98, inputCenterColor2: UIColor, inputReplacementColor2: UIColor, inputCloseness2: NSNumber = 0.15, inputContrast2: NSNumber = 0.98, inputCenterColor3: UIColor, inputReplacementColor3: UIColor, inputCloseness3: NSNumber = 0.5, inputContrast3: NSNumber = 0.99) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
         return CIFilter.spotColor(inputImage: inputImage,
-                                  inputCenterColor1: inputCenterColor1,
-                                  inputReplacementColor1: inputReplacementColor1,
+                                  inputCenterColor1: inputCenterColor1.ciColor,
+                                  inputReplacementColor1: inputReplacementColor1.ciColor,
                                   inputCloseness1: inputCloseness1,
                                   inputContrast1: inputContrast1,
-                                  inputCenterColor2: inputCenterColor2,
-                                  inputReplacementColor2: inputReplacementColor2,
+                                  inputCenterColor2: inputCenterColor2.ciColor,
+                                  inputReplacementColor2: inputReplacementColor2.ciColor,
                                   inputCloseness2: inputCloseness2,
                                   inputContrast2: inputContrast2,
-                                  inputCenterColor3: inputCenterColor3,
-                                  inputReplacementColor3: inputReplacementColor3,
+                                  inputCenterColor3: inputCenterColor3.ciColor,
+                                  inputReplacementColor3: inputReplacementColor3.ciColor,
                                   inputCloseness3: inputCloseness3,
                                   inputContrast3: inputContrast3)?.outputUIImage
     }
     
     @available(iOS 9, *)
-    func spotLight(inputLightPosition: CIVector = CIVector(x: 400.0, y: 600.0, z: 150.0), inputLightPointsAt: CIVector = CIVector(x: 200.0, y: 200.0, z: 0.0), inputBrightness: NSNumber = 3, inputConcentration: NSNumber = 0.1, inputColor: CIColor) -> UIImage? {
+    func spotLight(inputLightPosition: CIVector = CIVector(x: 400.0, y: 600.0, z: 150.0), inputLightPointsAt: CIVector = CIVector(x: 200.0, y: 200.0, z: 0.0), inputBrightness: NSNumber = 3, inputConcentration: NSNumber = 0.1, inputColor: UIColor) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
-        return CIFilter.spotLight(inputImage: inputImage, inputLightPosition: inputLightPosition, inputLightPointsAt: inputLightPointsAt, inputBrightness: inputBrightness, inputConcentration: inputConcentration, inputColor: inputColor)?.outputUIImage
+        return CIFilter.spotLight(inputImage: inputImage,
+                                  inputLightPosition: inputLightPosition,
+                                  inputLightPointsAt: inputLightPointsAt,
+                                  inputBrightness: inputBrightness,
+                                  inputConcentration: inputConcentration,
+                                  inputColor: inputColor.ciColor)?.outputUIImage
     }
     
     @available(iOS 7, *)
@@ -1238,12 +1243,12 @@ public struct ImageFilters {
     }
     
     @available(iOS 6, *)
-    func swipeTransition(inputTargetImage: UIImage, inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 300.0, w: 300.0), inputColor: CIColor, inputTime: NSNumber = 0, inputAngle: NSNumber = 0, inputWidth: NSNumber = 300, inputOpacity: NSNumber = 0) -> UIImage? {
+    func swipeTransition(inputTargetImage: UIImage, inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 300.0, w: 300.0), inputColor: UIColor, inputTime: NSNumber = 0, inputAngle: NSNumber = 0, inputWidth: NSNumber = 300, inputOpacity: NSNumber = 0) -> UIImage? {
         guard let inputImage = self.image.ciImage, let inputTargetImage = inputTargetImage.ciImage else { return nil }
         return CIFilter.swipeTransition(inputImage: inputImage,
                                         inputTargetImage: inputTargetImage,
                                         inputExtent: inputExtent,
-                                        inputColor: inputColor,
+                                        inputColor: inputColor.ciColor,
                                         inputTime: inputTime,
                                         inputAngle: inputAngle,
                                         inputWidth: inputWidth,
@@ -1334,9 +1339,9 @@ public struct ImageFilters {
     }
     
     @available(iOS 5, *)
-    func whitePointAdjust(inputColor: CIColor) -> UIImage? {
+    func whitePointAdjust(inputColor: UIColor) -> UIImage? {
         guard let inputImage = self.image.ciImage else { return nil }
-        return CIFilter.whitePointAdjust(inputImage: inputImage, inputColor: inputColor)?.outputUIImage
+        return CIFilter.whitePointAdjust(inputImage: inputImage, inputColor: inputColor.ciColor)?.outputUIImage
     }
     
     @available(iOS 10, *)
