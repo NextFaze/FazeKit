@@ -8,7 +8,7 @@ import Foundation
 import CoreImage
 import AVFoundation
 
-extension CIFilter {
+public extension CIFilter {
     
     /// [CIAccordionFoldTransition](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIAccordionFoldTransition)
     ///
