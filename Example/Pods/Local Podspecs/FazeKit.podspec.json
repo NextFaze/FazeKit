@@ -22,7 +22,7 @@
   },
   "swift_versions": "4.0",
   "requires_arc": true,
-  "source_files": "FazeKit/Classes/*.swift",
+  "source_files": "FazeKit/Classes/**/*",
   "frameworks": "UIKit",
   "swift_version": "4.0"
 }

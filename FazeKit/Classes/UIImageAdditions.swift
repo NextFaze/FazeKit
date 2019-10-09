@@ -130,20 +130,6 @@ public extension UIImage {
     var aspect: CGFloat {
         return self.size.height == 0 ? 1 : self.size.width / self.size.height
     }
-    
-    func blurredImage(radius: CGFloat = 15.0) -> UIImage? {
-        guard let ciImage = self.ciImage,
-            let filter = CIFilter.gaussianBlur(inputImage: ciImage, inputRadius: NSNumber(value: Float(radius))),
-            let outputImage = filter.outputImage else { return nil }
-        return UIImage(ciImage: outputImage)
-    }
-    
-    func grayscaleImage() -> UIImage? {
-        guard let ciImage = self.ciImage,
-        let filter = CIFilter.colorMonochrome(inputImage: ciImage, inputColor: CIColor(red: 1, green: 1, blue: 1)),
-            let outputImage = filter.outputImage else { return nil }
-        return UIImage(ciImage: outputImage)
-    }
 }
 
 // UIImage+Alpha

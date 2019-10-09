@@ -59,7 +59,7 @@ extension CIFilter {
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 6, *)
-    static func affineClamp(inputImage: CIImage, inputTransform: NSValue = NSValue(cgAffineTransform:  CGAffineTransform(a: 1.0, b: 0.0, c: 0.0, d: 1.0, tx: 0.0, ty: 0.0))) -> CIFilter? {
+    static func affineClamp(inputImage: CIImage, inputTransform: NSValue = NSValue(cgAffineTransform: CGAffineTransform(a: 1.0, b: 0.0, c: 0.0, d: 1.0, tx: 0.0, ty: 0.0))) -> CIFilter? {
         guard let filter = CIFilter(name: "CIAffineClamp") else {
             return nil
         }
@@ -76,7 +76,7 @@ extension CIFilter {
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 6, *)
-    static func affineTile(inputImage: CIImage, inputTransform: NSValue = NSValue(cgAffineTransform:  CGAffineTransform(a: 1.0, b: 0.0, c: 0.0, d: 1.0, tx: 0.0, ty: 0.0))) -> CIFilter? {
+    static func affineTile(inputImage: CIImage, inputTransform: NSValue = NSValue(cgAffineTransform: CGAffineTransform(a: 1.0, b: 0.0, c: 0.0, d: 1.0, tx: 0.0, ty: 0.0))) -> CIFilter? {
         guard let filter = CIFilter(name: "CIAffineTile") else {
             return nil
         }
@@ -93,7 +93,7 @@ extension CIFilter {
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 5, *)
-    static func affineTransform(inputImage: CIImage, inputTransform: NSValue = NSValue(cgAffineTransform:  CGAffineTransform(a: 1.0, b: 0.0, c: 0.0, d: 1.0, tx: 0.0, ty: 0.0))) -> CIFilter? {
+    static func affineTransform(inputImage: CIImage, inputTransform: NSValue = NSValue(cgAffineTransform: CGAffineTransform(a: 1.0, b: 0.0, c: 0.0, d: 1.0, tx: 0.0, ty: 0.0))) -> CIFilter? {
         guard let filter = CIFilter(name: "CIAffineTransform") else {
             return nil
         }
@@ -252,7 +252,7 @@ extension CIFilter {
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage", "outputCGImage"])
     @available(iOS 8, *)
-    static func aztecCodeGenerator(inputMessage: NSData, inputCorrectionLevel: NSNumber = 23, inputLayers: NSNumber, inputCompactStyle: NSNumber) -> CIFilter? {
+    static func aztecCodeGenerator(inputMessage: NSData, inputCorrectionLevel: NSNumber = 23, inputLayers: NSNumber, inputCompactStyle: NSNumber?) -> CIFilter? {
         guard let filter = CIFilter(name: "CIAztecCodeGenerator") else {
             return nil
         }
@@ -619,7 +619,7 @@ extension CIFilter {
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 9, *)
-    static func cMYKHalftone(inputImage: CIImage, inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputWidth: NSNumber = 6, inputAngle: NSNumber = 0, inputSharpness: NSNumber = 0.7, inputGCR: NSNumber = 1, inputUCR: NSNumber = 0.5) -> CIFilter? {
+    static func cmykHalftone(inputImage: CIImage, inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputWidth: NSNumber = 6, inputAngle: NSNumber = 0, inputSharpness: NSNumber = 0.7, inputGCR: NSNumber = 1, inputUCR: NSNumber = 0.5) -> CIFilter? {
         guard let filter = CIFilter(name: "CICMYKHalftone") else {
             return nil
         }
@@ -778,7 +778,7 @@ extension CIFilter {
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 11, *)
-    static func colorCubesMixedWithMask(inputImage: CIImage, inputMaskImage: CIImage, inputCubeDimension: NSNumber = 2, inputCube0Data: NSData, inputCube1Data: NSData, inputColorSpace: NSObject) -> CIFilter? {
+    static func colorCubesMixedWithMask(inputImage: CIImage, inputMaskImage: CIImage, inputCubeDimension: NSNumber = 2, inputCube0Data: NSData, inputCube1Data: NSData, inputColorSpace: Any) -> CIFilter? {
         guard let filter = CIFilter(name: "CIColorCubesMixedWithMask") else {
             return nil
         }
@@ -801,7 +801,7 @@ extension CIFilter {
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 7, *)
-    static func colorCubeWithColorSpace(inputImage: CIImage, inputCubeDimension: NSNumber = 2, inputCubeData: NSData, inputColorSpace: NSObject) -> CIFilter? {
+    static func colorCubeWithColorSpace(inputImage: CIImage, inputCubeDimension: NSNumber = 2, inputCubeData: NSData, inputColorSpace: Any) -> CIFilter? {
         guard let filter = CIFilter(name: "CIColorCubeWithColorSpace") else {
             return nil
         }
@@ -822,7 +822,7 @@ extension CIFilter {
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 11, *)
-    static func colorCurves(inputImage: CIImage, inputCurvesData: NSData, inputCurvesDomain: CIVector = CIVector(x: 0.0, y: 1.0), inputColorSpace: NSObject) -> CIFilter? {
+    static func colorCurves(inputImage: CIImage, inputCurvesData: NSData, inputCurvesDomain: CIVector = CIVector(x: 0.0, y: 1.0), inputColorSpace: Any) -> CIFilter? {
         guard let filter = CIFilter(name: "CIColorCurves") else {
             return nil
         }
@@ -2002,7 +2002,7 @@ extension CIFilter {
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 10, *)
-    static func hueSaturationValueGradient(inputValue: NSNumber = 1, inputRadius: NSNumber = 300, inputSoftness: NSNumber = 1, inputDither: NSNumber = 1, inputColorSpace: NSObject) -> CIFilter? {
+    static func hueSaturationValueGradient(inputValue: NSNumber = 1, inputRadius: NSNumber = 300, inputSoftness: NSNumber = 1, inputDither: NSNumber = 1, inputColorSpace: Any) -> CIFilter? {
         guard let filter = CIFilter(name: "CIHueSaturationValueGradient") else {
             return nil
         }
@@ -2723,7 +2723,7 @@ extension CIFilter {
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage", "outputCGImage"])
     @available(iOS 9, *)
-    static func pDF417BarcodeGenerator(inputMessage: NSData, inputMinWidth: NSNumber, inputMaxWidth: NSNumber, inputMinHeight: NSNumber, inputMaxHeight: NSNumber, inputDataColumns: NSNumber, inputRows: NSNumber, inputPreferredAspectRatio: NSNumber, inputCompactionMode: NSNumber, inputCompactStyle: NSNumber, inputCorrectionLevel: NSNumber, inputAlwaysSpecifyCompaction: NSNumber) -> CIFilter? {
+    static func pdf417BarcodeGenerator(inputMessage: NSData, inputMinWidth: NSNumber, inputMaxWidth: NSNumber, inputMinHeight: NSNumber, inputMaxHeight: NSNumber, inputDataColumns: NSNumber, inputRows: NSNumber, inputPreferredAspectRatio: NSNumber, inputCompactionMode: NSNumber, inputCompactStyle: NSNumber?, inputCorrectionLevel: NSNumber, inputAlwaysSpecifyCompaction: NSNumber?) -> CIFilter? {
         guard let filter = CIFilter(name: "CIPDF417BarcodeGenerator") else {
             return nil
         }
@@ -3042,7 +3042,7 @@ extension CIFilter {
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage", "outputCGImage"])
     @available(iOS 7, *)
-    static func qRCodeGenerator(inputMessage: NSData, inputCorrectionLevel: NSString = "M") -> CIFilter? {
+    static func qrCodeGenerator(inputMessage: NSData, inputCorrectionLevel: NSString = "M") -> CIFilter? {
         guard let filter = CIFilter(name: "CIQRCodeGenerator") else {
             return nil
         }
@@ -3441,7 +3441,7 @@ extension CIFilter {
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 7, *)
-    static func sRGBToneCurveToLinear(inputImage: CIImage) -> CIFilter? {
+    static func srgbToneCurveToLinear(inputImage: CIImage) -> CIFilter? {
         guard let filter = CIFilter(name: "CISRGBToneCurveToLinear") else {
             return nil
         }
@@ -3924,7 +3924,7 @@ extension CIFilter {
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 10, *)
-    static func xRay(inputImage: CIImage) -> CIFilter? {
+    static func xray(inputImage: CIImage) -> CIFilter? {
         guard let filter = CIFilter(name: "CIXRay") else {
             return nil
         }
@@ -3950,5 +3950,12 @@ extension CIFilter {
         filter.setValue(inputCenter, forKey: kCIInputCenterKey)
         filter.setValue(inputAmount, forKey: "inputAmount")
         return filter
+    }
+}
+
+extension CIFilter {
+    var outputUIImage: UIImage? {
+        guard let outputImage = self.outputImage else { return nil }
+        return UIImage(ciImage: outputImage)
     }
 }
