@@ -140,7 +140,7 @@ public extension UIImage {
                                          inputRows: Float,
                                          inputPreferredAspectRatio: Float,
                                          inputCompactionMode: Float,
-                                         inputCompactStyle: Float,
+                                         inputCompactStyle: AztecCodeCompactStyle,
                                          inputCorrectionLevel: Float,
                                          inputAlwaysSpecifyCompaction: PDF417Compaction = .automatic) -> UIImage? {
             return CIFilter.pdf417BarcodeGenerator(inputMessage: inputMessage as NSData,
@@ -152,7 +152,7 @@ public extension UIImage {
                                                    inputRows: inputRows as NSNumber,
                                                    inputPreferredAspectRatio: inputPreferredAspectRatio as NSNumber,
                                                    inputCompactionMode: inputCompactionMode as NSNumber,
-                                                   inputCompactStyle: inputCompactStyle as NSNumber,
+                                                   inputCompactStyle: inputCompactStyle.asNSNumber,
                                                    inputCorrectionLevel: inputCorrectionLevel as NSNumber,
                                                    inputAlwaysSpecifyCompaction: inputAlwaysSpecifyCompaction.asNSNumber)?.outputUIImage
         }
