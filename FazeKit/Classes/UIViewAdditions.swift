@@ -135,4 +135,70 @@ public extension UIView {
             return self.height == 0 ? 0 : (self.width / self.height)
         }
     }
+    
+    func disableTouchDelay(in view: UIView? = nil) {
+        let theView: UIView = view ?? self
+        (theView as? UIScrollView)?.delaysContentTouches = false
+        for subview in theView.subviews {
+            self.disableTouchDelay(in: subview)
+        }
+    }
+    
+    func findTableView() -> UITableView? {
+        var current: UIView? = self
+        while current != nil {
+            if let tableView = current as? UITableView {
+                return tableView
+            }
+            current = current?.superview
+        }
+        return nil
+    }
+    
+    func findTableViewCell() -> UITableViewCell? {
+        var current: UIView? = self
+        while current != nil {
+            if let tableViewCell = current as? UITableViewCell {
+                return tableViewCell
+            }
+            current = current?.superview
+        }
+        return nil
+    }
+    
+    func findCollectionView() -> UICollectionView? {
+        var current: UIView? = self
+        while current != nil {
+            if let collectionView = current as? UICollectionView {
+                return collectionView
+            }
+            current = current?.superview
+        }
+        return nil
+    }
+    
+    func findCollectionViewCell() -> UICollectionViewCell? {
+        var current: UIView? = self
+        while current != nil {
+            if let collectionViewCell = current as? UICollectionViewCell {
+                return collectionViewCell
+            }
+            current = current?.superview
+        }
+        return nil
+    }
+    
+    func findTableViewIndexPath() -> IndexPath? {
+        guard let tableViewCell = self.findTableViewCell(), let tableView = self.findTableView() else {
+            return nil
+        }
+        return tableView.indexPath(for: tableViewCell)
+    }
+    
+    func findCollectionViewIndexPath() -> IndexPath? {
+        guard let collectionViewCell = self.findCollectionViewCell(), let collectionView = self.findCollectionView() else {
+            return nil
+        }
+        return collectionView.indexPath(for: collectionViewCell)
+    }
 }

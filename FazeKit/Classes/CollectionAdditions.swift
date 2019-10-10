@@ -82,3 +82,59 @@ public func +=<K, V>(lhs: inout Dictionary<K, V>, rhs: Dictionary<K, V>) {
 public func -=<K, V>(lhs: inout Dictionary<K, V>, rhs: Dictionary<K, V>) {
     rhs.forEach { lhs.removeValue(forKey: $0.key) }
 }
+
+public extension Dictionary where Key == String, Value == Any {
+    func value(forPath path: String) -> Any? {
+        let tokens = path.components(separatedBy: "/")
+        if tokens.count == 1 {
+            return self[tokens[0]] ?? nil
+        } else if tokens.count > 1, let dict = self[tokens[0]] as? [String: Any] {
+            let subPath = String(path[path.index(path.startIndex, offsetBy: tokens[0].count + 1)...])
+            return dict.value(forPath: subPath)
+        }
+        return nil
+    }
+    
+    mutating func setValue(_ value: Any, forPath path: String, populating: Bool = false, mergingDictionaries: Bool = false) {
+        let tokens = path.components(separatedBy: "/")
+        if tokens.count == 1 {
+            if let dict = self[tokens[0]] as? [String: Any], let value = value as? [String: Any], mergingDictionaries {
+                self[tokens[0]] = dict.deepMerge(value)
+            } else {
+                self[tokens[0]] = value
+            }
+        } else if tokens.count > 1 {
+            if var dict = self[tokens[0]] as? [String: Any] ?? (populating ? [String: Any]() : nil) {
+                let subPath = String(path[path.index(path.startIndex, offsetBy: tokens[0].count + 1)...])
+                dict.setValue(value, forPath: subPath, populating: populating, mergingDictionaries: mergingDictionaries)
+                self[tokens[0]] = dict
+            }
+        }
+    }
+    
+    mutating func clearValue(forPath path: String) {
+        // check value exists at path first
+        if self.value(forPath: path) != nil {
+            let tokens = path.components(separatedBy: "/")
+            if tokens.count == 1, let key = tokens.first {
+                self.removeValue(forKey: key)
+            } else if tokens.count > 1, let key = tokens.first, var dict = self[key] as? [String: Any] {
+                let subPath = String(path[path.index(path.startIndex, offsetBy: tokens[0].count + 1)...])
+                dict.clearValue(forPath: subPath)
+                self[key] = dict // Because copy :(
+            }
+            else {
+                fatalError("Failed to clear value for path \(path)")
+            }
+        }
+    }
+    
+    func deepMerge(_ other: [String: Any]) -> [String: Any] {
+        return self.merging(other, uniquingKeysWith: { (old, new) -> Any in
+            if let old = old as? [String: Any], let new = new as? [String: Any] {
+                return old.deepMerge(new)
+            }
+            return new
+        })
+    }
+}

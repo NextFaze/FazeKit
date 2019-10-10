@@ -15,20 +15,20 @@ open class Multicast {
     public init() {
     }
     
-    public func clear() {
+    open func clear() {
         self.blocks.removeAll()
         self.selectors.removeAll()
     }
     
-    public func clearBlocks() {
+    open func clearBlocks() {
         self.blocks.removeAll()
     }
     
-    public func clearSelectors() {
+    open func clearSelectors() {
         self.selectors.removeAll()
     }
     
-    public func invoke(delaySeconds: Double? = nil) {
+    open func invoke(delaySeconds: Double? = nil) {
         if let delaySeconds = delaySeconds {
             DispatchQueue.main.asyncAfter(deadline: .now() + delaySeconds) {
                 for block in self.blocks {
