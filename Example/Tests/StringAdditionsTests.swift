@@ -25,14 +25,6 @@ import FazeKit
 
 class StringAdditionsTests: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
-    
     func testSubscript() {
         let string = "OMG. I can't believe it's a thing!"
         XCTAssertTrue(string[0] == "O", "String.subscript: should return the Character O")
@@ -50,4 +42,13 @@ class StringAdditionsTests: XCTestCase {
         XCTAssertTrue(string.trim() == "Hello World", "String.trim(): should remove all whitespace and newlines")
     }
     
+    func testRegex() {
+        let string = "hello world"
+        XCTAssertTrue(string.isMatch("^hello", options: []), "regex didn't match when it should have")
+        XCTAssertFalse(string.isMatch("^world", options: []), "regex matched when it shouldn't have")
+        
+        let ipRegex = "\\b(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\b"
+        XCTAssertEqual("123.45.67.89".getMatches(ipRegex, options: []), ["123", "45", "67", "89"], "Got the wrong matches")
+        XCTAssertEqual("500.45.67.89".getMatches(ipRegex, options: []), ["45", "67", "89"], "Got the wrong matches")
+    }
 }
