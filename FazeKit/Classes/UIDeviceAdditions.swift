@@ -22,36 +22,52 @@
 import UIKit
 
 public extension UIDevice {
-    public static func isPad() -> Bool {
+    static func isPad() -> Bool {
         return UIDevice.current.userInterfaceIdiom == .pad
     }
     
-    public static func is3_5Inch() -> Bool {
+    static func is3_5Inch() -> Bool {
         return !isPad() && UIScreen.screenMaxLength == UIScreen.maxLength3_5Inch
     }
     
-    public static func is4Inch() -> Bool {
+    static func is4Inch() -> Bool {
         return !isPad() && UIScreen.screenMaxLength == UIScreen.maxLength4Inch
     }
     
-    public static func is4_7Inch() -> Bool {
+    static func is4_7Inch() -> Bool {
         return !isPad() && UIScreen.screenMaxLength == UIScreen.maxLength4_7Inch
     }
     
-    public static func is5_5Inch() -> Bool {
+    static func is5_5Inch() -> Bool {
         return !isPad() && UIScreen.screenMaxLength == UIScreen.maxLength5_5Inch
     }
     
-    public static func isSimulator() -> Bool {
-        #if (arch(i386) || arch(x86_64)) && (os(iOS) || os(watchOS) || os(tvOS))
+    static func is5_8Inch() -> Bool {
+        return !isPad() && UIScreen.screenMaxLength == UIScreen.maxLength5_8Inch
+    }
+    
+    static func is6_1Inch() -> Bool {
+        return !isPad() && UIScreen.screenMaxLength == UIScreen.maxLength6_1Inch && UIScreen.main.scale == 2
+    }
+    
+    static func is6_5Inch() -> Bool {
+        return !isPad() && UIScreen.screenMaxLength == UIScreen.maxLength6_5Inch && UIScreen.main.scale == 3
+    }
+    
+    static func isSmallPhone() -> Bool {
+        return is3_5Inch() || is4Inch()
+    }
+    
+    static func isSimulator() -> Bool {
+        #if targetEnvironment(simulator)
             return true
         #else
             return false
         #endif
     }
     
-    public static func isJailbroken() -> Bool {
-        #if (arch(i386) || arch(x86_64)) && (os(iOS) || os(watchOS) || os(tvOS))
+    static func isJailbroken() -> Bool {
+        #if targetEnvironment(simulator)
             return false
         #else
             let filenames = ["/Applications/Cydia.app", "/Library/MobileSubstrate/MobileSubstrate.dylib", "/bin/bash", "/usr/sbin/sshd", "/etc/apt", "/usr/bin/ssh"]
@@ -62,5 +78,18 @@ public extension UIDevice {
             guard let url = URL(string: "cydia://package/com.example.package") else { return false }
             return UIApplication.shared.canOpenURL(url)
         #endif
+    }
+    
+    static func isTwitterAvailable() -> Bool {
+        return NSClassFromString("TWTweetComposeViewController") != nil
+    }
+    
+    static func isSocialAvailable() -> Bool {
+        return NSClassFromString("SLComposeViewController") != nil
+    }
+    
+    static func isPirated() -> Bool {
+        // http://thwart-ipa-cracks.blogspot.com/2008/11/detection.html
+        return Bundle.main.infoDictionary?.keys.contains("SignerIdentity") ?? false
     }
 }

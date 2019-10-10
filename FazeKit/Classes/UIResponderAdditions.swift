@@ -22,9 +22,7 @@
 import UIKit
 
 public extension UIResponder {
-    
-    public static func resignAnyFirstResponder() {
+    static func resignAnyFirstResponder() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
-    
 }

@@ -22,18 +22,18 @@
 import Foundation
 
 public extension DateComponents {
-    public init(datePortion: DateComponents) {
+    init(datePortion: DateComponents) {
         self.init(year: datePortion.year, month: datePortion.month, day: datePortion.day)
     }
     
-    public init(timePortion: DateComponents, includeSeconds: Bool = true, includeNanoseconds: Bool = false) {
+    init(timePortion: DateComponents, includeSeconds: Bool = true, includeNanoseconds: Bool = false) {
         self.init(hour: timePortion.hour,
                   minute: timePortion.minute,
                   second: includeSeconds ? timePortion.second : nil,
                   nanosecond: includeNanoseconds ? timePortion.nanosecond : nil)
     }
     
-    public init(datePortion: DateComponents, timePortion: DateComponents, includeSeconds: Bool = true, includeNanoseconds: Bool = false) {
+    init(datePortion: DateComponents, timePortion: DateComponents, includeSeconds: Bool = true, includeNanoseconds: Bool = false) {
         self.init(year: datePortion.year,
                   month: datePortion.month,
                   day: datePortion.day,
@@ -59,14 +59,14 @@ public extension DateComponents {
         return .orderedSame
     }
     
-    public func compareDatePortion(_ other: DateComponents) -> ComparisonResult {
+    func compareDatePortion(_ other: DateComponents) -> ComparisonResult {
         let pairs = [(other.year, self.year),
                      (other.month, self.month),
                      (other.day, self.day)]
         return DateComponents.comparePairs(pairs: pairs)
     }
     
-    public func compareTimePortion(_ other: DateComponents, includeSeconds: Bool = true, includeNanoseconds: Bool = false) -> ComparisonResult {
+    func compareTimePortion(_ other: DateComponents, includeSeconds: Bool = true, includeNanoseconds: Bool = false) -> ComparisonResult {
         var pairs = [(other.hour, self.hour),
                      (other.minute, self.minute)]
         if includeSeconds {
@@ -78,7 +78,7 @@ public extension DateComponents {
         return DateComponents.comparePairs(pairs: pairs)
     }
     
-    public func compare(_ other: DateComponents, includeSeconds: Bool = true, includeNanoseconds: Bool = false) -> ComparisonResult {
+    func compare(_ other: DateComponents, includeSeconds: Bool = true, includeNanoseconds: Bool = false) -> ComparisonResult {
         var pairs = [(other.year, self.year),
                      (other.month, self.month),
                      (other.day, self.day),

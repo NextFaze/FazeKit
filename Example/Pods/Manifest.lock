@@ -1,5 +1,5 @@
 PODS:
-  - FazeKit (1.0.0)
+  - FazeKit (2.0)
 
 DEPENDENCIES:
   - FazeKit (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  FazeKit: c05d214c9a6e52c4de760e31706cc034004bb64e
+  FazeKit: 64b216cf1d7b419e0fb279ccea9357198ef5df70
 
 PODFILE CHECKSUM: fa12f807dae8d93a6a5a1166a5439a23410201c1
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.8.0

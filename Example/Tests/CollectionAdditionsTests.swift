@@ -33,17 +33,6 @@ class CollectionAdditionsTests: XCTestCase {
         super.tearDown()
     }
     
-    func testCollectionLast() {
-        let intArray = [3, 1, 4, 1, 5]
-        XCTAssertEqual(intArray.last, 5, "Collection.last: last element did not match")
-    }
-    
-    func testCollectionFirstMatch() {
-        let stringArray = ["hello", "world", "this", "is", "a", "unit", "test"]
-        XCTAssertEqual(stringArray.firstMatch { $0[0] == "t" }, "this", "Collection.firstMatch: couldn't find element")
-        XCTAssertNil(stringArray.firstMatch { $0[0] == "z" }, "Collection.firstMatch: found something we shouldn't")
-    }
-    
     func testCollectionPartitioned() {
         let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
         let parts = array.partitioned { $0 % 2 == 0 }
@@ -75,11 +64,11 @@ class CollectionAdditionsTests: XCTestCase {
         XCTAssertEqual(categorised["L"]?.count, 1)
         XCTAssertEqual(categorised["M"]?.count, 1)
         XCTAssertEqual(categorised["P"]?.count, 2)
-        XCTAssertEqual(categorised["A"]!.flatMap({$0.name}).sorted(), ["Aaron", "Anna"])
-        XCTAssertEqual(categorised["J"]!.flatMap({$0.name}), ["John"])
-        XCTAssertEqual(categorised["L"]!.flatMap({$0.name}), ["Lucy"])
-        XCTAssertEqual(categorised["M"]!.flatMap({$0.name}), ["Michael"])
-        XCTAssertEqual(categorised["P"]!.flatMap({$0.name}).sorted(), ["Peter", "Philip"])
+        XCTAssertEqual(categorised["A"]!.map({$0.name}).sorted(), ["Aaron", "Anna"])
+        XCTAssertEqual(categorised["J"]!.map({$0.name}), ["John"])
+        XCTAssertEqual(categorised["L"]!.map({$0.name}), ["Lucy"])
+        XCTAssertEqual(categorised["M"]!.map({$0.name}), ["Michael"])
+        XCTAssertEqual(categorised["P"]!.map({$0.name}).sorted(), ["Peter", "Philip"])
     }
     
     func testDictionaryOperators() {

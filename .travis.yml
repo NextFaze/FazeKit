@@ -3,7 +3,7 @@
 # * https://github.com/supermarin/xcpretty#usage
 
 language: objective-c # still specify this even though we are using swift - appears to tell travis which Xcode version to use
-osx_image: xcode9.1
+osx_image: xcode10.3
 #cache: cocoapods
 podfile: Example/Podfile
 before_install:

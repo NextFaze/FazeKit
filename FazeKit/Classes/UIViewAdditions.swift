@@ -22,7 +22,7 @@
 import UIKit
 
 public extension UIView {
-    public var x: CGFloat {
+    var x: CGFloat {
         get {
             return self.frame.origin.x
         }
@@ -31,7 +31,7 @@ public extension UIView {
         }
     }
     
-    public var y: CGFloat {
+    var y: CGFloat {
         get {
             return self.frame.origin.y
         }
@@ -40,7 +40,7 @@ public extension UIView {
         }
     }
     
-    public var left: CGFloat {
+    var left: CGFloat {
         get {
             return self.x
         }
@@ -49,7 +49,7 @@ public extension UIView {
         }
     }
     
-    public var right: CGFloat {
+    var right: CGFloat {
         get {
             return self.x + self.width
         }
@@ -58,7 +58,7 @@ public extension UIView {
         }
     }
     
-    public var top: CGFloat {
+    var top: CGFloat {
         get {
             return self.y
         }
@@ -67,7 +67,7 @@ public extension UIView {
         }
     }
     
-    public var bottom: CGFloat {
+    var bottom: CGFloat {
         get {
             return self.y + self.height
         }
@@ -76,7 +76,7 @@ public extension UIView {
         }
     }
     
-    public var centerX: CGFloat {
+    var centerX: CGFloat {
         get {
             return self.x + self.width/2.0
         }
@@ -85,7 +85,7 @@ public extension UIView {
         }
     }
     
-    public var centerY: CGFloat {
+    var centerY: CGFloat {
         get {
             return self.y + self.height/2.0
         }
@@ -94,7 +94,7 @@ public extension UIView {
         }
     }
     
-    public var width: CGFloat {
+    var width: CGFloat {
         get {
             return self.frame.size.width
         }
@@ -103,7 +103,7 @@ public extension UIView {
         }
     }
     
-    public var height: CGFloat {
+    var height: CGFloat {
         get {
             return self.frame.size.height
         }
@@ -112,7 +112,7 @@ public extension UIView {
         }
     }
     
-    public var origin: CGPoint {
+    var origin: CGPoint {
         get {
             return self.frame.origin
         }
@@ -121,7 +121,7 @@ public extension UIView {
         }
     }
     
-    public var size: CGSize {
+    var size: CGSize {
         get {
             return self.frame.size
         }
@@ -130,9 +130,75 @@ public extension UIView {
         }
     }
     
-    public var aspect: CGFloat {
+    var aspect: CGFloat {
         get {
             return self.height == 0 ? 0 : (self.width / self.height)
         }
+    }
+    
+    func disableTouchDelay(in view: UIView? = nil) {
+        let theView: UIView = view ?? self
+        (theView as? UIScrollView)?.delaysContentTouches = false
+        for subview in theView.subviews {
+            self.disableTouchDelay(in: subview)
+        }
+    }
+    
+    func findTableView() -> UITableView? {
+        var current: UIView? = self
+        while current != nil {
+            if let tableView = current as? UITableView {
+                return tableView
+            }
+            current = current?.superview
+        }
+        return nil
+    }
+    
+    func findTableViewCell() -> UITableViewCell? {
+        var current: UIView? = self
+        while current != nil {
+            if let tableViewCell = current as? UITableViewCell {
+                return tableViewCell
+            }
+            current = current?.superview
+        }
+        return nil
+    }
+    
+    func findCollectionView() -> UICollectionView? {
+        var current: UIView? = self
+        while current != nil {
+            if let collectionView = current as? UICollectionView {
+                return collectionView
+            }
+            current = current?.superview
+        }
+        return nil
+    }
+    
+    func findCollectionViewCell() -> UICollectionViewCell? {
+        var current: UIView? = self
+        while current != nil {
+            if let collectionViewCell = current as? UICollectionViewCell {
+                return collectionViewCell
+            }
+            current = current?.superview
+        }
+        return nil
+    }
+    
+    func findTableViewIndexPath() -> IndexPath? {
+        guard let tableViewCell = self.findTableViewCell(), let tableView = self.findTableView() else {
+            return nil
+        }
+        return tableView.indexPath(for: tableViewCell)
+    }
+    
+    func findCollectionViewIndexPath() -> IndexPath? {
+        guard let collectionViewCell = self.findCollectionViewCell(), let collectionView = self.findCollectionView() else {
+            return nil
+        }
+        return collectionView.indexPath(for: collectionViewCell)
     }
 }

@@ -22,49 +22,39 @@
 // gist: https://gist.github.com/albertbori/0faf7de867d96eb83591
 // stackoverflow: http://stackoverflow.com/questions/27570910/swift-fast-low-level-string-lastindexof
 public extension String {
-    
-    @available(*, deprecated, message: "Use count instead")
-    public var length: Int {
-        return self.count
-    }
-    
-    public func contains(_ s: String) -> Bool {
-        return self.range(of: s) != nil
-    }
-    
-    public func replace(_ target: String, withString: String) -> String {
+    @available(*, deprecated, message: "Use replacingOccurrences(of:, with:) instead")
+    func replace(_ target: String, withString: String) -> String {
         return self.replacingOccurrences(of: target, with: withString, options: NSString.CompareOptions.literal, range: nil)
     }
     
-    public subscript(i: Int) -> Character {
+    subscript(i: Int) -> Character {
         return self[self.index(self.startIndex, offsetBy: i)]
     }
     
-    
-    public func substring(_ startIndex: Int, length: Int) -> String {
+    func substring(_ startIndex: Int, length: Int) -> String {
         let start = self.index(self.startIndex, offsetBy: startIndex)
         let end = self.index(start, offsetBy: length)
         return String(self[start..<end])
     }
     
-    public func indexOf(_ target: String) -> Int? {
+    func indexOf(_ target: String) -> Int? {
         guard let range = self.range(of: target) else { return nil }
         return self.distance(from: self.startIndex, to: range.lowerBound)
     }
     
-    public func indexOf(_ target: String, startIndex: Int) -> Int? {
+    func indexOf(_ target: String, startIndex: Int) -> Int? {
         let startRange = self.index(self.startIndex, offsetBy: startIndex)
         guard let range = self.range(of: target, options: NSString.CompareOptions.literal, range: startRange..<self.endIndex)
             else { return nil }
         return self.distance(from: self.startIndex, to: range.lowerBound)
     }
     
-    public func lastIndexOf(_ target: String) -> Int? {
+    func lastIndexOf(_ target: String) -> Int? {
         guard let range: Range<Index> = self.range(of: target, options: .backwards) else { return nil }
         return self.distance(from: self.startIndex, to: range.lowerBound)
     }
     
-    public func isMatch(_ regex: String, options: NSRegularExpression.Options) -> Bool {
+    func isMatch(_ regex: String, options: NSRegularExpression.Options) -> Bool {
         do {
             let exp = try NSRegularExpression(pattern: regex, options: options)
             return exp.numberOfMatches(in: self, options: [], range: NSMakeRange(0, self.count)) > 0
@@ -73,7 +63,7 @@ public extension String {
         }
     }
     
-    public func getMatches(_ regex: String, options: NSRegularExpression.Options) -> [String] {
+    func getMatches(_ regex: String, options: NSRegularExpression.Options) -> [String] {
         do {
             let exp = try NSRegularExpression(pattern: regex, options: options)
             let nsString = self as NSString
@@ -84,8 +74,32 @@ public extension String {
         }
     }
     
-    public func trim() -> String {
+    func trim() -> String {
         return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
     
+    func md5(encoding: String.Encoding = .utf8) -> String? {
+        return self.data(using: encoding)?.md5()
+    }
+    
+    func hex(encoding: String.Encoding = .utf8) -> String? {
+        return self.data(using: encoding)?.hex()
+    }
+}
+
+public extension String {
+    // https://stackoverflow.com/a/30450559
+    func height(withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
+        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
+        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [.font: font], context: nil)
+        
+        return ceil(boundingBox.height)
+    }
+    
+    func width(withConstrainedHeight height: CGFloat, font: UIFont) -> CGFloat {
+        let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
+        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [.font: font], context: nil)
+        
+        return ceil(boundingBox.width)
+    }
 }
