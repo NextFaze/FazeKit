@@ -97,4 +97,23 @@ public extension UIColor {
     var htmlStringARGB: String {
         return "#" + self.hexStringARGB
     }
+    
+    convenience init(source: String, minBrightness: CGFloat = 0.66, maxBrightness: CGFloat = 1.0) {
+        guard !source.isEmpty, let md5 = source.md5() else {
+            self.init(red: 0, green: 0, blue: 0, alpha: 1)
+            return
+        }
+        self.init(md5: md5, minBrightness: minBrightness, maxBrightness: maxBrightness)
+    }
+    
+    convenience init(md5: String, minBrightness: CGFloat = 0.66, maxBrightness: CGFloat = 1.0) {
+        let mid = md5.index(md5.startIndex, offsetBy: md5.count / 2)
+        let firstHalf = md5[md5.startIndex..<mid]
+        let secondHalf = md5[mid..<md5.endIndex]
+        let firstHash = abs(firstHalf.hashValue % 100)
+        let secondHash = abs(secondHalf.hashValue % 100)
+        let hue = CGFloat(firstHash) / 100.0
+        let brightness: CGFloat = minBrightness + (maxBrightness - minBrightness) * CGFloat(secondHash) / 100.0
+        self.init(hue: hue, saturation: 0.8, brightness: brightness, alpha: 1.0)
+    }
 }
