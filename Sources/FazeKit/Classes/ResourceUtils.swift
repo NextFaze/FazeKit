@@ -62,9 +62,9 @@ public struct ResourceUtils {
         let filePath = (docPath as NSString).appendingPathComponent(filename)
         switch self.determineFileType(filename: filename) {
         case .png:
-            try? UIImagePNGRepresentation(image)?.write(to: URL(fileURLWithPath: filePath), options: .atomicWrite)
+            try? image.pngData()?.write(to: URL(fileURLWithPath: filePath), options: .atomicWrite)
         case .jpg:
-            try? UIImageJPEGRepresentation(image, 1)?.write(to: URL(fileURLWithPath: filePath), options: .atomicWrite)
+            try? image.jpegData(compressionQuality: 1)?.write(to: URL(fileURLWithPath: filePath), options: .atomicWrite)
         default:
             print("Image save failed, use PNG or JPG")
         }
