@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                = 'FazeKit'
-  s.version             = '2.1'
+  s.version             = '2.2'
   s.summary             = 'A collection of helper functions and extensions for Swift iOS apps'
   s.description         = 'A collection of extensions and convenience functions on Foundation, UIKit and other Cocoa Frameworks, built in Swift for iOS development'
   s.homepage            = 'https://github.com/NextFaze/FazeKit'
@@ -14,6 +14,6 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '9.0'
   s.swift_version       = '4.0'
   s.requires_arc        = true
-  s.source_files        = 'FazeKit/Classes/**/*'
+  s.source_files        = 'Sources/FazeKit/Classes/**/*'
   s.frameworks          = 'UIKit'
 end
