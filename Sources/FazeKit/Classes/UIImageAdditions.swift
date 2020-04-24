@@ -102,6 +102,9 @@ public extension UIImage {
             bounds.size.height = bounds.size.width
             bounds.size.width = boundsHeight
             transform = CGAffineTransform(translationX: imageSize.height, y: 0).rotated(by: CGFloat(Double.pi / 2.0))
+            
+        @unknown default:
+            fatalError()
         }
         
         UIGraphicsBeginImageContext(bounds.size)
@@ -369,7 +372,7 @@ public extension UIImage {
     }
     
     // Resizes the image according to the given content mode, taking into account the image's orientation
-    func resizedImageWithContentMode(contentMode: UIViewContentMode, bounds: CGSize, quality: CGInterpolationQuality) -> UIImage? {
+    func resizedImageWithContentMode(contentMode: UIView.ContentMode, bounds: CGSize, quality: CGInterpolationQuality) -> UIImage? {
         let horizontalRatio = bounds.width / self.size.width
         let verticalRatio = bounds.height / self.size.height
         let ratio: CGFloat

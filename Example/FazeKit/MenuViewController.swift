@@ -68,7 +68,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: MenuViewController.cellReuseIdentifier) ?? UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: MenuViewController.cellReuseIdentifier)
+        let cell = tableView.dequeueReusableCell(withIdentifier: MenuViewController.cellReuseIdentifier) ?? UITableViewCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier: MenuViewController.cellReuseIdentifier)
         
         let item = self.items[indexPath.row]
         switch item {

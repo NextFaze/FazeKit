@@ -64,7 +64,7 @@ public func +=(lhs: inout Multicast, rhs: (AnyObject, Selector)) {
 }
 
 public func -=(lhs: inout Multicast, rhs: (AnyObject, Selector)) {
-    if let index = lhs.selectors.index(where: { $0.0.value === rhs.0 && $0.1 == rhs.1 }) {
+    if let index = lhs.selectors.firstIndex(where: { $0.0.value === rhs.0 && $0.1 == rhs.1 }) {
         lhs.selectors.remove(at: index)
     }
 }
