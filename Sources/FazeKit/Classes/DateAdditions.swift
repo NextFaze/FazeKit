@@ -35,6 +35,11 @@ public extension Date {
         return (Calendar.current as NSCalendar).components(units, from: self)
     }
     
+    func dateAndTimeComponents() -> DateComponents {
+        let units: NSCalendar.Unit = [.year, .month, .day, .hour, .minute, .second]
+        return (Calendar.current as NSCalendar).components(units, from: self)
+    }
+    
     static func dateFromComponents(day: Int? = nil,
                                    month: Int? = nil,
                                    year: Int? = nil,
