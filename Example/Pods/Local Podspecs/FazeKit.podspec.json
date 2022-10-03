@@ -1,6 +1,6 @@
 {
   "name": "FazeKit",
-  "version": "2.2",
+  "version": "2.2.1",
   "summary": "A collection of helper functions and extensions for Swift iOS apps",
   "description": "A collection of extensions and convenience functions on Foundation, UIKit and other Cocoa Frameworks, built in Swift for iOS development",
   "homepage": "https://github.com/NextFaze/FazeKit",
@@ -15,11 +15,11 @@
   },
   "source": {
     "git": "https://github.com/NextFaze/FazeKit.git",
-    "tag": "2.2"
+    "tag": "2.2.1"
   },
   "social_media_url": "https://twitter.com/NextFaze",
   "platforms": {
-    "ios": "9.0"
+    "ios": "11.0"
   },
   "swift_versions": "5.0",
   "requires_arc": true,
