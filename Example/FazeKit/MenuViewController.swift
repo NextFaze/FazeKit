@@ -37,17 +37,8 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
         self.title = "FazeKit"
         self.view.backgroundColor = UIColor.white
-        
-        self.navigationController?.navigationBar.barStyle = .black
-        self.navigationController?.navigationBar.isOpaque = true
-        self.navigationController?.navigationBar.barTintColor = UIColor(hexString: "#ee4136")
-        self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-        
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
-        self.tableView.tableFooterView = UIView()
-        self.view.addSubview(self.tableView)
+        setupNavigation()
+        setupTableView()
     }
 
     override func viewDidLayoutSubviews() {
@@ -59,6 +50,23 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         print("WARNING: Memory warning.")
+    }
+    
+    // MARK: PRIVATE FUNCTIONS
+    
+    private func setupNavigation() {
+        self.navigationController?.navigationBar.barStyle = .black
+        self.navigationController?.navigationBar.isOpaque = true
+        self.navigationController?.navigationBar.barTintColor = UIColor(hexString: "#ee4136")
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+    }
+    
+    private func setupTableView() {
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.tableFooterView = UIView()
+        self.view.addSubview(self.tableView)
     }
 
     // MARK: UITableViewDataSource
