@@ -115,4 +115,30 @@ public struct ResourceUtils {
         let predicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
         return predicate.evaluate(with: emailAddress)
     }
+    
+    public static func isInvalidEmailDomain(emailAddress: String) -> Bool {
+        let invalidDomains = [
+            "gamil.com",
+            "gnail.com",
+            "gmaol.com",
+            "gmal.com",
+            "gmil.com",
+            "gmial.com",
+            "gimail.com",
+            "gamail.com",
+            "gmail.co.uk",
+            "hotmail.co.uk",
+            "gmail.con",
+            "hotmail.con",
+            "yahoo.con",
+            "hoymail.com",
+            "hotmal.com",
+        ]
+        for domain in invalidDomains {
+            if emailAddress.hasSuffix(domain) {
+                return true
+            }
+        }
+        return false
+    }
 }
