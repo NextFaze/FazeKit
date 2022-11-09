@@ -116,4 +116,8 @@ public extension UIColor {
         let brightness: CGFloat = minBrightness + (maxBrightness - minBrightness) * CGFloat(secondHash) / 100.0
         self.init(hue: hue, saturation: 0.8, brightness: brightness, alpha: 1.0)
     }
+    
+    class var random: UIColor {
+        return UIColor(red: .random(in: 0...1), green: .random(in: 0...1), blue: .random(in: 0...1), alpha: 1.0)
+    } 
 }
