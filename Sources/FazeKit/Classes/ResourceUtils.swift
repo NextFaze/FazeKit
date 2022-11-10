@@ -121,7 +121,7 @@ public struct ResourceUtils {
     }
     
     // Checks the suffix of an email address, eg `foo@gmol.com` and returns a
-    // tuple of (invalid, suggestion) where the suggestion is the proable correct domain
+    // tuple of (invalid, suggestion) where the suggestion is the fixed email address
     public static func isInvalidEmailDomainWithSuggestion(emailAddress: String) -> (Bool, String?) {
         let invalidDomains = [
             ("@ail.com", "@aol.com"),
@@ -176,8 +176,9 @@ public struct ResourceUtils {
             ("@yhoo.com", "@yahoo.com"),
             ("@yshoo.com", "@yahoo.com"),
         ]
-        for (domain, suggestion) in invalidDomains {
+        for (domain, suggestedDomain) in invalidDomains {
             if emailAddress.hasSuffix(domain) {
+                let suggestion = emailAddress.replacingOccurrences(of: domain, with: suggestedDomain)
                 return (true, suggestion)
             }
         }
