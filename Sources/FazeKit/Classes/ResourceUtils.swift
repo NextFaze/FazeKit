@@ -152,7 +152,6 @@ public struct ResourceUtils {
             ("@hormail.com", "@hotmail.com"),
             ("@hotamil.com", "@hotmail.com"),
             ("@hotmai.com", "@hotmail.com"),
-            ("@hotmail.co.uk", "@hotmail.com"),
             ("@hotmail.con", "@hotmail.com"),
             ("@hotmal.com", "@hotmail.com"),
             ("@hotmil.com", "@hotmail.com"),
