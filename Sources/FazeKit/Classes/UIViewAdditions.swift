@@ -214,5 +214,12 @@ public extension UIView {
             bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: bottom)
         ])
     }
-
+    
+    func toImage() -> UIImage {
+        let renderer = UIGraphicsImageRenderer(size: self.bounds.size)
+        let image = renderer.image { ctx in
+            self.drawHierarchy(in: self.bounds, afterScreenUpdates: true)
+        }
+        return image
+    }
 }
