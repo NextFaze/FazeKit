@@ -206,6 +206,10 @@ public struct ResourceUtils {
                 return (true, suggestion)
             }
         }
+        if emailAddress.contains(".coom") {
+            let suggestion = emailAddress.replacingOccurrences(of: ".coom", with: ".com")
+            return (true, suggestion)
+        }
         return (false, nil)
     }
 }

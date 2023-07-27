@@ -51,11 +51,26 @@ final class EmailTests: XCTestCase {
             "invalid@outllok.com",
             "invalid@otmail.com",
             "invalid@ynail.com",
+            "invalid@gmail.coom",
+            "invalid@domain.coom.au",
             ]
         for invalidEmail in invalidEmails {
             result = ResourceUtils.isInvalidEmailDomainWithSuggestion(emailAddress: invalidEmail)
             XCTAssertTrue(result.0, "🔥 Expectd invalid result for \(invalidEmail)")
             print("Suggestion for \(invalidEmail) is \(result.1 ?? "-")")
+        }
+        
+        let validEmails = [
+            "valid@yahoo.com",
+            "valid@gmail.com",
+            "valid@hotmail.com",
+            "valid@microsoft.com",
+            "valid@apple.com",
+            "valid@qantas.com.au",
+            ]
+        for validEmail in validEmails {
+            result = ResourceUtils.isInvalidEmailDomainWithSuggestion(emailAddress: validEmail)
+            XCTAssertFalse(result.0, "🔥 Expectd valid result for \(validEmail)")
         }
     }
 }
