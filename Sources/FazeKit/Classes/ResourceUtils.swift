@@ -125,11 +125,14 @@ public struct ResourceUtils {
     public static func isInvalidEmailDomainWithSuggestion(emailAddress: String) -> (Bool, String?) {
         let invalidDomains = [
             ("@ail.com", "@aol.com"),
+            ("@895gmail.com", "@gmail.com"), // regex would be better here
+            ("@gmail01.com", "@gmail.com"),  // regex would be better here
             ("@gamail.com", "@gmail.com"),
             ("@gamali.com", "@gmail.com"),
             ("@gamil.co", "@gmail.com"),
             ("@gamil.com", "@gmail.com"),
             ("@gimail.com", "@gmail.com"),
+            ("@giml.com", "@gmail.com"),
             ("@gmaail.com", "@gmail.com"),
             ("@gmai.com", "@gmail.com"),
             ("@gmaiil.com", "@gmail.com"),
@@ -139,6 +142,7 @@ public struct ResourceUtils {
             ("@gmail.co.uk", "@gmail.com"),
             ("@gmail.com.br", "@gmail.com"),
             ("@gmail.con", "@gmail.com"),
+            ("@gmail.de", "@gmail.com"),
             ("@gmail.fr", "@gmail.com"),
             ("@gmaill.com", "@gmail.com"),
             ("@gmain.com", "@gmail.com"),
@@ -165,12 +169,14 @@ public struct ResourceUtils {
             ("@homail.com", "@hotmail.com"),
             ("@hormail.com", "@hotmail.com"),
             ("@hotamil.com", "@hotmail.com"),
+            ("@hotmaail.com", "@hotmail.com"),
             ("@hotmai.com", "@hotmail.com"),
             ("@hotmaik.com", "@hotmail.com"),
             ("@hotmail.co", "@hotmail.com"),
             ("@hotmail.con", "@hotmail.com"),
             ("@hotmal.com", "@hotmail.com"),
             ("@hotmaiil.com", "@hotmail.com"),
+            ("@hotmeil.com", "@hotmail.com"),
             ("@hotmil.com", "@hotmail.com"),
             ("@hotmqil.com", "@hotmail.com"),
             ("@hotmsil.com", "@hotmail.com"),
@@ -182,7 +188,8 @@ public struct ResourceUtils {
             ("@icloid.com", "@icloud.com"),
             ("@icloud.de", "@icloud.com"),
             ("@jotmail.com", "@hotmail.com"),
-            ("@ovi.com", "@aol.com"),
+            ("@nomail.com", nil),
+            ("@ovi.com", nil),
             ("@outlok.com", "@outlook.com"),
             ("@outllok.com", "@outlook.com"),
             ("@ayhoo.com", "@yahoo.com"),
@@ -196,14 +203,19 @@ public struct ResourceUtils {
             ("@yahooo.com", "@yahoo.com"),
             ("@yajoo.com", "@yahoo.com"),
             ("@yanoo.com", "@yahoo.com"),
+            ("@yaoo.com", "@yahoo.com"),
             ("@yhaoo.com", "@yahoo.com"),
             ("@yhoo.com", "@yahoo.com"),
             ("@yshoo.com", "@yahoo.com"),
         ]
         for (domain, suggestedDomain) in invalidDomains {
             if emailAddress.hasSuffix(domain) {
-                let suggestion = emailAddress.replacingOccurrences(of: domain, with: suggestedDomain)
-                return (true, suggestion)
+                if let suggestedDomain {
+                    let suggestion = emailAddress.replacingOccurrences(of: domain, with: suggestedDomain)
+                    return (true, suggestion)
+                } else {
+                    return (true, nil)
+                }
             }
         }
         if emailAddress.contains(".coom") {

@@ -53,10 +53,11 @@ final class EmailTests: XCTestCase {
             "invalid@ynail.com",
             "invalid@gmail.coom",
             "invalid@domain.coom.au",
+            "invalid@ovi.com",
             ]
         for invalidEmail in invalidEmails {
             result = ResourceUtils.isInvalidEmailDomainWithSuggestion(emailAddress: invalidEmail)
-            XCTAssertTrue(result.0, "🔥 Expectd invalid result for \(invalidEmail)")
+            XCTAssertTrue(result.0, "🔥 Expected invalid result for \(invalidEmail)")
             print("Suggestion for \(invalidEmail) is \(result.1 ?? "-")")
         }
         
