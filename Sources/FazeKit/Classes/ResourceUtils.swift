@@ -139,7 +139,9 @@ public struct ResourceUtils {
             ("@gmaik.com", "@gmail.com"),
             ("@gmail.cm", "@gmail.com"),
             ("@gmail.co", "@gmail.com"),
+            ("@gmail.co.id", "@gmail.com"),
             ("@gmail.co.uk", "@gmail.com"),
+            ("@gmail.com.au", "@gmail.com"),
             ("@gmail.com.br", "@gmail.com"),
             ("@gmail.con", "@gmail.com"),
             ("@gmail.de", "@gmail.com"),
@@ -166,6 +168,8 @@ public struct ResourceUtils {
             ("@ynail.com", "@gmail.com"),
             ("@gotmail.com", "@hotmail.com"),
             ("@hitmail.com", "@hotmail.com"),
+            ("@hhotmail.com", "@hotmail.com"),
+            ("@hotail.com", "@hotmail.com"),
             ("@homail.com", "@hotmail.com"),
             ("@hormail.com", "@hotmail.com"),
             ("@hotamil.com", "@hotmail.com"),
@@ -174,6 +178,7 @@ public struct ResourceUtils {
             ("@hotmaik.com", "@hotmail.com"),
             ("@hotmail.co", "@hotmail.com"),
             ("@hotmail.con", "@hotmail.com"),
+            ("@hotmaill.com", "@hotmail.com"),
             ("@hotmal.com", "@hotmail.com"),
             ("@hotmaiil.com", "@hotmail.com"),
             ("@hotmeil.com", "@hotmail.com"),
@@ -187,9 +192,11 @@ public struct ResourceUtils {
             ("@otmail.com", "@hotmail.com"),
             ("@icloid.com", "@icloud.com"),
             ("@icloud.de", "@icloud.com"),
+            ("@in.com", nil),
             ("@jotmail.com", "@hotmail.com"),
             ("@nomail.com", nil),
             ("@ovi.com", nil),
+            ("@outloo.com", "@outlook.com"),
             ("@outlok.com", "@outlook.com"),
             ("@outllok.com", "@outlook.com"),
             ("@ayhoo.com", "@yahoo.com"),
@@ -207,6 +214,9 @@ public struct ResourceUtils {
             ("@yhaoo.com", "@yahoo.com"),
             ("@yhoo.com", "@yahoo.com"),
             ("@yshoo.com", "@yahoo.com"),
+            ("@hggg.com", nil),
+            ("@test.com", nil),
+            ("@example.com", nil),
         ]
         for (domain, suggestedDomain) in invalidDomains {
             if emailAddress.hasSuffix(domain) {
@@ -220,6 +230,10 @@ public struct ResourceUtils {
         }
         if emailAddress.contains(".coom") {
             let suggestion = emailAddress.replacingOccurrences(of: ".coom", with: ".com")
+            return (true, suggestion)
+        }
+        if emailAddress.contains(".com.com") {
+            let suggestion = emailAddress.replacingOccurrences(of: ".com.com", with: ".com")
             return (true, suggestion)
         }
         return (false, nil)
