@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                = 'FazeKit'
-  s.version             = '2.4.7'
+  s.version             = '2.4.8'
   s.summary             = 'A collection of helper functions and extensions for Swift iOS apps'
   s.description         = 'A collection of extensions and convenience functions on Foundation, UIKit and other Cocoa Frameworks, built in Swift for iOS development'
   s.homepage            = 'https://github.com/NextFaze/FazeKit'
