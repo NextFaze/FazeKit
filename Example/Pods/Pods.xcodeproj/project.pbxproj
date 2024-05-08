@@ -29,6 +29,7 @@
 		905D7B08EFC3956293C1ED34B9D44BEE /* DataAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88BED209255FE1A86A605E9E84815C1 /* DataAdditions.swift */; };
 		93D55DDF0150C9840B2AA1D4F6188CAD /* DateAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0740921D1936455030A472D00D11890A /* DateAdditions.swift */; };
 		AADB8633631F43180052C721F290FE9E /* ThreadSafeHashTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732261161610ACB7FB85958E1E49B443 /* ThreadSafeHashTable.swift */; };
+		ADD754992BEB28C7001F0A32 /* KeyboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD754982BEB28C7001F0A32 /* KeyboardHelper.swift */; };
 		B202E46D805A9CBE47E55A9BB3668B3C /* CollectionAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BF59466315C807E0C1759582A97B7D /* CollectionAdditions.swift */; };
 		B598D9F09C19C70478337321EF0F4697 /* CodableAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A936F9DEA3737BA6DCA997627E5F6E72 /* CodableAdditions.swift */; };
 		C6CCCFD82ABEF1A828CB0C1AECD3EFFE /* DrawingAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDBAF1DFFABB4CDA456958FA72735A6 /* DrawingAdditions.swift */; };
@@ -99,6 +100,7 @@
 		AAE78EB7335ADD2060AC09A8208BE0F0 /* Pods-FazeKit_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-FazeKit_Tests.modulemap"; sourceTree = "<group>"; };
 		AB537941E3E8AE507344C7879591C518 /* FazeKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FazeKit.modulemap; sourceTree = "<group>"; };
 		AD473C2A46CB0362BA284D93C467D741 /* ProcessInfoAdditions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ProcessInfoAdditions.swift; path = Sources/FazeKit/Classes/ProcessInfoAdditions.swift; sourceTree = "<group>"; };
+		ADD754982BEB28C7001F0A32 /* KeyboardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KeyboardHelper.swift; path = Sources/FazeKit/Classes/KeyboardHelper.swift; sourceTree = "<group>"; };
 		B5A37B4E645206165AB576C290698CC3 /* Pods-FazeKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FazeKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		B88BED209255FE1A86A605E9E84815C1 /* DataAdditions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataAdditions.swift; path = Sources/FazeKit/Classes/DataAdditions.swift; sourceTree = "<group>"; };
 		C53F99118D6B05E95C9F8276255CE1A5 /* StringAdditions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StringAdditions.swift; path = Sources/FazeKit/Classes/StringAdditions.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				0518A8F6B060A23059CE2C48EEA88D85 /* DateComponentAdditions.swift */,
 				33C7884BCFF81B870DDFF8CC25B8E415 /* Disposable.swift */,
 				4EDBAF1DFFABB4CDA456958FA72735A6 /* DrawingAdditions.swift */,
+				ADD754982BEB28C7001F0A32 /* KeyboardHelper.swift */,
 				EB5FB5B950731D11E4254E91089828F3 /* Multicast.swift */,
 				1E59C3D5BEBACE240C91E65FB6EB9A31 /* NSAttributedStringAdditions.swift */,
 				EFB2FDA63C9D7967C68F783E0E30A9CA /* NSLockAdditions.swift */,
@@ -451,6 +454,7 @@
 				B202E46D805A9CBE47E55A9BB3668B3C /* CollectionAdditions.swift in Sources */,
 				905D7B08EFC3956293C1ED34B9D44BEE /* DataAdditions.swift in Sources */,
 				93D55DDF0150C9840B2AA1D4F6188CAD /* DateAdditions.swift in Sources */,
+				ADD754992BEB28C7001F0A32 /* KeyboardHelper.swift in Sources */,
 				FD652099D415D67801BE3757E8DC4B3D /* DateComponentAdditions.swift in Sources */,
 				E1750ED03283783053C9F2568517E22F /* Disposable.swift in Sources */,
 				C6CCCFD82ABEF1A828CB0C1AECD3EFFE /* DrawingAdditions.swift in Sources */,
