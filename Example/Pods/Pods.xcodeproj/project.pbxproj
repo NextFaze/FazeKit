@@ -74,7 +74,7 @@
 		34E03BA5C1E90EC028544ACE6DF3CF74 /* UIApplicationAdditions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIApplicationAdditions.swift; path = Sources/FazeKit/Classes/UIApplicationAdditions.swift; sourceTree = "<group>"; };
 		36391665B1D99C41629B48A1A3BD1CCA /* UIResponderAdditions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIResponderAdditions.swift; path = Sources/FazeKit/Classes/UIResponderAdditions.swift; sourceTree = "<group>"; };
 		376A0667F6E959A18D03BEE8483EED94 /* UIColorAdditions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIColorAdditions.swift; path = Sources/FazeKit/Classes/UIColorAdditions.swift; sourceTree = "<group>"; };
-		3978F5F6B85F5723364EB6E98DA7ACF2 /* FazeKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = FazeKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		3978F5F6B85F5723364EB6E98DA7ACF2 /* FazeKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = FazeKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		39C5E13E97ACD81CA6E334A5AAD631DA /* CIFilterAdditions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CIFilterAdditions.swift; path = Sources/FazeKit/Classes/CIFilterAdditions.swift; sourceTree = "<group>"; };
 		3DF60E87D900909B1E28A66B038E5757 /* UIImageFilterAdditions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIImageFilterAdditions.swift; path = Sources/FazeKit/Classes/UIImageFilterAdditions.swift; sourceTree = "<group>"; };
 		3E75440B823BFD7CD5015B2046AF3E39 /* Pods-FazeKit_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FazeKit_Tests-frameworks.sh"; sourceTree = "<group>"; };
@@ -94,7 +94,7 @@
 		92AFB639680AD01E70222FD9CF10AD0E /* Pods-FazeKit_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FazeKit_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		9330817FA5912A174C4804B09F92729E /* Pods-FazeKit_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-FazeKit_Example.modulemap"; sourceTree = "<group>"; };
 		975F5E6EC56FE2A0159C650B4BB4A2E9 /* FazeKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FazeKit.debug.xcconfig; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A936F9DEA3737BA6DCA997627E5F6E72 /* CodableAdditions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CodableAdditions.swift; path = Sources/FazeKit/Classes/CodableAdditions.swift; sourceTree = "<group>"; };
 		AAE78EB7335ADD2060AC09A8208BE0F0 /* Pods-FazeKit_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-FazeKit_Tests.modulemap"; sourceTree = "<group>"; };
 		AB537941E3E8AE507344C7879591C518 /* FazeKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FazeKit.modulemap; sourceTree = "<group>"; };
@@ -107,7 +107,7 @@
 		D038CFBA8276D03E29DBDF39421324CB /* FazeKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FazeKit.release.xcconfig; sourceTree = "<group>"; };
 		D140AE1DC4C8C075519E6B8127CA26E8 /* Pods-FazeKit_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FazeKit_Tests-dummy.m"; sourceTree = "<group>"; };
 		D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		D4FC637C3B592222BE511196CB5C3765 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		D4FC637C3B592222BE511196CB5C3765 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D81EAD26C7344FE33FBA25D73C31C995 /* FazeKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FazeKit-umbrella.h"; sourceTree = "<group>"; };
 		D944AFAE61A1A88E586746213A317A18 /* Pods-FazeKit_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FazeKit_Example-dummy.m"; sourceTree = "<group>"; };
 		E1D893AF18981D187B9024374CF1FDE3 /* Pods-FazeKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FazeKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -116,7 +116,7 @@
 		EB5FB5B950731D11E4254E91089828F3 /* Multicast.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Multicast.swift; path = Sources/FazeKit/Classes/Multicast.swift; sourceTree = "<group>"; };
 		EB9237ED02DEF40BD097C98FC17C54C7 /* Pods-FazeKit_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FazeKit_Example-frameworks.sh"; sourceTree = "<group>"; };
 		EC809FB604B7DFA20CB421E78B3496EB /* Pods-FazeKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FazeKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		EDCEEE77B51010E171D04999ED24CBDC /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		EDCEEE77B51010E171D04999ED24CBDC /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		EE7A8959D1104B17CA85BFBAFB9E7830 /* FazeKit */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FazeKit; path = FazeKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFB2FDA63C9D7967C68F783E0E30A9CA /* NSLockAdditions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NSLockAdditions.swift; path = Sources/FazeKit/Classes/NSLockAdditions.swift; sourceTree = "<group>"; };
 		F23B010081D72ED75EDDA32BE1E8FA4A /* UIScreenAdditions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIScreenAdditions.swift; path = Sources/FazeKit/Classes/UIScreenAdditions.swift; sourceTree = "<group>"; };
@@ -663,8 +663,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
