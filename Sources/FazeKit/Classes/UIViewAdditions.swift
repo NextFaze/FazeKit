@@ -143,6 +143,17 @@ public extension UIView {
             self.disableTouchDelay(in: subview)
         }
     }
+
+    func findScrollView() -> UIScrollView? {
+        var current: UIView? = self
+        while current != nil {
+            if let scrollView = current as? UIScrollView {
+                return scrollView
+            }
+            current = current?.superview
+        }
+        return nil
+    }
     
     func findTableView() -> UITableView? {
         var current: UIView? = self
