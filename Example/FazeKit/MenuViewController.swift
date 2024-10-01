@@ -40,7 +40,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     let tableView = UITableView()
     static let cellReuseIdentifier = "MenuTableViewCell"
     
-    var color = UIColor(hexString: "FF3212")
+    var color = UIColor(hexString: "ee4136")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,7 +81,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return imageView
     }
     
-    @available(iOS 15.0, *)
+    @available(iOS 16.0, *)
     func showColorPicker(cell: UITableViewCell) {
         let colorPicker = UIColorPickerViewController()
         colorPicker.sheetPresentationController?.detents = [.medium(), .large()]
@@ -133,14 +133,16 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
             break
         case .color:
             guard let cell = tableView.cellForRow(at: indexPath) else { return }
-            if #available(iOS 15.0, *) {
+            if #available(iOS 16.0, *) {
                 self.showColorPicker(cell: cell)
             }
         case .makeColorLighter:
             self.color = self.color.lighter()
+            print("Lighter color has hex: \(self.color.hexStringRGB)")
             tableView.reloadData()
         case .makeColorDarker:
             self.color = self.color.darker()
+            print("Darker color has hex: \(self.color.hexStringRGB)")
             tableView.reloadData()
         }
     }
