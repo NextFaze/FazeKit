@@ -25,12 +25,22 @@ import FazeKit
 class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     enum MenuItem {
         case jailbreak
+        case color
+        case makeColorLighter
+        case makeColorDarker
     }
     
-    let items: [MenuItem] = [.jailbreak]
+    let items: [MenuItem] = [
+        .jailbreak,
+        .color,
+        .makeColorLighter,
+        .makeColorDarker
+    ]
     
     let tableView = UITableView()
     static let cellReuseIdentifier = "MenuTableViewCell"
+    
+    var color = UIColor(hexString: "FF3212")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +70,28 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.didReceiveMemoryWarning()
         print("WARNING: Memory warning.")
     }
+    
+    func accessoryImageView(for color: UIColor) -> UIView {
+        let image = UIImage.coloredImage(color: color, size: CGSize(width: 30, height: 30))
+        let imageView = UIImageView(image: image)
+        imageView.layer.cornerRadius = 8.0
+        imageView.layer.masksToBounds = true
+        imageView.layer.borderWidth = 1.0
+        imageView.layer.borderColor = UIColor.gray.cgColor
+        return imageView
+    }
+    
+    @available(iOS 15.0, *)
+    func showColorPicker(cell: UITableViewCell) {
+        let colorPicker = UIColorPickerViewController()
+        colorPicker.sheetPresentationController?.detents = [.medium(), .large()]
+        
+        colorPicker.title = "Select Color"
+        colorPicker.delegate = self
+        colorPicker.supportsAlpha = false
+        colorPicker.selectedColor = self.color
+        self.present(colorPicker, animated: true, completion: nil)
+    }
 
     // MARK: UITableViewDataSource
     
@@ -69,12 +101,22 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MenuViewController.cellReuseIdentifier) ?? UITableViewCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier: MenuViewController.cellReuseIdentifier)
+        cell.textLabel?.text = nil
+        cell.detailTextLabel?.text = nil
+        cell.accessoryView = nil
         
         let item = self.items[indexPath.row]
         switch item {
         case .jailbreak:
             cell.textLabel?.text = "Jailbroken"
             cell.detailTextLabel?.text = UIDevice.isJailbroken() ? "Yes" : "No"
+        case .color:
+            cell.textLabel?.text = "Color"
+            cell.accessoryView = self.accessoryImageView(for: self.color)
+        case .makeColorLighter:
+            cell.textLabel?.text = "Make color lighter"
+        case .makeColorDarker:
+            cell.textLabel?.text = "Make color darker"
         }
         
         return cell
@@ -84,6 +126,37 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let item = self.items[indexPath.row]
+        switch item {
+        case .jailbreak:
+            break
+        case .color:
+            guard let cell = tableView.cellForRow(at: indexPath) else { return }
+            if #available(iOS 15.0, *) {
+                self.showColorPicker(cell: cell)
+            }
+        case .makeColorLighter:
+            self.color = self.color.lighter()
+            tableView.reloadData()
+        case .makeColorDarker:
+            self.color = self.color.darker()
+            tableView.reloadData()
+        }
     }
 }
 
+// MARK: UIColorPickerViewControllerDelegate
+@available(iOS 16.0, *)
+extension MenuViewController: UIColorPickerViewControllerDelegate {
+    func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
+        let hex = viewController.selectedColor.hexStringRGB
+        print("Selected color with hex: \(hex)")
+        self.color = viewController.selectedColor
+        self.tableView.reloadData()
+    }
+
+    func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
+
+    }
+}
