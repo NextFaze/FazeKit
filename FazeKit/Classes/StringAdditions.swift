@@ -21,6 +21,9 @@
 
 // gist: https://gist.github.com/albertbori/0faf7de867d96eb83591
 // stackoverflow: http://stackoverflow.com/questions/27570910/swift-fast-low-level-string-lastindexof
+import Foundation
+import UIKit
+
 public extension String {
     @available(*, deprecated, message: "Use replacingOccurrences(of:, with:) instead")
     func replace(_ target: String, withString: String) -> String {

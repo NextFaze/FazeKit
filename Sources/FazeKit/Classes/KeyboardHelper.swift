@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 public class KeyboardHelper {
     public static func getAnimationOptions(notification: Notification) -> UIView.AnimationOptions? {

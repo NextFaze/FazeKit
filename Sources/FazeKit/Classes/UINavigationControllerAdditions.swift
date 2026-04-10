@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 public extension UINavigationController {
     func firstViewController<T: UIViewController>(ofKind kind: T.Type = T.self) -> T? {
