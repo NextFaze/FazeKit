@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 private var activityCount: Int = 0
 

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 public extension UIImage {
     static func usingContext(size: CGSize = CGSize(width: 1, height: 1), execute: (CGContext) -> Void) -> UIImage? {

@@ -20,6 +20,7 @@
 //
 
 import Foundation
+import UIKit
 import CoreImage
 import AVFoundation
 
