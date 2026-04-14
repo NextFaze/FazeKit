@@ -39,8 +39,24 @@ iOS 14.0
 
 ## Installation
 
-FazeKit is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+### Swift Package Manager
+
+Add FazeKit to your project via Xcode:
+
+1. File > Add Package Dependencies...
+2. Enter the repository URL: `https://github.com/NextFaze/FazeKit.git`
+
+Or add it to your `Package.swift`:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/NextFaze/FazeKit.git", from: "3.0.0")
+]
+```
+
+### CocoaPods
+
+FazeKit is also available through [CocoaPods](http://cocoapods.org). Add the following line to your Podfile:
 
 ```ruby
 pod "FazeKit"
