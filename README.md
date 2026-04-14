@@ -1,10 +1,9 @@
 # FazeKit
 
-[![CI Status](http://img.shields.io/travis/NextFaze/FazeKit.svg?style=flat)](https://travis-ci.org/NextFaze/FazeKit)
 [![Version](https://img.shields.io/cocoapods/v/FazeKit.svg?style=flat)](http://cocoapods.org/pods/FazeKit)
 [![License](https://img.shields.io/cocoapods/l/FazeKit.svg?style=flat)](http://cocoapods.org/pods/FazeKit)
 [![Platform](https://img.shields.io/cocoapods/p/FazeKit.svg?style=flat)](http://cocoapods.org/pods/FazeKit)
-[![Swift Version](https://img.shields.io/badge/Swift-4.0-F16D39.svg?style=flat)](https://developer.apple.com/swift)
+[![Swift Version](https://img.shields.io/badge/Swift-5.0-F16D39.svg?style=flat)](https://developer.apple.com/swift)
 
 ![FazeKit Icon](icon_rounded_512.png){ width=180px }
 
@@ -36,7 +35,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
-iOS 12.0
+iOS 14.0
 
 ## Installation
 
